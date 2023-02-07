@@ -3,6 +3,7 @@
 function Footer() {
     return (
         <>
+        {/* framework bootstrap */}
             <footer className="bg-light text-muted ">
                 <div className="row p-5">
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5 ">
@@ -45,6 +46,12 @@ function Footer() {
                     <div className="col-sm-4  col-md-3 col-lg-3 col-xl-3 px-5">
                         <h4 className="text-dark">SOCIAL</h4>
                         <p>Facebook <br />Twitter <br />Instagram</p>
+                    </div>
+                </div>
+                <div className="row px-5">
+                    <div className="text-center px-5">
+                        <hr />
+                        <p>© CORPOHYPATIA Todos los derechos reservados, 2023 </p>
                     </div>
                 </div>
             </footer>
