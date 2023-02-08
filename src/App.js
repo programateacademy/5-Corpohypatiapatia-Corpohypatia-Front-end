@@ -1,9 +1,19 @@
-function App() {
-  return (
-    <div>
+import React from "react";
+import { BrowserRouter } from 'react-router-dom';
 
-    </div>
-  );
+//Components
+
+
+import AllRoutes from "./routes/Routes"
+
+function App() {
+	return (
+		<>
+			<BrowserRouter>
+				<AllRoutes />
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
