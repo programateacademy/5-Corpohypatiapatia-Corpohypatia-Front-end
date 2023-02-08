@@ -4,6 +4,7 @@
     position: relative;
     border-radius: 5px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card-project img{
@@ -87,4 +88,48 @@
     height: 50%;
     background: #1FA36B;
     clip-path: polygon(0 100%, 50% 100%, 90% 0);
+}
+
+
+.graphic{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.graphic p{
+    z-index: 10;
+}
+
+.graphic::after{
+    content: '';
+    height: 70%;
+    width: 70%;
+    background: #238DBD;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.card-project:hover .graphic{
+    animation: show 500ms 500ms forwards;
+}
+
+@keyframes show {
+    0%{
+        opacity: 0;
+
+    }
+    100%{
+        display: flex;
+        opacity: 1;
+    }
 }
