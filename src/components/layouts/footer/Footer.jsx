@@ -3,12 +3,14 @@
 function Footer() {
     return (
         <>
-        {/* framework bootstrap */}
+            {/* framework bootstrap */}
             <footer className="bg-light text-muted ">
                 <div className="row p-5">
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5 ">
-                        <h4 className="text-dark">ABOUT</h4>
-                        <p className="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae repudiandae veniam quia, animi dignissimos dolor illum maiores et esse, mollitia quasi doloribus inventore iusto consequatur dolorem obcaecati nihil sed dolore! Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis sint debitis ad harum doloribus corporis laborum recusandae laudantium, cum et, consequuntur, veniam vitae eos maxime. Magnam magni quia sit.</p>
+                        <h4 className="text-dark">Quiénes somos</h4>
+                        <p className="text-justify">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no             gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
+                            Su objeto social es la promoción y defensa integral de los derechos humanos, especialmente los derechos de las mujeres, la búsqueda de la equidad social y de género, el fortalecimiento de la gobernabilidad y de una sociedad democrática, contribuyendo a la construcción de una Cultura de paz y a la prevención y erradicación de toda forma de discriminación y vulneración de derechos por razones de sexo, etnia, orientación sexual, edad y condición socioeconómica.
+                        </p>
                     </div>
                     <div className="col-sm-8 col-md-3 col-lg-3 col-xl-3 px-5">
                         <h4 className="text-dark">SERVICE</h4>
