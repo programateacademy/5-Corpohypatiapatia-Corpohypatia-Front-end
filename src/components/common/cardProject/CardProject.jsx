@@ -1,11 +1,15 @@
+import './cardProject.css'
 
 function Cardproject (props){
 
-    const { id, name } = props.item;
+    const { name, image } = props.item;
 
     return(
-        <article>
-            <h1>{name}</h1>
+        <article className='card-project'>
+            <img src={image} alt="Imagen de proyecto"/> 
+            <div className="pentagon">
+                <h1>{name}</h1>
+            </div>
         </article>
     );
 }

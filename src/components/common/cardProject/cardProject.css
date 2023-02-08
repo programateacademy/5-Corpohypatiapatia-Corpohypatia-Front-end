@@ -1,0 +1,90 @@
+.card-project{
+    /* max-width: 400px; */
+    height: 220px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-project img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.pentagon{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 45%;
+    background: #364887;
+    clip-path: polygon(80% 0%, 100% 50%, 80% 100%, 0 100%, 0 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.pentagon::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 70px;
+    height: 50%;
+    background: #238DBD;
+    clip-path: polygon(55% 0, 0 0, 100% 100%);
+}
+
+.card-project:hover .pentagon:before{
+    /* clip-path: polygon(80% 0%, 100% 50%, 80% 100%, 0 100%, 0 0); */
+    /* height: 200%;
+    width: 200%;
+    top: -20%;
+    right: -20%;
+    transition: ease-in 100ms;
+    transform: rotate(180deg); */
+    animation: anim 500ms 100ms forwards; 
+
+}
+
+/* @keyframes anim {
+    0%{
+        clip-path: polygon(55% 0, 0 0, 100% 100%);
+    }
+    100%{
+        transform: scale(2);
+        top:22%;
+    }
+} */
+
+@keyframes anim {
+    100%{
+        height: 200%;
+        width: 200%;
+        right: -20%;
+        top: 22%;
+        transform: scale(2);
+        
+    }
+}
+
+.card-project:hover .pentagon::after{
+    background: #a40047;
+    scale: 1.5;
+    transition: ease-in 200ms;
+    right: -1px;
+}
+
+.pentagon::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 50px;
+    height: 50%;
+    background: #1FA36B;
+    clip-path: polygon(0 100%, 50% 100%, 90% 0);
+}

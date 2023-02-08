@@ -1,8 +1,10 @@
+import ImageProject from '../../../assets/img/proyecto.jpg'
+
 const projects = [
     {
         id:"01",
         name:"Proyecto 1",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -11,7 +13,7 @@ const projects = [
     {
         id:"02",
         name:"Proyecto 2",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -20,7 +22,7 @@ const projects = [
     {
         id:"03",
         name:"Proyecto 3",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -29,7 +31,7 @@ const projects = [
     {
         id:"04",
         name:"Proyecto 4",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -38,7 +40,7 @@ const projects = [
     {
         id:"05",
         name:"Proyecto 5",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -47,7 +49,7 @@ const projects = [
     {
         id:"06",
         name:"Proyecto 6",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -56,7 +58,7 @@ const projects = [
     {
         id:"07",
         name:"Proyecto 7",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -65,7 +67,7 @@ const projects = [
     {
         id:"08",
         name:"Proyecto 8",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -74,7 +76,7 @@ const projects = [
     {
         id:"09",
         name:"Proyecto 9",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -83,7 +85,7 @@ const projects = [
     {
         id:"10",
         name:"Proyecto 10",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -92,7 +94,7 @@ const projects = [
     {
         id:"11",
         name:"Proyecto 11",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -101,7 +103,7 @@ const projects = [
     {
         id:"12",
         name:"Proyecto 12",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
@@ -110,7 +112,7 @@ const projects = [
     {
         id:"13",
         name:"Proyecto 13",
-        image:"",
+        image:ImageProject,
         category:{
             niños:true
         },
