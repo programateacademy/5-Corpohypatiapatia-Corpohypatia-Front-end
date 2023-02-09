@@ -1,3 +1,4 @@
+// import image for carousel
 import FotHypa from '../../assets/img/Fot-Hypa.jpg'
 import FotHypatia from '../../assets/img/Fot-Hypatia.jpg'
 import Hypatia from '../../assets/img/Hypatia.jpg'
@@ -7,6 +8,7 @@ function Home() {
     return (
         <>
             <p className="fs-1 text-uppercase text-center">corpohypatia</p>
+            {/* bootstrap image carousel */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,6 +35,25 @@ function Home() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+            {/* text */}
+            <div className="container">
+                <div className="row">
+                    <p className="fs-3 text-center mt-5">¿Quiénes Somos?</p>
+                    <p className="">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
+                        Su objeto social es la promoción y defensa integral de los derechos humanos, especialmente los derechos de las mujeres, la búsqueda de la equidad social y de género, el fortalecimiento de la gobernabilidad y de una sociedad democrática, contribuyendo a la construcción de una Cultura de paz y a la prevención y erradicación de toda forma de discriminación y vulneración de derechos por razones de sexo, etnia, orientación sexual, edad y condición socioeconómica.
+                    </p>
+                    <p className="fs-3 text-center mt-3">Misión</p>
+                    <p>
+                        Somos una organización que promueve y defiende los derechos humanos con enfoques diferenciales, en la búsqueda de la igualdad social y de género, la construcción de una sociedad democrática, pacífica y respetuosa de las diferencias, que garantice el buen vivir de hombres y mujeres en su
+                        diversidad.
+                    </p>
+                    <p className="fs-3 text-center mt-3">Visión</p>
+                    <p>
+                        La Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
+                    </p>
+                </div>
+            </div>
+            
         </>
     );
 }
