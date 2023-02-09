@@ -4,8 +4,8 @@ function Footer() {
     return (
         <>
             {/* framework bootstrap */}
-            <footer className="bg-light text-muted ">
-                <div className="row p-5">
+            <footer className="bg-light text-muted">
+                <div className="row  m-0 p-5 ">
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5 ">
                         <h4 className="text-dark">Quiénes somos</h4>
                         <p className="text-justify">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no             gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
@@ -50,7 +50,7 @@ function Footer() {
                         <p>Facebook <br />Twitter <br />Instagram</p>
                     </div>
                 </div>
-                <div className="row px-5">
+                <div className="row m-0 px-5">
                     <div className="text-center px-5">
                         <hr />
                         <p>© CORPOHYPATIA Todos los derechos reservados, 2023 </p>

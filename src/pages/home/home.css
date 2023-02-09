@@ -1,5 +1,5 @@
 /*home*/
 .carousel-item{
-    max-height: 30rem;
-    background-size: cover;
+    max-height: 400px;
+    background-size: contain;
 }
