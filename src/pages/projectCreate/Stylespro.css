@@ -1,0 +1,228 @@
+.Proyect {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-left: 30%;
+    width: 600px;
+    height: 930px;
+    background-color: #d2d1d1;
+    border-right: 12px solid #1f2a40;
+    border-radius: 20px;
+  }
+  
+  .icon-mas{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 5px;
+    width:30px;
+    height: 30px;
+    color: #fff;
+  
+  }
+  .url{
+    display: flex;
+    margin: 20px;
+  }
+  
+  .boton-crear{
+    display: flex;
+    justify-content: right;
+  }
+  
+  .parrafo-v {
+    width: 470px;
+    font-size: 17px;
+  }
+  
+  .boton button {
+    background-color: #fff;
+    border-color: #fff;
+    color: black;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+  
+  @media screen and (max-width: 450px) {
+    .Proyect {
+      display: flex;
+      justify-content: center;
+      margin: 30px;
+      width: 380px;
+      height: 100%;
+    }
+  
+    .form-group {
+      margin: 20px;
+      width: 300px;
+      /* background-color: #1F2A40; */
+    }
+  
+    .contenedor-drag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 300px;
+      height: 200px;
+      background-color: #ffffff;
+      border-radius: 4px;
+    }
+  
+    .boton {
+      display: flex;
+      width: 200px;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+  
+    .parrafo-v {
+      width: 300px;
+      font-size: 17px;
+    }
+  }
+  
+  .form-group {
+    margin: 30px;
+    /* width: 500px;
+    background-color: #1F2A40;  */
+  }
+  
+  .btn-color {
+    background-color: #1f2a40;
+    border-color: #1f2a40;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+  
+  button {
+    width: 160px;
+    height: 40px;
+  }
+  
+  .contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #6693FD;
+    border-radius: 12px;
+  }
+  
+  /* Estilo del área del input[file] */
+  .drag-drop {
+    height: 9em;
+    width: 9em;
+    background-color: #ccc;
+    border-radius: 6em;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin:1em;
+  }
+  
+  .drag-drop span.desc {
+    display: block;
+    font-size: 0.7em;
+    padding: 0 0.5em;
+    color: #000;
+  }
+  
+  
+  input[type="file"] {
+    height: 10em;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  /* Estilo del área del input[file] con :hover */
+  
+  .drag-drop:hover,
+  input[type="file"]:hover {
+    background-color: #6693FD;
+    cursor: pointer;
+  }
+  
+  .drag-drop:hover span.desc {
+    color: #fff;
+  }
+  
+  .drag-drop:hover .pulsating {
+    animation: pulse1 1s linear infinite;
+    animation-direction: alternate;
+    -webkit-animation: pulse1 1s linear infinite;
+    -webkit-animation-direction: alternate;
+  }
+  
+  /* Composición del icono de Upload con FontAwesome */
+  .fa-stack {
+    margin-top: 0.5em;
+  }
+  
+  .fa-stack .top {
+    color: white;
+  }
+  
+  .fa-stack .medium {
+    color: black;
+    text-shadow: 0 0 0.25em #666;
+  }
+  
+  .fa-stack .bottom {
+    color: rgba(225, 225, 225, 0.75);
+  }
+  
+  /* Keyframing de la animación */
+  
+  @keyframes pulse1 {
+    0% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+    50% {
+      color: rgba(225, 225, 225, 0.25);
+    }
+    100% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+  }
+  
+  @-moz-keyframes pulse1 {
+    0% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+    50% {
+      color: rgba(225, 225, 225, 0.25);
+    }
+    100% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+  }
+  
+  @-webkit-keyframes pulse1 {
+    0% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+    50% {
+      color: rgba(225, 225, 225, 0.25);
+    }
+    100% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+  }
+  
+  @-ms-keyframes pulse1 {
+    0% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+    50% {
+      color: rgba(225, 225, 225, 0.25);
+    }
+    100% {
+      color: rgba(225, 225, 225, 0.75);
+    }
+  }
