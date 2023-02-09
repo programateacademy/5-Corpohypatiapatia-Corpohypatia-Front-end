@@ -1,4 +1,4 @@
-import logo from '../../../assets/img/logo.jpg'
+import logo from '../../../assets/img/Logo.jpg'
 
 function Header() {
     return (
@@ -6,7 +6,7 @@ function Header() {
             <nav className="navbar navbar-expand-md bg-body-tertiary bg-light">
                 <div className="container-fluid">
                     <a className="navbar-brand p-0" href="/">
-                        <img src={logo} width="70" alt="corpohypatia" />
+                        <img src={logo} width="200" alt="corpohypatia" />
                     </a>
                     <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -19,9 +19,6 @@ function Header() {
                         </form>
                             <li className="nav-item ms-auto">
                                 <a className="nav-link active" aria-current="page" href="/">Iniciar sesión</a>
-                            </li>
-                            <li className="nav-item ms-auto">
-                                <a className="nav-link" href="/">Registrarse</a>
                             </li>
                         </ul>
                     </div>

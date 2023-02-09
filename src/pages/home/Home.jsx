@@ -53,6 +53,7 @@ function Home() {
                     </p>
                 </div>
             </div>
+            {/* buttons */}
             <div className="container">
                 <div className="d-flex gap-4 col-2 mx-auto m-5">
                 <button type="button" class="btn btn-outline-secondary">Ingresar</button>
