@@ -7,7 +7,7 @@ import './home.css'
 function Home() {
     return (
         <>
-            <p className="fs-1 text-uppercase text-center">corpohypatia</p>
+            <p className="fs-1 text-uppercase text-center mt-4 mb-4">corpohypatia</p>
             {/* bootstrap image carousel */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
@@ -53,7 +53,12 @@ function Home() {
                     </p>
                 </div>
             </div>
-            
+            <div className="container">
+                <div className="d-flex gap-4 col-2 mx-auto m-5">
+                <button type="button" class="btn btn-outline-secondary">Ingresar</button>
+                <button type="button" class="btn btn-outline-secondary">Continuar</button>
+                </div>
+            </div>
         </>
     );
 }
