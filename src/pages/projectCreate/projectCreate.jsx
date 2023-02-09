@@ -1,9 +1,11 @@
-function projectCreate() {
+import Steps from './Steps'
+
+function ProjectCreate() {
     return (
         <>
-
+            <Steps/>
         </>
     );
 }
 
-export default projectCreate;
+export default ProjectCreate;
