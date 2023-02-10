@@ -1,9 +1,9 @@
-import Form1 from "./pages/projectCreate/Form1";
+import ProjectDetails from "./pages/projectDetails/ProjectDetails";
 
 function App() {
   return (
     <div>
-      <Form1/>
+      <ProjectDetails/>
     </div>
   );
 }
