@@ -1,6 +1,38 @@
-form{
+/* .add-form{
     display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
     width: 70%;
-    margin: auto;
+    margin: 40px auto;
+} */
+
+.add-form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 40px auto;
 }
+
+/* .form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea{
+    border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    outline: none;
+    background: #F5F4FA;
+    padding: 5px 10px;
+}
+
+.form-group input{
+    height: 30px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline: 1px solid rgb(108, 108, 252);
+} */
