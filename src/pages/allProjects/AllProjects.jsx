@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import CardProject from "../../components/common/cardProject/CardProject";
+import { Link } from "react-router-dom";
 
 import './allProjects.css'
 // import Projects from "../../components/common/cardProject/projects"
@@ -74,10 +75,11 @@ function AllProjects() {
             <section>
                 <div className='projects-cards'>
                     {displayPage.map((item) => (
+                        <Link to={`/admin-projects/${item._id}`}>
                         <CardProject
                             key={item.id}
                             item={item}
-                        />
+                        /></Link>
                     ))}
                 </div>
 

@@ -8,7 +8,7 @@ function Cardproject (props){
         <article className='card-project'>
             <img src={imagePath} alt="Imagen de proyecto"/> 
             <div className="pentagon">
-                <h1>{project_title}</h1>
+                <h1 className='title'>{project_title}</h1>
                 <div className='graphic'>
                 <p>58%</p>
             </div>

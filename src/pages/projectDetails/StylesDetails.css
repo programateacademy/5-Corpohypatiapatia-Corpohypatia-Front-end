@@ -64,7 +64,7 @@
   }
   
   .card-text{
-    width: 400px;
+    width: 100%;
     text-align:left;
   }
   
@@ -74,7 +74,6 @@
     font-weight: 500;
   
   }
-  
   
   .texto-fecha p{
     display: flex;
@@ -98,6 +97,7 @@
     border-radius: 15px;
     text-align: center;
     justify-content: center;
+    object-fit: cover;
   }
   
   
@@ -105,7 +105,6 @@
     display: flex;
     
   }
-  
   
   .contenedor-fechas{
     display: flex;

@@ -1,14 +1,40 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getProject } from "../../service/api";
+
+import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
 
 function ProjectDetails() {
+
+    const [project, setProject] = useState([]);
+
+    const { id } = useParams();
+
+    const loadProjectsDetails = async () => {
+      const response = await getProject(id);
+      setProject(response.data);
+    };
+
+    useEffect(() => {
+      loadProjectsDetails();
+    }, []);
+
+    // console.log(project.problematic_summary)
+
+    // const text = project.problematic_summary
+    // console.log(`texto ${text}`)
+    
     return (
         <div className="contenedor-Detalle">
         <div className="card-foto">
-          <img className="imagen" alt="Card image cap" />
+          
+          <img className="imagen" src={project.imagePath} alt="Imagen de proyecto" />
           <div className="cards">
             <p className="texto-v">
-              <p>Sector:</p>Lorem Ipsum is simply dummy text of the printing
+              <p>Proyecto:</p>
+              {project.project_title}
             </p>
             <p className="texto-v">
               <p>Sector:</p>Lorem Ipsum is simply dummy text of the printing
@@ -143,7 +169,9 @@ function ProjectDetails() {
                       <h5 className="card-title">Descripción del proyecto</h5>
                       <hr />
                       <p className="card-text">
-                        Lorem Ipsum is simply dummy text of the printing and
+                        {/* <ReadMore text={project.problematic_summary}/> */}
+                        {/* {project.problematic_summary} */}
+                        {/* Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the industry's
                         standard dummy text ever since the 1500s, when an unknown
                         printer took a galley of type and scrambled it to make a
@@ -153,7 +181,7 @@ function ProjectDetails() {
                         1960s with the release of Letraset sheets containing Lorem
                         Ipsum passages, and more recently with desktop publishing
                         software like Aldus PageMaker including versions of Lorem
-                        Ipsum.
+                        Ipsum. */}
                       </p>
   
                       <div className="texto-fecha">
