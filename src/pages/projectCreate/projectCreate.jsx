@@ -235,7 +235,7 @@ const ProjectCreate = () => {
                             multiline
                             rows={2}
                             label="Elementos que aseguren sostenibilidad económica, social y ambiental" 
-                            name="experience"
+                            name="sustainability"
                             onChange={(e) => onValueChange(e)}
                         />
                     </FormControl>
