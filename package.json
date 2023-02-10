@@ -10,11 +10,8 @@
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-=======
     "react-icons": "^4.7.1",
     "react-paginate": "^8.1.4",
->>>>>>> 0b8fe5f8e27d33904bea8dfa5c5fa7561b546e17
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
