@@ -38,7 +38,7 @@ const UserRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/api/users";
+            const url = "http://localhost:8080/routes/route";
             const { data: res } = await axios.post(url, data);
             console.log(res.message);
         } catch (error) {
