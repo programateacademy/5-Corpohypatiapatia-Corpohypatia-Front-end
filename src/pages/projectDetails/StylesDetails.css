@@ -1,0 +1,120 @@
+    /* Estilos de del componente detalle proyecto */
+  .contenedor-Detalle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  
+  }
+  .card-foto {
+    display: flex;
+    margin: 30px;
+    width: 800px;
+    height: 300px;
+    background-color: #1F2A40;
+    color: #fff;
+    border-radius: 15px;
+  }
+  
+  .margen{
+    margin: 30px;
+    width: 800px;
+    border:2px solid #C7C5C5;
+    border-radius: 15px;
+  }
+  
+  .avance{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+  }
+  
+  .elementos{
+    margin: 40px;
+  
+  }
+  
+  
+  
+  .card-text p{
+    display: flex;
+  }
+  
+  /* comoponente de descripcion */
+  .card{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+    width: 750px;
+  }
+  
+  .cards{
+    margin: 30px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .texto-v{
+    display: flex;
+    width: 200px;
+    font-size: 10px;
+  }
+  
+  .card-text{
+    width: 400px;
+    text-align:left;
+  }
+  
+  .card-title{
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+  
+  }
+  
+  
+  .texto-fecha p{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  .boton-export{
+    color: #fff;
+    background-color: #760000;
+    border-color: #760000;
+    margin: 20px;
+  }
+  
+  .imagen{
+    display: flex;
+    flex-direction: column;
+    background-color: #760000;
+    width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  
+  .cards-indicador{
+    display: flex;
+    
+  }
+  
+  
+  .contenedor-fechas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .fechas{
+    text-align: left;
+    margin: 30px;
+  }
+  
