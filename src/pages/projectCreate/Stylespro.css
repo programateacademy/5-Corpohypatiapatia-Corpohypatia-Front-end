@@ -86,12 +86,28 @@ button{
 }
 
 @media screen and (max-width: 480px) {
-  .Form1{
+  .form1{
     display: flex;
     justify-content: center;
     margin: 30px;
-    width: 300px;
-    height: 700px;
+    width: 420px;
+    height: 100%;
+  }
+
+  .form2{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    width: 420px;
+    height: 100%;
+  }
+
+  .form3{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    width: 420px;
+    height: 100%;
   }
 
   .form-group {
@@ -101,21 +117,64 @@ button{
 }
 
 @media screen and (max-width: 768px) {
-  .Form1{
-    margin: 20px;
+  .form1{
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 2%;
-    margin-left: 30%;
-    margin-right: 10%;
-    width: 500px;
-    height: 900px;
+    width: 410px;
+    height: 100%;
+  }
+
+  .form2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 410px;
+    height: 100%;
+  }
+
+  .form3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 410px;
+    height: 100%;
   }
 
   .form-group {
     margin: 20px;
-    width: 400px; 
+    width: 300px; 
   }
-}
+} 
 
+/* @media screen and (max-width: 1680px) {
+  .form1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 100%;
+  }
+
+  .form2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 100%;
+  }
+
+  .form3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 100%;
+  }
+
+  .form-group {
+    margin: 20px;
+    width: 800px; 
+  }
+}  */
 
