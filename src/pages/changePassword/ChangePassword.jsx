@@ -1,26 +1,30 @@
 import { useState } from "react";
-import "./resetPassword.css";
+import "./changePassword.css";
 import logo from "../../assets/img/CorpoHypatia.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { resetPassword } from "../../service/api";
+import { changePassword } from "../../service/api";
 
-function validateEmail(email) {
+function validatePassword(password) {
   const re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/;
+  return re.test(String(password));
 }
 
-export default function ResetPassword() {
-  const [data, setData] = useState({ email: "" });
+export default function ChangePassword() {
+
+  const token = useParams();
+
+  const [data, setData] = useState({ password: "" });
 
   const [valid, setValid] = useState(true);
+
   const [mensaje, setMensaje] = useState();
 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setValid(validateEmail(data.email));
+    setValid(validatePassword(data.password));
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -29,18 +33,11 @@ export default function ResetPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = {
-      email: data.email,
-    };
-    const res = await resetPassword(data);
-
-    const message = res.data.message;
-    console.log();
-    setMensaje(message);
-
-    setTimeout(() => {
-      setMensaje("");
-    }, 5000);
+    const password = {
+        password: data.password,
+    }
+    const res = await changePassword(password, token.token)
+    console.log(res);
   };
 
   return (
@@ -49,28 +46,30 @@ export default function ResetPassword() {
         <div className="password_form_container">
           <div className="left_password">
             <form className="form_container" onSubmit={handleSubmit}>
-              <h1>¿ Has olvidado la contraseña ?</h1>
+              <h1>Ingresa tu nueva contraseña</h1>
               <p>
-                Para reestablecer tu contraseña, ingresa tu dirección de correo
-                electrónico a continuación.
+                Para recuperar tu cuenta, por favor ingresa tu nueva contraseña
+                a continuación.
               </p>
               <input
-                type="email"
-                placeholder="Correo"
-                name="email"
+                type="password"
+                placeholder="Contraseña"
+                name="password"
                 onChange={handleChange}
-                value={data.email}
+                value={data.password}
                 required
                 className="input_password"
               />
               {!valid && (
                 <label className="password_error_msg">
-                  Por favor ingrese una dirección de correo válida.
+                  La contraseña debe tener mínimo 8 caracteres y máximo 15, un
+                  número, una letra mayúscula y una letra minúscula, al menos 1
+                  caracter especial y no espacios en blanco.
                 </label>
               )}
 
               <button type="submit" className="green_btn" onClick={handleClick}>
-                Reestablecer Contraseña
+                Cambiar Contraseña
               </button>
 
               <a href="/login" className="login__forgot">
@@ -83,6 +82,7 @@ export default function ResetPassword() {
           </div>
         </div>
       </div>
+
       {mensaje && <div className="toast-login">{mensaje}</div>}
     </>
   );

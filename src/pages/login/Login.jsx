@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import "./login.css";
 import logo from "../../assets/img/CorpoHypatia.png";
 import { useNavigate } from "react-router-dom";
@@ -103,9 +102,9 @@ const Login = () => {
               <button type="submit" className="green_btn" onClick={handleClick}>
                 Ingresar
               </button>
-              {data.email === "admin@hotmail.com" && (
-                <a href="#" className="login__forgot">
-                  Olvide mi contraseña
+              {data.role === "admin" && (
+                <a href="/reset-password" className="login__forgot">
+                  ¿ Has olvidado la contraseña ?
                 </a>
               )}
             </form>
