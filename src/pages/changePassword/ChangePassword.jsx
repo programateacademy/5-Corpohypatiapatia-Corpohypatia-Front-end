@@ -12,7 +12,6 @@ function validatePassword(password) {
 }
 
 export default function ChangePassword() {
-
   const token = useParams();
 
   const [data, setData] = useState({ password: "" });
@@ -33,11 +32,20 @@ export default function ChangePassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const password = {
+    if (valid) {
+      const password = {
         password: data.password,
+      };
+      const res = await changePassword(password, token.token);
+
+      const message = res.data.message;
+
+      setMensaje(message);
+
+      setTimeout(() => {
+        setMensaje("");
+      }, 5000);
     }
-    const res = await changePassword(password, token.token)
-    console.log(res);
   };
 
   return (
@@ -57,7 +65,7 @@ export default function ChangePassword() {
                 name="password"
                 onChange={handleChange}
                 value={data.password}
-                required
+                /* required */
                 className="input_password"
               />
               {!valid && (

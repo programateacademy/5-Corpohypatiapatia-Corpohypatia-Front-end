@@ -11,17 +11,23 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+function validatePassword(password) {
+  return !(password.trim().length === 0);
+}
+
 const Login = () => {
   const [data, setData] = useState({ role: "user", email: "", password: "" });
   const [error, setError] = useState("");
-  const [valid, setValid] = useState(true);
+  const [validEmail, setValidEmail] = useState(true);
+  const [validPassword, setValidPassword] = useState(true);
 
   const [mensaje, setMensaje] = useState();
 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setValid(validateEmail(data.email));
+    setValidEmail(validateEmail(data.email));
+    setValidPassword(validatePassword(data.password));
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -31,29 +37,29 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = {
-      role: data.role,
-      email: data.email,
-      password: data.password,
-    };
+    if (validEmail && validPassword) {
+      const user = {
+        role: data.role,
+        email: data.email,
+        password: data.password,
+      };
 
-    const res = await signIn(user);
-    console.log(res.data);
+      const res = await signIn(user);
 
-    if (res.data.token) {
-      setMensaje("Loading...");
-      setTimeout(() => {
-        setMensaje("");
-        localStorage.setItem("token", res.data.token);
-        navigate(`/Home`);
-      }, 5000);
-    } else {
-      const message = res.data.message;
-      setMensaje(message);
-      console.log(message);
-      setTimeout(() => {
-        setMensaje("");
-      }, 5000);
+      if (res.data.token) {
+        setMensaje("Loading...");
+        setTimeout(() => {
+          setMensaje("");
+          localStorage.setItem("token", res.data.token);
+          navigate(`/Home`);
+        }, 5000);
+      } else {
+        const message = res.data.message;
+        setMensaje(message);
+        setTimeout(() => {
+          setMensaje("");
+        }, 5000);
+      }
     }
   };
 
@@ -68,7 +74,7 @@ const Login = () => {
                 className="inputLogin"
                 name="role"
                 onChange={handleChange}
-                required
+                /* required */
               >
                 <option value="user" defaultValue>
                   Usuario
@@ -81,12 +87,12 @@ const Login = () => {
                 name="email"
                 onChange={handleChange}
                 value={data.email}
-                required
+                /* required */
                 className="inputLogin"
               />
-              {!valid && (
+              {!validEmail && (
                 <label style={{ color: "red", margin: "10px 0 10px 10px" }}>
-                  Ingrese una dirección de correo invalida
+                  Por favor ingrese una dirección de correo válida.
                 </label>
               )}
               <input
@@ -95,9 +101,14 @@ const Login = () => {
                 name="password"
                 onChange={handleChange}
                 value={data.password}
-                required
+                /* required */
                 className="inputLogin"
               />
+              {!validPassword && (
+                <label style={{ color: "red", margin: "10px 0 10px 10px" }}>
+                  Por favor ingrese una contraseña válida.
+                </label>
+              )}
               {error && <div className="error_msg">{error}</div>}
               <button type="submit" className="green_btn" onClick={handleClick}>
                 Ingresar

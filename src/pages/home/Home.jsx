@@ -22,7 +22,6 @@ function Home() {
     if (token) {
       const res = await getHome(token);
       setMessage(res.data.message);
-      console.log(res);
     }
   }
 

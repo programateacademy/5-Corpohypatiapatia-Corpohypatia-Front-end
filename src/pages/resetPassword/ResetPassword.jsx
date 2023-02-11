@@ -29,18 +29,20 @@ export default function ResetPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = {
-      email: data.email,
-    };
-    const res = await resetPassword(data);
+    if (valid) {
+      const email = {
+        email: data.email,
+      };
+      const res = await resetPassword(email);
 
-    const message = res.data.message;
-    console.log();
-    setMensaje(message);
+      const message = res.data.message;
 
-    setTimeout(() => {
-      setMensaje("");
-    }, 5000);
+      setMensaje(message);
+
+      setTimeout(() => {
+        setMensaje("");
+      }, 5000);
+    }
   };
 
   return (

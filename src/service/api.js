@@ -31,11 +31,10 @@ export const resetPassword = async (email) => {
 };
 
 export const changePassword = async (password, token) => {
-  console.log(password);
   try {
     return await axios.post(URL + "/change-password", password, {
       headers: {
-        "x-access-token": token
+        "x-access-token": token,
       },
     });
   } catch (e) {
