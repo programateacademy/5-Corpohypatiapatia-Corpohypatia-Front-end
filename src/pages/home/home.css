@@ -1,5 +1,35 @@
 /*home*/
-.carousel-item{
-    max-height: 400px;
-    background-size: contain;
+.graphic img{
+    width: 300px;
+    height: auto;
+}
+@media (min-width: 576px){
+    .graphic img{
+        width: 400px;
+        height: auto;
+    }
+}
+@media (min-width: 768px){
+    .graphic img{
+        width: 400px;
+        height: auto;
+    }
+}
+@media (min-width: 992px){
+    .graphic img{
+        width: 550px;
+        height: auto;
+    }
+}
+@media (min-width: 1200px){
+    .graphic img{
+        width: 600px;
+        height: auto;
+    }
+}
+@media (min-width: 1400px){
+    .graphic img{
+        width: 700px;
+        height: auto;
+    }
 }

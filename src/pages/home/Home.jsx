@@ -1,39 +1,26 @@
 // import image for carousel
-import FotHypa from '../../assets/img/Fot-Hypa.jpg'
-import FotHypatia from '../../assets/img/Fot-Hypatia.jpg'
-import Hypatia from '../../assets/img/Hypatia.jpg'
+import graphic from '../../assets/img/grafico.png'
 import './home.css'
 
 function Home() {
     return (
         <>
-            <p className="fs-1 text-uppercase text-center mt-4 mb-4">corpohypatia</p>
-            {/* bootstrap image carousel */}
-            <div id="carouselExampleIndicators" className="carousel slide">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={FotHypa} className="d-block w-100 " alt="ggg" />
+            <div className="container-fluid">
+                <div className="row p-5">
+                    <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-2">
+                        <p className="fs-1 mt-5">BIENVENID@S</p>
+                        <p className=' mt-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque earum repudiandae velit ipsa molestiae perferendis quae voluptate, adipisci et porro qui unde ad? Asperiores, accusamus tenetur obcaecati eos velit delectus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime totam a? Laborum quasi nulla corporis alias ducimus. Ad obcaecati cupiditate ab enim molestiae unde quibusdam eligendi dignissimos tenetur. Incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta vel aut consequatur beatae officia vitae veniam, eos recusandae sequi autem quibusdam dolore asperiores? Sequi, aspernatur odit? Dolorem laboriosam cupiditate ad?</p>
+                        {/* buttons */}
+                        <div className="mt-5">
+                            <button type="button" class="btn btn-outline-secondary btn-lg">Continuar</button>
+                        </div>
                     </div>
-                    <div className="carousel-item">
-                        <img src={FotHypatia} className="d-block w-100" alt="rrr" />
-                    </div>
-                    <div className="carousel-item">
-                        <img src={Hypatia} className="d-block w-100" alt="..." />
+                    <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                        <div className="graphic">
+                            <img src={graphic} alt="graphic piece" width="700" className="rounded float-end " />
+                        </div>
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
             </div>
             {/* text */}
             <div className="container">
@@ -53,13 +40,7 @@ function Home() {
                     </p>
                 </div>
             </div>
-            {/* buttons */}
-            <div className="container">
-                <div className="d-flex gap-4 col-2 mx-auto m-5">
-                <button type="button" class="btn btn-outline-secondary">Ingresar</button>
-                <button type="button" class="btn btn-outline-secondary">Continuar</button>
-                </div>
-            </div>
+
         </>
     );
 }
