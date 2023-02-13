@@ -10,7 +10,6 @@ li {
     list-style: none;
 }
 
-/* NAVBAR STYLING STARTS */
 .navbar {
     display: flex;
     flex-direction: column;
@@ -37,7 +36,6 @@ li {
 .menuBars:hover{
     cursor: pointer;
 }
-/* LOGO */
 .logo {
     font-size: 32px;
     position: relative;
@@ -46,15 +44,6 @@ li {
     border-bottom: 1px solid #fff;
     padding-bottom: 15px;
 }
-/*.home::after{*/
-/*    content: '';*/
-/*    width: 150px;*/
-/*    height: 2px;*/
-/*    background: #E0E0E0;*/
-/*    position: absolute;*/
-/*    bottom: -10px;*/
-/*    right: calc(60% - 100%);*/
-/*}*/
 .info{
     display: flex;
     flex-direction: column;
@@ -68,7 +57,6 @@ li {
     font-size: 14px;
     color: #48C4A5;
 }
-/* NAVBAR MENU */
 .menu {
     display: flex;
     flex-direction: column;
@@ -120,7 +108,6 @@ li {
     display: flex;
     align-items: center;
 }
-/* DROPDOWN MENU */
 .services {
     position: relative;
 }
@@ -157,7 +144,6 @@ li {
 .logout:hover > button{
     cursor: pointer;
 }
-/* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
     .menu {
         display:none;
