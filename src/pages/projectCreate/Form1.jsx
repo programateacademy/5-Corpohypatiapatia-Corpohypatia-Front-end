@@ -5,9 +5,9 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 function Form1() {
   return (
-    <div className="form1">
+    <div className="form1 ">
 
-        <div class="form-group">
+        <div class="form-group ">
           <label>Nombre del Proyecto</label>
           <div class="col-sm-12">
             <input
@@ -67,15 +67,14 @@ function Form1() {
               placeholder="Sube imagen de proyecto"
             />
           </div>
-          <div className="boton-seguir1">
+          <div className="boton-seguir1 btn-next">
             <button>
               Siguiente
               <BsFillArrowRightCircleFill className="icono-seguir" />
             </button>
           </div>
         </div>
-
-    </div>
+        </div>
   );
 }
 
