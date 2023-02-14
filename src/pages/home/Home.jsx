@@ -22,22 +22,28 @@ function Home() {
                     </div>
                 </div>
             </div>
-            {/* text */}
-            <div className="container">
+            {/* about company */}
+            <div className="container-fluid">
                 <div className="row">
-                    <p className="fs-3 text-center mt-5">¿Quiénes Somos?</p>
-                    <p className="">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
-                        Su objeto social es la promoción y defensa integral de los derechos humanos, especialmente los derechos de las mujeres, la búsqueda de la equidad social y de género, el fortalecimiento de la gobernabilidad y de una sociedad democrática, contribuyendo a la construcción de una Cultura de paz y a la prevención y erradicación de toda forma de discriminación y vulneración de derechos por razones de sexo, etnia, orientación sexual, edad y condición socioeconómica.
-                    </p>
-                    <p className="fs-3 text-center mt-3">Misión</p>
-                    <p>
-                        Somos una organización que promueve y defiende los derechos humanos con enfoques diferenciales, en la búsqueda de la igualdad social y de género, la construcción de una sociedad democrática, pacífica y respetuosa de las diferencias, que garantice el buen vivir de hombres y mujeres en su
-                        diversidad.
-                    </p>
-                    <p className="fs-3 text-center mt-3">Visión</p>
-                    <p>
-                        La Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
-                    </p>
+                    <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <p className="fs-3 text-center">Misión</p>
+                        <p className=''>
+                            Somos una organización que promueve y defiende los derechos humanos con enfoques diferenciales, en la búsqueda de la igualdad social y de género, la construcción de una sociedad democrática, pacífica y respetuosa de las diferencias, que garantice el buen vivir de hombres y mujeres en su
+                            diversidad.
+                        </p>
+                    </div>
+                    <div className="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                        <p className="fs-3 text-center">¿Quiénes Somos?</p>
+                        <p className="">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
+                            Su objeto social es la promoción y defensa integral de los derechos humanos, especialmente los derechos de las mujeres, la búsqueda de la equidad social y de género, el fortalecimiento de la gobernabilidad y de una sociedad democrática, contribuyendo a la construcción de una Cultura de paz y a la prevención y erradicación de toda forma de discriminación y vulneración de derechos por razones de sexo, etnia, orientación sexual, edad y condición socioeconómica.
+                        </p>
+                    </div>
+                    <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <p className="fs-3 text-center">Visión</p>
+                        <p>
+                            La Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
+                        </p>
+                    </div>
                 </div>
             </div>
 
