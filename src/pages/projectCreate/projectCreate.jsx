@@ -133,7 +133,7 @@ const ProjectCreate = () => {
                             label="Dirección de imagen" 
                             variant="outlined" 
                             name="imagePath"
-                            value="https://i.postimg.cc/c4BYckQ7/proyecto.jpg"
+                            // value="https://i.postimg.cc/c4BYckQ7/proyecto.jpg"
                             onChange={(e) => onValueChange(e)}
                         />
                     </FormControl>
