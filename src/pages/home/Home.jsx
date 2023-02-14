@@ -41,7 +41,7 @@ function Home() {
                     <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <p className="fs-3 text-center">Visión</p>
                         <p>
-                            La Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
+                            la Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
                         </p>
                     </div>
                 </div>
