@@ -2,6 +2,7 @@
 import graphic from '../../assets/img/grafico.png'
 import logo from '../../assets/img/Logo.jpg'
 import organi from '../../assets/img/organigrama.png'
+import onu from '../../assets/img/min-onu.png'
 import './home.css'
 
 function Home() {
@@ -39,23 +40,26 @@ function Home() {
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-5 col-lg-5 col-xl-5">
-                    <div className="ratio ratio-16x9 mb-5">
+                        <div className="ratio ratio-16x9 mb-5">
                             <iframe src="" frameborder="0"></iframe>
                         </div>
                         <p className="fs-3 text-center">¿Quiénes Somos?</p>
-                        <p className="">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
+                        <p className="mb-5">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.
                             Su objeto social es la promoción y defensa integral de los derechos humanos, especialmente los derechos de las mujeres, la búsqueda de la equidad social y de género, el fortalecimiento de la gobernabilidad y de una sociedad democrática, contribuyendo a la construcción de una Cultura de paz y a la prevención y erradicación de toda forma de discriminación y vulneración de derechos por razones de sexo, etnia, orientación sexual, edad y condición socioeconómica.
                         </p>
                     </div>
                     <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                         <p className="fs-3 text-center">Visión</p>
                         <p>
-                            la Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
+                            La Corporación Hypatia es reconocida por su capacidad de influir en los derechos humanos, la democracia, la equidad y el buen vivir de hombres y mujeres en su diversidad.
                         </p>
                         <div className="organi my-5">
                             <img src={organi} alt="organigrama" width={250} className="rounded mx-auto d-block" />
                         </div>
                     </div>
+                </div>
+                <div className="onu">
+                    <img src={onu} alt="asociaciones" className='img-fluid'/>
                 </div>
             </div>
 
