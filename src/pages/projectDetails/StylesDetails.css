@@ -18,7 +18,7 @@
     display: flex;
     margin: 30px;
     width: 800px;
-    height: 300px;
+    height: 100%;
     background-color: var(--colorazul);
     color: var(--colorwhite);
     border-radius: 15px;
@@ -241,6 +241,114 @@
   height: 300px;
 }
 
+
+
+@media (max-width: 730px){
+  .card-foto {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    width: 600px;
+    border-radius: 15px;
+  }
+
+  .imagen{
+    display: flex;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #760000;
+    width: 600px;
+    height: 300px;
+  }
+
+  .cards{
+    margin:20px 50px 10px 50px;
+    width: 300px;
+    border-right:2px solid var(--colorgrisclaro);
+    border-top: none;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .reverse{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .indicador{
+    margin-top: 20px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .texto-v{
+    margin-top: 20px;
+    display: flex;
+    width: 300px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .elemento-avance{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin:20px auto;
+    width: 200px;
+  }
+
+  .margen{
+    margin: 30px;
+    width: 600px;
+    border:2px solid #C7C5C5;
+    border-radius: 15px;
+  }
+  .cards-indicador{
+    width: 350px;   
+  }
+
+  .card{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+    width: 530px;
+  }
+
+  .contenedor-fechas{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card-texts{
+    font-size: 15px;
+    width: 450px;
+    color:#464646
+  }
+
+  .contenedor-fechas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .fechas{
+    width: 200px;
+    text-align: left;
+    margin: 10px;
+  }
+  
+} 
+
+
 /* media queries */
 @media screen and (max-width: 480px){
   .card-foto {
@@ -336,5 +444,4 @@
     color:#464646
   }
 }
-
 
