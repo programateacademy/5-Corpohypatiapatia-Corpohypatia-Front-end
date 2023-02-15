@@ -33,3 +33,34 @@
         height: auto;
     }
 }
+
+@media (min-width: 576px){
+    .graphicLogo img{
+        width: 300px;
+        height: auto;
+    }
+}
+@media (min-width: 768px){
+    .graphicLogo img{
+        width: 150px;
+        height: auto;
+    }
+}
+@media (min-width: 992px){
+    .graphicLogo img{
+        width: 200px;
+        height: auto;
+    }
+}
+@media (min-width: 1200px){
+    .graphicLogo img{
+        width: 250px;
+        height: auto;
+    }
+}
+@media (min-width: 1400px){
+    .graphicLogo img{
+        width: 300px;
+        height: auto;
+    }
+}
