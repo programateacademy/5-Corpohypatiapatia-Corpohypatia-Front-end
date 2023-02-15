@@ -1,5 +1,7 @@
 // import image for carousel
 import graphic from '../../assets/img/grafico.png'
+import logo from '../../assets/img/Logo.jpg'
+import organi from '../../assets/img/organigrama.png'
 import './home.css'
 
 function Home() {
@@ -17,7 +19,7 @@ function Home() {
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
                         <div className="graphic">
-                            <img src={graphic} alt="graphic piece" width="700" className="rounded float-end " />
+                            <img src={graphic} alt="graphic piece" width="700" className="rounded mx-auto d-block" />
                         </div>
                     </div>
                 </div>
