@@ -31,7 +31,7 @@ function Footer() {
                                 </svg>
                             </div>
                             <div className="col-sm-11 col-md-11 col-lg-11 col-xl-11">
-                                <p>+57 301 123 1234</p>
+                                <p>320-4516192 / 301-3681863</p>
                             </div>
                         </div>
                         <div className="row">
@@ -41,7 +41,7 @@ function Footer() {
                                 </svg>
                             </div>
                             <div className="col-sm-11 col-md-11 col-lg-11 col-xl-11">
-                                <p>correo@ejemplo.com</p>
+                                <p>hypatiacorporacion@gmail.com</p>
                             </div>
                         </div>
                     </div>
