@@ -9,6 +9,8 @@ import { FaSearch } from 'react-icons/fa'
 // import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
 
 import { getProjects } from "../../service/api";
+import Sidebar from "../../components/layouts/Sidebar/Sidebar";
+import { SLayout, SMain } from "../../components/layouts/Layout/styles";
 
 function AllProjects() {
 
@@ -56,47 +58,52 @@ function AllProjects() {
 
 
     return (
-        <section className="all-project">
+        <SLayout>
+            <Sidebar />
+            <SMain>
+                <section className="all-project">
 
-            <h1>Proyectos</h1>
+                    <h1>Proyectos</h1>
 
-            <section className="filters">
-                <div className='search'>
-                    <input
-                        placeholder='Busca por el nombre'
-                        type="text"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <FaSearch className='search_icon' />
-                </div>
-            </section>
+                    <section className="filters">
+                        <div className='search'>
+                            <input
+                                placeholder='Busca por el nombre'
+                                type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                            <FaSearch className='search_icon' />
+                        </div>
+                    </section>
 
-            <section>
-                <div className='projects-cards'>
-                    {displayPage.map((item) => (
-                        <Link to={`/admin-projects/${item._id}`}>
-                        <CardProject
-                            key={item.id}
-                            item={item}
-                        /></Link>
-                    ))}
-                </div>
+                    <section>
+                        <div className='projects-cards'>
+                            {displayPage.map((item) => (
+                                <Link to={`/admin-projects/${item._id}`}>
+                                    <CardProject
+                                        key={item.id}
+                                        item={item}
+                                    /></Link>
+                            ))}
+                        </div>
 
-                <div className="container_paginate">
-                    <ReactPaginate
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        previousLabel="Anterior"
-                        previousClassName="previousBttns"
-                        nextLabel="Siguiente"
-                        nextClassName="previousBttns"
-                        containerClassName="paginationBttns"
-                        activeClassName={"active_pagination"}
-                    />
-                </div>
-            </section>
-        </section>
+                        <div className="container_paginate">
+                            <ReactPaginate
+                                pageCount={pageCount}
+                                onPageChange={changePage}
+                                previousLabel="Anterior"
+                                previousClassName="previousBttns"
+                                nextLabel="Siguiente"
+                                nextClassName="previousBttns"
+                                containerClassName="paginationBttns"
+                                activeClassName={"active_pagination"}
+                            />
+                        </div>
+                    </section>
+                </section>
+            </SMain>
+        </SLayout>
     );
 }
 
