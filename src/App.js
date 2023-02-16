@@ -15,11 +15,12 @@
 //     </div>
 //   );
 // }
+
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import Layout from "./components/layouts/Layout/Layout";
-import AllRoutes from "./Routes";
+import Routes from "./Routes";
 import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./styles/theme";
 
@@ -44,7 +45,7 @@ const App = () => {
                 </Helmet>
                 <>
                     <Layout>
-                        <AllRoutes />
+                        <Routes />
                     </Layout>
                 </>
             </ThemeProvider>

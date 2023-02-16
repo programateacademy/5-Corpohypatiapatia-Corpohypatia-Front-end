@@ -3,6 +3,7 @@ import { Routes, Route} from "react-router-dom";
 
 import ProjectDetails  from './pages/projectDetails/ProjectDetails.jsx'
 
+
 const AllRoutes = () => {
     return (
         <Routes>
