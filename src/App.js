@@ -20,7 +20,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 import Layout from "./components/layouts/Layout/Layout";
-import Routes from "./Routes";
+import Routes from "./routes/Routes";
 import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./styles/theme";
 
@@ -54,3 +54,23 @@ const App = () => {
 };
 
 export default App;
+
+// import React from "react";
+// import { BrowserRouter } from 'react-router-dom';
+
+// //Components
+
+
+// import AllRoutes from "./routes/Routes"
+
+// function App() {
+// 	return (
+// 		<>
+// 			<BrowserRouter>
+// 				<AllRoutes />
+// 			</BrowserRouter>
+// 		</>
+// 	);
+// }
+
+// export default App;
