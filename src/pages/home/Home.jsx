@@ -4,10 +4,12 @@ import logo from '../../assets/img/logo.jpg'
 import organi from '../../assets/img/organigrama.png'
 import onu from '../../assets/img/min-onu.png'
 import './home.css'
+import Header from '../../components/layouts/header/Header'
 
 function Home() {
     return (
         <>
+            <Header/>
             <div className="container-fluid">
                 <div className="row p-5">
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-2">

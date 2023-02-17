@@ -11,6 +11,7 @@ import Login from "../pages/login/Login"
 import UserRegister from "../pages/userRegister/UserRegister"
 
 import { ScrollToTop } from "../components/common/ScrollToTop";
+import Steps from "../pages/projectCreate/Steps";
 
 const AllRoutes = () => {
     return (
@@ -26,6 +27,7 @@ const AllRoutes = () => {
                 <Route path='/user-register' element={<UserRegister/>} />
 
                 <Route path='/checklist' element={<Checklist/>} />
+                <Route path='/step' element={<Steps/>} />
             </Routes>
         </>
     );

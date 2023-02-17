@@ -8,6 +8,7 @@ import "./StylesDetails.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
+import Checklist from "./Checklist";
 
 function ProjectDetails() {
 
@@ -41,10 +42,10 @@ function ProjectDetails() {
                 Proyecto: {project.project_title}
               </p>
               <p className="texto-bold">
-                Entidad: Lorem Ipsum is simply dummy text of the printing
+                Entidad: Corporación para la Equidad, la Democracia y el Buen Vivir – Corpohypatia.
               </p>
               <p className="texto-bold">
-                Programa: Lorem Ipsum is simply dummy text of the printing
+                Estrategia de bienestar emocional de niños y niñas de 5 a 12 años en el municipio de Bucaramanga, Santander.
               </p>
             </div>
             <div className="boton-edit">
@@ -72,19 +73,20 @@ function ProjectDetails() {
       <div class="margen">
         <div class="segun-margen">
           {/* card sencilla indicador*/}
-          <p>Indicadores:</p>
+          <h2>Indicadores:</h2>
           <div class="card">
             <div className="forma">
               <div class="cards-indicador">
                 <div className="rectangulo">
                   <p>Indicador</p>
                 </div>
-                <p class="card-text">Lorem Ipsum is simply dummy text</p>
+                {/* <p class="card-text">Lorem Ipsum is simply dummy text</p> */}
               </div>
-              <div className="indicador">
+              {/* <div className="indicador">
                 <p className="porcetanje-indi">76.52% </p>
                 <p className="texto-avance">Avance</p>
-              </div>
+              </div> */}
+              <Checklist />
             </div>
           </div>
           {/* card sencilla fechas*/}
@@ -101,12 +103,12 @@ function ProjectDetails() {
                   <p>30/03/3030</p>
                 </div>
                 <div className="fechas">
-                  <p className="bold">Diaz de rezago:</p>
-                  <p>30/03/3030</p>
+                  <p className="bold">Duración:</p>
+                  <p>{project.project_duration}</p>
                 </div>
                 <div className="fechas">
-                  <p className="bold">Periocidad:</p>
-                  <p>30/03/3030</p>
+                  <p className="bold">Presupuesto:</p>
+                  <p>{project.project_budget}</p>
                 </div>
               </div>
             </div>
@@ -140,7 +142,7 @@ function ProjectDetails() {
                     aria-controls="resultados"
                     aria-selected="false"
                   >
-                    Resultados
+                    Objetivos
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -154,7 +156,7 @@ function ProjectDetails() {
                     aria-controls="ficha"
                     aria-selected="false"
                   >
-                    Ficha Tecnica
+                    Experiencia y capacidad
                   </button>
                 </li>
 
@@ -169,7 +171,7 @@ function ProjectDetails() {
                     aria-controls="Documento"
                     aria-selected="false"
                   >
-                    Documentos asociados
+                    Sostenibilidad
                   </button>
                 </li>
               </ul>
@@ -184,7 +186,8 @@ function ProjectDetails() {
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
                     <p className="card-texts">
-                      Lorem Ipsum is simply dummy text of the printing and
+                      {project.problematic_summary}
+                      {/* Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
                       printer took a galley of type and scrambled it to make a
@@ -194,45 +197,72 @@ function ProjectDetails() {
                       1960s with the release of Letraset sheets containing Lorem
                       Ipsum passages, and more recently with desktop publishing
                       software like Aldus PageMaker including versions of Lorem
-                      Ipsum.
+                      Ipsum. */}
                     </p>
+                    <h5 className="card-title">Beneficiarios / población diana</h5>
+                    <hr />
+                    {project.beneficiaries}
 
-                    <div className="texto-fecha">
+                    <h5 className="card-title">Resumen ejecutivo</h5>
+                    <hr />
+                    {project.executive_summary}
+
+                    <h5 className="card-title">Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales</h5>
+                    <hr />
+                    {project.alignment}
+
+                    {/* <div className="texto-fecha">
                       <p>Fecha de corte:</p>
                       <p>Fecha de actualizacion:</p>
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div className="card-body">
+                  {/* <div className="card-body">
                     <h5 className="card-title">
                       Comportamiento anual del indicador
                     </h5>
                     <hr />
-                  </div>
+                  </div> */}
                 </div>
                 <div
                   class="tab-pane fade"
                   id="resultados"
                   role="tabpanel"
                   aria-labelledby="resultados-tab"
-                >
-                  Holii
+                ><br/>
+                  {project.methodology_summary}
+                  <h5 className="card-title">Objetivo general</h5>
+                  <hr />
+                  {project.general_objetive}
+
+                  <h5 className="card-title">Objetivos específicos</h5>
+                  <hr />
+                  •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br/><br/>
+                  •	Potenciar dinámicas familiares, comunitarias e institucionales de corresponsabilidad para la  activación de entornos protectores de los NN de la zona involucrada en el proyecto.
                 </div>
                 <div
                   class="tab-pane fade"
                   id="ficha"
                   role="tabpanel"
                   aria-labelledby="ficha-tab"
-                >
-                  Welcomesss
+                ><br/>
+                  <h5 className="card-title">Experiencia y capacidad</h5>
+                  <hr />
+                  {project.experience}
                 </div>
                 <div
                   class="tab-pane fade"
                   id="Documento"
                   role="tabpanel"
                   aria-labelledby="contact-tab"
-                >
-                  Welcomes
+                ><br/>
+                  <h5 className="card-title">Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto</h5>
+                  <hr />
+                  {project.sustainability}
+
+                  <h5 className="card-title">Estrategia de salida al finalizar el proyecto</h5>
+                  <hr />
+                  {project.exit_strategy}
                 </div>
               </div>
             </div>
