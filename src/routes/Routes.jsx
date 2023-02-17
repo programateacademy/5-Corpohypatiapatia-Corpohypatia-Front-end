@@ -7,6 +7,8 @@ import ProjectCreate from "../pages/projectCreate/ProjectCreate";
 import ProjectDetails from "../pages/projectDetails/ProjectDetails"
 import Checklist from "../pages/projectDetails/Checklist";
 import Login from "../pages/login/Login"
+import ResetPassword from "../pages/resetPassword/ResetPassword";
+import ChangePassword from "../pages/changePassword/ChangePassword";
 
 import { ScrollToTop } from "../components/common/ScrollToTop";
 
@@ -17,13 +19,14 @@ const AllRoutes = () => {
             <Routes>
                 {/* <Route path='/' element={<ProjectDetails/>} /> */}
                 <Route path='/' element={<Home />} />
-                <Route path="/login" element={<Navigate to="/"/>} />
                 <Route path="/home" element={<Navigate to="/"/>} />
                 <Route path='/admin-projects' element={<AllProjects/>} />
                 <Route path='/admin-projects/:id' element={<ProjectDetails/>} />
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
-
                 <Route path='/checklist' element={<Checklist/>} />
+                <Route path='/login' element={<Login/>} />
+                <Route path='/reset-password' element={<ResetPassword/>} />
+                <Route path='/change-password/:token' element={<ChangePassword/>} />
             </Routes>
         </>
     );
