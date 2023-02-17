@@ -48,17 +48,18 @@ function ProjectDetails() {
                 Estrategia de bienestar emocional de niños y niñas de 5 a 12 años en el municipio de Bucaramanga, Santander.
               </p>
             </div>
-            <div className="boton-edit">
+            
+            {/* <div className="boton-edit">
               <button className="boton-editar">
                 Editar <RiFileEditLine className="icon-edit" />
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="elemento-avance">
-            <button className="Boton-regresar">
+            {/* <button className="Boton-regresar">
               Regresar <RiArrowGoBackFill className="icon-regreso" />
-            </button>
+            </button> */}
 
             <div className="avance">
               <p>Avance</p>
@@ -73,7 +74,7 @@ function ProjectDetails() {
       <div class="margen">
         <div class="segun-margen">
           {/* card sencilla indicador*/}
-          <h2>Indicadores:</h2>
+          <h2 className="title-margin">Indicadores:</h2>
           <div class="card">
             <div className="forma">
               <div class="cards-indicador">
@@ -185,28 +186,18 @@ function ProjectDetails() {
                   <div className="card-body">
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
-                    <p className="card-texts">
+                    <p className="card-text">
+                      {/* <ReadMore text={project.problematic_summary}/> */}
                       {project.problematic_summary}
-                      {/* Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book. It has survived not only five
-                      centuries, but also the leap into electronic typesetting,
-                      remaining essentially unchanged. It was popularised in the
-                      1960s with the release of Letraset sheets containing Lorem
-                      Ipsum passages, and more recently with desktop publishing
-                      software like Aldus PageMaker including versions of Lorem
-                      Ipsum. */}
-                    </p>
+                    </p><br />
                     <h5 className="card-title">Beneficiarios / población diana</h5>
                     <hr />
                     {project.beneficiaries}
-
+                    <br /><br />
                     <h5 className="card-title">Resumen ejecutivo</h5>
                     <hr />
                     {project.executive_summary}
-
+                    <br /><br />
                     <h5 className="card-title">Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales</h5>
                     <hr />
                     {project.alignment}
@@ -229,40 +220,41 @@ function ProjectDetails() {
                   id="resultados"
                   role="tabpanel"
                   aria-labelledby="resultados-tab"
-                ><br/>
-                  {project.methodology_summary}
+                >
+                <div className="card-body">
+                  {project.methodology_summary} <br /> <br />
                   <h5 className="card-title">Objetivo general</h5>
                   <hr />
-                  {project.general_objetive}
+                  {project.general_objetive} <br /> <br />
 
                   <h5 className="card-title">Objetivos específicos</h5>
                   <hr />
-                  •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br/><br/>
+                  •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br /><br />
                   •	Potenciar dinámicas familiares, comunitarias e institucionales de corresponsabilidad para la  activación de entornos protectores de los NN de la zona involucrada en el proyecto.
-                </div>
+                </div></div>
                 <div
                   class="tab-pane fade"
                   id="ficha"
                   role="tabpanel"
                   aria-labelledby="ficha-tab"
-                ><br/>
+                ><div className="card-body">
                   <h5 className="card-title">Experiencia y capacidad</h5>
                   <hr />
-                  {project.experience}
+                  {project.experience}</div>
                 </div>
                 <div
                   class="tab-pane fade"
                   id="Documento"
                   role="tabpanel"
                   aria-labelledby="contact-tab"
-                ><br/>
+                ><div className="card-body">
                   <h5 className="card-title">Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto</h5>
-                  <hr />
-                  {project.sustainability}
+                  <hr /> 
+                  {project.sustainability}<br /><br />
 
                   <h5 className="card-title">Estrategia de salida al finalizar el proyecto</h5>
                   <hr />
-                  {project.exit_strategy}
+                  {project.exit_strategy}</div>
                 </div>
               </div>
             </div>

@@ -59,11 +59,11 @@ function Checklist() {
     return (
         <>
             <div>
-                Progreso general: {percentageGeneral}
+                {/* Progreso general: {percentageGeneral} */}
             </div>
             <div>
                 {tasks.map((task, index) => (
-                    <><h3>Resultado {index +1}</h3>
+                    <><br /><h3>Resultado {index +1}</h3>
                     <Task key={index} title={task.title} subtasks={task.subtasks} indicators={task.indicators} result={task.result} /></>
                 ))}
             </div>

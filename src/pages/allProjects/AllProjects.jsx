@@ -39,7 +39,7 @@ function AllProjects() {
     // Pagination
     const [pageNumber, setPageNumber] = useState(0);
 
-    const projectPerPage = 8;
+    const projectPerPage = 6;
 
     const visitedPage = pageNumber * projectPerPage;
 
