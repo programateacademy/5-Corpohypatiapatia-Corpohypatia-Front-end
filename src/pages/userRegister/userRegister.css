@@ -7,25 +7,25 @@ body {
     background: #F2F3EB;
 }
 
-button {
+.register button {
     overflow: visible;
 }
 
-button, select {
+.register button, .register select {
     text-transform: none;
 }
 
-button, input, select, textarea {
+.register button, .register input, .register select, .register textarea {
     color: #5A5A5A;
     font: inherit;
     margin: 0;
 }
 
-input {
+.register input {
     line-height: normal;
 }
 
-textarea {
+.register textarea {
     overflow: auto;
 }
 
@@ -36,12 +36,12 @@ textarea {
     position: relative;
 }
 
-form {
+.register form {
     padding: 37.5px;
     margin: 50px 0;
 }
 
-h1 {
+.register h1 {
     color: #474544;
     font-size: 32px;
     font-weight: 700;
@@ -69,7 +69,7 @@ h1 {
     width: 50px;
 }
 
-input, select {
+.register input, .register select {
     background: none;
     border: none;
     border-bottom: solid 2px #474544;
@@ -93,18 +93,18 @@ input, select {
     transition: all 0.3s;
 }
 
-input:focus, select:focus {
+.register input:focus, .register select:focus {
     outline: none;
     padding: 0 0 0.875em 0;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+.register input[type=number]::-webkit-inner-spin-button,
+.register input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type=number] { -moz-appearance:textfield; }
+.register input[type=number] { -moz-appearance:textfield; }
 
 .name {
     float: left;
@@ -134,14 +134,14 @@ input[type=number] { -moz-appearance:textfield; }
     width: 100%;
 }
 
-select {
+.register select {
     background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
     outline: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
 
-select::-ms-expand {
+.register select::-ms-expand {
     display: none;
 }
 
@@ -195,7 +195,7 @@ select::-ms-expand {
 }
 
 @media screen and (max-width: 480px) {
-    h1 {
+    .register h1 {
         font-size: 26px;
     }
 
@@ -209,7 +209,7 @@ select::-ms-expand {
 }
 
 @media screen and (max-width: 420px) {
-    h1 {
+    .register h1 {
         font-size: 18px;
     }
 
@@ -222,7 +222,7 @@ select::-ms-expand {
         width: 53px;
     }
 
-    input[type='text'], [type='email'], select, textarea {
+    .register input[type='text'], [type='email'], select, textarea {
         font-size: 0.875em;
     }
 }

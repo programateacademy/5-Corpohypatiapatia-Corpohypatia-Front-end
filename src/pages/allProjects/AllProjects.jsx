@@ -58,7 +58,7 @@ function AllProjects() {
     return (
         <section className="all-project">
 
-            <h1>Proyectos</h1>
+            {/* <h1>Proyectos</h1> */}
 
             <section className="filters">
                 <div className='search'>

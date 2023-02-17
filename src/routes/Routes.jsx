@@ -7,6 +7,9 @@ import ProjectCreate from "../pages/projectCreate/ProjectCreate";
 import ProjectDetails from "../pages/projectDetails/ProjectDetails"
 import Checklist from "../pages/projectDetails/Checklist";
 
+import Login from "../pages/login/Login"
+import UserRegister from "../pages/userRegister/UserRegister"
+
 import { ScrollToTop } from "../components/common/ScrollToTop";
 
 const AllRoutes = () => {
@@ -19,6 +22,8 @@ const AllRoutes = () => {
                 <Route path='/admin-projects' element={<AllProjects/>} />
                 <Route path='/admin-projects/:id' element={<ProjectDetails/>} />
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
+                <Route path='/login' element={<Login/>} />
+                <Route path='/user-register' element={<UserRegister/>} />
 
                 <Route path='/checklist' element={<Checklist/>} />
             </Routes>
