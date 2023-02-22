@@ -9,6 +9,9 @@ import Checklist from "../pages/projectDetails/Checklist";
 import Login from "../pages/login/Login"
 
 import { ScrollToTop } from "../components/common/ScrollToTop";
+import AllUsers from "../pages/allUsers/AllUsers";
+import CreateUser from "../pages/allUsers/CreateUser";
+import EditUser from "../pages/allUsers/EditUser";
 
 const AllRoutes = () => {
     return (
@@ -22,6 +25,9 @@ const AllRoutes = () => {
                 <Route path='/admin-projects' element={<AllProjects/>} />
                 <Route path='/admin-projects/:id' element={<ProjectDetails/>} />
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
+                <Route path='/users' element={<AllUsers/>}/>
+                <Route path='/create-user' element={<CreateUser/>}/>
+                <Route path='/edit-user/:id' element={<EditUser/>}/>
 
                 <Route path='/checklist' element={<Checklist/>} />
             </Routes>
