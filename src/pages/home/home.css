@@ -1,34 +1,34 @@
 /*home*/
-.graphic img{
+.graphic-image img{
     width: 300px;
     height: auto;
 }
 @media (min-width: 576px){
-    .graphic img{
+    .graphic-image img{
         width: 400px;
         height: auto;
     }
 }
 @media (min-width: 768px){
-    .graphic img{
+    .graphic-image img{
         width: 400px;
         height: auto;
     }
 }
 @media (min-width: 992px){
-    .graphic img{
+    .graphic-image img{
         width: 550px;
         height: auto;
     }
 }
 @media (min-width: 1200px){
-    .graphic img{
+    .graphic-image img{
         width: 600px;
         height: auto;
     }
 }
 @media (min-width: 1400px){
-    .graphic img{
+    .graphic-image img{
         width: 700px;
         height: auto;
     }

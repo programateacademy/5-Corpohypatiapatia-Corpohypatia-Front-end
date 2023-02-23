@@ -36,3 +36,7 @@
 .form-group textarea:focus{
     outline: 1px solid rgb(108, 108, 252);
 } */
+
+.box-step{
+    margin: auto;
+}

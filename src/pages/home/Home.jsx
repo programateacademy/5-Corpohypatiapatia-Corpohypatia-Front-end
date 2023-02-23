@@ -1,10 +1,11 @@
 // import image for carousel
-import graphic from '../../assets/img/grafico.png'
+import Graphic from '../../assets/img/grafico.png'
 import logo from '../../assets/img/logo.jpg'
 import organi from '../../assets/img/organigrama.png'
 import onu from '../../assets/img/min-onu.png'
 import './home.css'
 import Header from '../../components/layouts/header/Header'
+import Footer from '../../components/layouts/footer/Footer'
 
 function Home() {
     return (
@@ -21,8 +22,8 @@ function Home() {
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-                        <div className="graphic">
-                            <img src={graphic} alt="graphic piece" width="700" className="rounded mx-auto d-block" />
+                        <div className="graphic-image">
+                            <img src={Graphic} alt="graphic piece" width="700" className="rounded mx-auto d-block" />
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ function Home() {
                     <img src={onu} alt="asociaciones" className='img-fluid'/>
                 </div>
             </div>
-
+            <Footer/>
         </>
     );
 }
