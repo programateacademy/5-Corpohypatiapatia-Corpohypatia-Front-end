@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
-import { MdNoteAdd } from 'react-icons/md'
-import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl, TextField } from '@mui/material';
+import { BsFolderX, BsFolderPlus } from 'react-icons/bs'
+import Swal from 'sweetalert2'
+import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
+
+const FormControl = styled(Group)`
+    margin:10px 0;
+`;
 
 const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad'];
 
@@ -21,6 +26,7 @@ function StepperComponent() {
                                     label="Título del proyecto"
                                     variant="outlined"
                                     name="project_title"
+                                    value={project.project_title}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -31,6 +37,7 @@ function StepperComponent() {
                                     label="Ubicación geográfica"
                                     variant="outlined"
                                     name="project_location"
+                                    value={project.project_location}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -41,6 +48,7 @@ function StepperComponent() {
                                     label="Duración del proyecto"
                                     variant="outlined"
                                     name="project_duration"
+                                    value={project.project_duration}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -51,6 +59,7 @@ function StepperComponent() {
                                     label="Presupuesto"
                                     variant="outlined"
                                     name="project_budget"
+                                    value={project.project_budget}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -62,6 +71,7 @@ function StepperComponent() {
                                     rows={3}
                                     label="Sector de intervención"
                                     name="intervention_sector"
+                                    value={project.intervention_sector}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -72,6 +82,7 @@ function StepperComponent() {
                                     label="Dirección de imagen"
                                     variant="outlined"
                                     name="imagePath"
+                                    value={project.imagePath}
                                     // value="https://i.postimg.cc/c4BYckQ7/proyecto.jpg"
                                     onChange={(e) => onValueChange(e)}
                                 />
@@ -90,6 +101,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Resumen de la problemática que se quiere abordar"
                                     name="problematic_summary"
+                                    value={project.problematic_summary}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -101,6 +113,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Beneficiarios"
                                     name="beneficiaries"
+                                    value={project.beneficiaries}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -112,6 +125,7 @@ function StepperComponent() {
                                     rows={3}
                                     label="Resumen ejecutivo del proyecto"
                                     name="executive_summary"
+                                    value={project.executive_summary}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -123,6 +137,7 @@ function StepperComponent() {
                                     rows={3}
                                     label="Alineación del proyecto con políticas públicas y prioridades"
                                     name="alignment"
+                                    value={project.alignment}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -140,6 +155,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Resumen de la problemática que se quiere abordar"
                                     name="methodology_summary"
+                                    value={project.methodology_summary}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -151,6 +167,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Objetivo general"
                                     name="general_objetive"
+                                    value={project.general_objetive}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -202,6 +219,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Experiencia y capacidad"
                                     name="experience"
+                                    value={project.experience}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -213,6 +231,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Elementos que aseguren sostenibilidad económica, social y ambiental"
                                     name="sustainability"
+                                    value={project.sustainability}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -224,6 +243,7 @@ function StepperComponent() {
                                     rows={2}
                                     label="Estrategia de salida al finalizar el proyecto"
                                     name="exit_strategy"
+                                    value={project.exit_strategy}
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -254,6 +274,10 @@ function StepperComponent() {
         exit_strategy: ""
     };
 
+    // const local = (field, value) => {
+    //     localStorage.setItem(field, value);
+    // };
+
     //Project add
     const [project, setProject] = useState(defaultValue);
 
@@ -262,7 +286,10 @@ function StepperComponent() {
 
     //function that updates the state of the form whenever a change occurs in a form element
     const onValueChange = (e) => {
+        // local(e.target.name, e.target.value)
         setProject({ ...project, [e.target.name]: e.target.value });
+        // console.log(e.target.name, e.target.value)
+
     };
 
     //function that adds project details to a database
@@ -305,15 +332,31 @@ function StepperComponent() {
     };
 
     const handleReset = () => {
-        setActiveStep(0);
-        localStorage.removeItem('activeStep');
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: `Estás cancelando la creación del proyecto ${project.project_title}`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Si, cancelar creación',
+            cancelButtonText:'No, seguir editando'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setActiveStep(0);
+                setProject(defaultValue)
+                localStorage.removeItem('activeStep');
+            }
+        })
+        // setActiveStep(0);
+        // localStorage.removeItem('activeStep');
     };
 
     const buttonPage = () => {
         if (activeStep === steps.length - 1) {
             return (
                 <Button variant="contained" className="btn-create" onClick={() => addProjectDetails()}>
-                    <MdNoteAdd className="icon-create"/>Crear proyecto
+                    <BsFolderPlus className="step-icon" />Crear proyecto
                 </Button>
             );
         }
@@ -328,7 +371,7 @@ function StepperComponent() {
     }
 
     return (
-        <div >
+        <div className='step'>
             <Stepper activeStep={activeStep}>
                 {steps.map((label) => (
                     <Step key={label}>
@@ -339,22 +382,23 @@ function StepperComponent() {
             <Box my={3}>
                 <Typography >{getStepContent(activeStep)}</Typography>
             </Box>
-            <div>
-                <Button disabled={activeStep === 0} onClick={handleBack} >
-                    Back
+            <div className='buttons'>
+                <Button variant="outlined" color="error" onClick={handleReset} >
+                    <BsFolderX className="step-icon icon-delete" />Cancelar
                 </Button>
-                <Button variant="contained" color="primary" onClick={handleReset} >
-                        Reset
-                </Button>
-                {buttonPage()}
-
-                {/* {activeStep === steps.length - 1 ? (
+                <div className='buttons-create'>
+                    <Button disabled={activeStep === 0} onClick={handleBack} >
+                        Anterior
+                    </Button>
+                    {buttonPage()}
+                    {/* {activeStep === steps.length - 1 ? (
                     <Button variant="contained" color="primary" onClick={handleReset} >
-                        Reset
+                        Reset   
                     </Button>
                 ) : (
                     buttonPage()
                 )} */}
+                </div>
             </div>
         </div>
     );

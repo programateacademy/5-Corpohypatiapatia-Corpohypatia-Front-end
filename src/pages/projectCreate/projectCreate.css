@@ -1,46 +1,36 @@
-/* .add-form{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 70%;
-    margin: 40px auto;
-} */
+.step{
+    width: 90%;
+    margin: auto;
+}
 
-.add-form{
+.step .add-form{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 65%;
     margin: 40px auto;
 }
 
-.icon-create{
+.step .step-icon{
     color: white;
     margin-right: 6px;
+    font-size: 20px;
 }
 
-/* .form-group{
+.step .icon-delete{
+    color: red;
+}
+
+.step .buttons{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
 }
 
-.form-group input,
-.form-group textarea{
-    border-radius: 5px;
-    margin-top: 5px;
-    border: none;
-    outline: none;
-    background: #F5F4FA;
-    padding: 5px 10px;
+.step .buttons-create{
+    display: flex;
+    justify-content: space-between;
 }
-
-.form-group input{
-    height: 30px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-    outline: 1px solid rgb(108, 108, 252);
-} */
 
 .box-step{
     margin: auto;

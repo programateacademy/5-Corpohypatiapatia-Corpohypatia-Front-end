@@ -117,7 +117,7 @@ const linksArray = [
     {
         label: "Crear proyectos",
         icon: <VscNewFolder />,
-        to: "/admin-create-project",
+        to: "/step",
     },
     {
         label: "Lista de usuarios",
