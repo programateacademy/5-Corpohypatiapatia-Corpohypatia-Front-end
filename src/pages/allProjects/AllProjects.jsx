@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import CardProject from "../../components/common/cardProject/CardProject";
+import CardProjects from "../../components/common/cardProject/CardProjects";
 import { Link } from "react-router-dom";
 
 import './allProjects.css'
@@ -9,6 +9,7 @@ import { FaSearch } from 'react-icons/fa'
 // import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
 
 import { getProjects } from "../../service/api";
+import CircularGraphic from "../../components/common/graphic/CircularGraphic";
 
 function AllProjects() {
 
@@ -54,9 +55,27 @@ function AllProjects() {
         setPageNumber(selected);
     };
 
+    const data = {
+        labels: ['Valor', 'Resto'],
+        datasets: [
+            {
+                data: [15, 100 - 15],
+                backgroundColor: ['#36A2EB', '#FFCE56'],
+                hoverBackgroundColor: ['#36A2EB', '#FFCE56'],
+            },
+        ],
+    };
+    
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+    };
+
 
     return (
         <section className="all-project">
+
+            {/* <div className="circular-graphic"><CircularGraphic data={data} options={options}/></div> */}
 
             {/* <h1>Proyectos</h1> */}
 
@@ -76,7 +95,7 @@ function AllProjects() {
                 <div className='projects-cards'>
                     {displayPage.map((item) => (
                         <Link to={`/admin-projects/${item._id}`}>
-                        <CardProject
+                        <CardProjects
                             key={item.id}
                             item={item}
                         /></Link>

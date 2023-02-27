@@ -10,6 +10,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px 40px;
     width: 90%;
+    max-width: 990px;
     margin: auto;
 }
 
@@ -84,4 +85,9 @@
     background-color:#719ef7c9;
     border-radius: 2px;
 }
-    
+
+
+/* .circular-graphic{
+    width: 200px;
+    height: 200px;
+} */
