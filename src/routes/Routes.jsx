@@ -6,6 +6,7 @@ import AllProjects from "../pages/allProjects/AllProjects";
 import ProjectCreate from "../pages/projectCreate/ProjectCreate";
 import ProjectDetails from "../pages/projectDetails/ProjectDetails"
 import Checklist from "../pages/projectDetails/Checklist";
+import ProjectEdit from "../pages/projectEdit/projectEdit";
 
 import Login from "../pages/login/Login"
 import UserRegister from "../pages/userRegister/UserRegister"
@@ -22,6 +23,7 @@ const AllRoutes = () => {
                 <Route path="/home" element={<Navigate to="/"/>} />
                 <Route path='/admin-projects' element={<AllProjects/>} />
                 <Route path='/admin-projects/:id' element={<ProjectDetails/>} />
+                <Route path='/admin-projects/edit/:id' element={<ProjectEdit/>} />
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/user-register' element={<UserRegister/>} />

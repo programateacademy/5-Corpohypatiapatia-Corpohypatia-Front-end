@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
-import { BsFolderX, BsFolderPlus } from 'react-icons/bs'
+import { BsFolderX, BsFolderPlus, BsTrashFill } from 'react-icons/bs'
 import Swal from 'sweetalert2'
 import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
 
 const FormControl = styled(Group)`
-    margin:10px 0;
+    margin: 10px 0;
 `;
 
 const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad'];
@@ -82,8 +82,8 @@ function StepperComponent() {
                                     label="Dirección de imagen"
                                     variant="outlined"
                                     name="imagePath"
+                                    type="file"
                                     value={project.imagePath}
-                                    // value="https://i.postimg.cc/c4BYckQ7/proyecto.jpg"
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
@@ -147,7 +147,7 @@ function StepperComponent() {
             case 2:
                 return (
                     <div>
-                        <form className="add-form" onSubmit={handleSubmit}>
+                        <form className="add-form" >
                             <FormControl>
                                 <TextField
                                     id="outlined-multiline-static"
@@ -191,6 +191,52 @@ function StepperComponent() {
                                     multiline
                                     rows={1}
                                     label="Objetivo específico"
+                                    type="text"
+                                    value={newFeature}
+                                    onChange={handleFeatureChange}
+                                />
+                                
+                                <Button 
+                                    type="button" 
+                                    onClick={handleAddFeature}>
+                                        Agregar otro objetivo específico
+                                </Button>
+
+                                <ul className='list-objetives'>
+                                    {specific_objectives.map((feature, index) => (
+                                        <li key={index} className="objetive">
+                                            {feature}
+                                            <button 
+                                                type="button" 
+                                                className="bton-trash" 
+                                                onClick={() => handleRemoveFeature(index)}>
+                                                    <BsTrashFill className='icon-trash'/>
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                            {/* <label>
+                                Features:
+                                <ul>
+                                    {specific_objectives.map((feature, index) => (
+                                        <li key={index}>
+                                            {feature}
+                                            <button type="button" onClick={() => handleRemoveFeature(index)}>x</button>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <input type="text" value={newFeature} onChange={handleFeatureChange} name="specific_objectives" />
+                                <button type="button" onClick={handleAddFeature}>Add Feature</button>
+                            </label> */}
+                            </FormControl>
+
+                            {/* <FormControl>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    multiline
+                                    rows={1}
+                                    label="Objetivo específico"
                                     name="specific_objective"
                                     type="text"
                                     value={newData}
@@ -204,7 +250,19 @@ function StepperComponent() {
                                 {data.map((dato, index) => (
                                     <li key={index}>{dato}</li>
                                 ))}
-                            </ul>
+                            </ul>*/}
+
+                            <FormControl>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    multiline
+                                    rows={2}
+                                    value={[specific_objectives]}
+                                    label="Enviar objetivos"
+                                    name="specific_objectives"
+                                
+                                />
+                            </FormControl> 
                         </form>
                     </div>
                 );
@@ -255,6 +313,27 @@ function StepperComponent() {
         }
     };
 
+    //specific objetives
+    const [specific_objectives, setFeatures] = useState([]);
+    const [newFeature, setNewFeature] = useState('');
+
+    const handleFeatureChange = (e) => {
+        setNewFeature(e.target.value);
+    }
+
+    const handleAddFeature = () => {
+        setFeatures([...specific_objectives, newFeature]);
+        setNewFeature('');
+    }
+
+    const handleRemoveFeature = (index) => {
+        const newFeatures = [...specific_objectives];
+        newFeatures.splice(index, 1);
+        setFeatures(newFeatures);
+    }
+
+    console.log(specific_objectives)
+    //---------------------------------------------------------------
     const defaultValue = {
         project_title: "",
         project_location: "",
@@ -268,7 +347,7 @@ function StepperComponent() {
         alignment: "",
         methodology_summary: "",
         general_objetive: "",
-        specific_objectives: "",
+        specific_objectives: [],
         experience: "",
         sustainability: "",
         exit_strategy: ""
@@ -298,19 +377,19 @@ function StepperComponent() {
         navigate('/admin-projects');
     }
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
 
-    const addData = (dato) => {
-        setData([...data, dato]);
-    };
+    // const addData = (dato) => {
+    //     setData([...data, dato]);
+    // };
 
-    const [newData, setNewData] = useState("");
+    // const [newData, setNewData] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        addData(newData);
-        setNewData("");
-    };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     addData(newData);
+    //     setNewData("");
+    // };
 
     const [activeStep, setActiveStep] = useState(0);
 
@@ -340,7 +419,7 @@ function StepperComponent() {
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Si, cancelar creación',
-            cancelButtonText:'No, seguir editando'
+            cancelButtonText: 'No, seguir editando'
         }).then((result) => {
             if (result.isConfirmed) {
                 setActiveStep(0);
@@ -379,7 +458,7 @@ function StepperComponent() {
                     </Step>
                 ))}
             </Stepper>
-            <Box my={3}>
+            <Box my={3} className="step-content">
                 <Typography >{getStepContent(activeStep)}</Typography>
             </Box>
             <div className='buttons'>
@@ -391,13 +470,6 @@ function StepperComponent() {
                         Anterior
                     </Button>
                     {buttonPage()}
-                    {/* {activeStep === steps.length - 1 ? (
-                    <Button variant="contained" color="primary" onClick={handleReset} >
-                        Reset   
-                    </Button>
-                ) : (
-                    buttonPage()
-                )} */}
                 </div>
             </div>
         </div>

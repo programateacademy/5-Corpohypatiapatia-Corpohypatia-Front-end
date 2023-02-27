@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProject } from "../../service/api";
+import { Link } from "react-router-dom";
 
-import ReadMore from "./ReadMore";
+// import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
@@ -48,12 +49,13 @@ function ProjectDetails() {
                 Estrategia de bienestar emocional de niños y niñas de 5 a 12 años en el municipio de Bucaramanga, Santander.
               </p>
             </div>
-            
-            {/* <div className="boton-edit">
+
+            <Link to={`/admin-projects/edit/${project._id}`} className="button edit">
               <button className="boton-editar">
                 Editar <RiFileEditLine className="icon-edit" />
               </button>
-            </div> */}
+            </Link>
+
           </div>
 
           <div className="elemento-avance">
@@ -221,26 +223,26 @@ function ProjectDetails() {
                   role="tabpanel"
                   aria-labelledby="resultados-tab"
                 >
-                <div className="card-body">
-                  {project.methodology_summary} <br /> <br />
-                  <h5 className="card-title">Objetivo general</h5>
-                  <hr />
-                  {project.general_objetive} <br /> <br />
+                  <div className="card-body">
+                    {project.methodology_summary} <br /> <br />
+                    <h5 className="card-title">Objetivo general</h5>
+                    <hr />
+                    {project.general_objetive} <br /> <br />
 
-                  <h5 className="card-title">Objetivos específicos</h5>
-                  <hr />
-                  •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br /><br />
-                  •	Potenciar dinámicas familiares, comunitarias e institucionales de corresponsabilidad para la  activación de entornos protectores de los NN de la zona involucrada en el proyecto.
-                </div></div>
+                    <h5 className="card-title">Objetivos específicos</h5>
+                    <hr />
+                    •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br /><br />
+                    •	Potenciar dinámicas familiares, comunitarias e institucionales de corresponsabilidad para la  activación de entornos protectores de los NN de la zona involucrada en el proyecto.
+                  </div></div>
                 <div
                   class="tab-pane fade"
                   id="ficha"
                   role="tabpanel"
                   aria-labelledby="ficha-tab"
                 ><div className="card-body">
-                  <h5 className="card-title">Experiencia y capacidad</h5>
-                  <hr />
-                  {project.experience}</div>
+                    <h5 className="card-title">Experiencia y capacidad</h5>
+                    <hr />
+                    {project.experience}</div>
                 </div>
                 <div
                   class="tab-pane fade"
@@ -248,13 +250,13 @@ function ProjectDetails() {
                   role="tabpanel"
                   aria-labelledby="contact-tab"
                 ><div className="card-body">
-                  <h5 className="card-title">Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto</h5>
-                  <hr /> 
-                  {project.sustainability}<br /><br />
+                    <h5 className="card-title">Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto</h5>
+                    <hr />
+                    {project.sustainability}<br /><br />
 
-                  <h5 className="card-title">Estrategia de salida al finalizar el proyecto</h5>
-                  <hr />
-                  {project.exit_strategy}</div>
+                    <h5 className="card-title">Estrategia de salida al finalizar el proyecto</h5>
+                    <hr />
+                    {project.exit_strategy}</div>
                 </div>
               </div>
             </div>
