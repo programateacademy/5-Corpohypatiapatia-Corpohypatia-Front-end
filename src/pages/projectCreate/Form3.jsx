@@ -7,23 +7,23 @@ function Form3() {
   return (
     <div className="form3">
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <label>Principales resultados de indicadores</label>
-          <div class="col-sm-12">
-            <textarea class="form-control" rows="1" placeholder=""></textarea>
+          <div className="col-sm-12">
+            <textarea className="form-control" rows="1" placeholder=""></textarea>
           </div>
           <br />
 
           <label>Indicadores</label>
-          <div class="col-sm-12">
-            <textarea class="form-control" rows="1" placeholder=""></textarea>
+          <div className="col-sm-12">
+            <textarea className="form-control" rows="1" placeholder=""></textarea>
           </div>
           <br />
 
           <label>Actividadades asociadas a los indicadores</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <textarea
-              class="form-control"
+              className="form-control"
               id="exampleFormControlTextarea1"
               rows="1"
               placeholder=""
@@ -32,19 +32,19 @@ function Form3() {
           <br />
 
           <label>Experiencia y capacidad</label>
-          <div class="col-sm-12">
-            <textarea class="form-control" rows="1" placeholder=""></textarea>
+          <div className="col-sm-12">
+            <textarea className="form-control" rows="1" placeholder=""></textarea>
           </div>
           <br />
 
           <label>Sostenibilidad y estrategia de salida</label>
-          <div class="col-sm-12">
-            <textarea class="form-control" rows="1" placeholder=""></textarea>
+          <div className="col-sm-12">
+            <textarea className="form-control" rows="1" placeholder=""></textarea>
             <br />
 
             <label>Estrategia de escape</label>
-            <div class="col-sm-12">
-              <textarea class="form-control" rows="1" placeholder=""></textarea>
+            <div className="col-sm-12">
+              <textarea className="form-control" rows="1" placeholder=""></textarea>
             </div>
           </div>
           <br />

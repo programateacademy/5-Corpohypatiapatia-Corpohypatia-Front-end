@@ -8,8 +8,7 @@ export const SSidebar = styled.div`
     background: ${({ theme }) => theme.bg};
     height: 100vh;
     padding: ${v.lgSpacing};
-    z-index: 100;
-    position: sticky;
+    position: fixed;
 
   @media (max-width: 350px){
     width: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};
@@ -37,7 +36,7 @@ export const SSidebarButton = styled.button`
 export const SLogo = styled.div`
     width: ${({ isOpen }) => (!isOpen ? `42` : `75px`)};
     display: flex;
-  
+
     img {
         max-width: 100%;
         height: auto;

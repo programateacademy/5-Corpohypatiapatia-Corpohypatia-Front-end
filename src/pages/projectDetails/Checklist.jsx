@@ -4,7 +4,13 @@ import './checklist.css'
 
 function Checklist() {
     const tasks = [
-        {
+        {   
+            result:"Se afianza la apropiación colectiva acerca del panorama de riesgos situacional y Línea de base (LdB) sobre capacidades y necesidades de bienestar emocional de NN de 5 a 12 años en cinco (5) barrios de la Comuna 1 de Bucaramanga.",
+            indicators:[
+                "250 niñas y niñas de 5 a 12 años que auto reconocen sus emociones, necesidades y capacidades",
+                "5 barrios de Bucaramanga de la Comuna 1 cuentan con un mapa de sueños que identifica riesgos y vulnerabilidades a niñas y niños de 5 a 12 años con enfoques diferenciales",
+                "5 barrios de Bucaramanga de la Comuna 1 identifican factores protectores institucionales y comunitarios para la población diana"
+            ],
             title: "Actividades Resultado 1",
             subtasks: [
                 "Realización de encuentros psicosociales “Sintiendo la vida” con población diana para análisis situacional desde enfoque participativo y diferenciales.",
@@ -13,6 +19,11 @@ function Checklist() {
             ],
         },
         {
+            result:"La población de NN reconoce e incorpora estrategias para la resiliencia, el control de impulsos y afrontamiento de emociones negativas.",
+            indicators: [
+                "250 niñas y niños participan activa y comprometidamente en la gestión de estrategias de bienestar emocional",
+                "250 niñas y niños que apropian mecanismos de gestión resiliente de sus emociones",
+            ],
             title: "Actividades Resultado 2",
             subtasks: [
                 "Realización de sesiones de reconocimiento mutuo, establecimiento de redes de confianza y encuadre participativo del plan de educación emocional y resiliencia para NN.",
@@ -45,30 +56,15 @@ function Checklist() {
     const total = progressValues.reduce((sum, value) => sum + value, 0);
     const percentageGeneral = (total / (progressValues.length * 100)).toFixed(2);
 
-    // const totalProgress = progressValues.reduce((acc, value) => acc + value, 0);
-    // const averageProgress = totalProgress / progressValues.length;
-    // const overallPercentage = `${averageProgress}%`;
-
-    // console.log(overallPercentage);
-
-
-    // const progressElements = document.querySelectorAll('.percentage');
-    // console.log(progressElements)
-
-    // const progressValues = Array.from(progressElements).map(element => parseInt(element.getAttribute('data-progress')));
-    // console.log(progressValues)
-
-    // const totalProgress = progressValues.reduce((accumulator, currentValue) => accumulator + currentValue) / progressValues.length;
-
-
     return (
         <>
             <div>
-                Progreso general: {percentageGeneral}
+                {/* Progreso general: {percentageGeneral} */}
             </div>
             <div>
                 {tasks.map((task, index) => (
-                    <Task key={index} title={task.title} subtasks={task.subtasks} />
+                    <><br /><h3>Resultado {index +1}</h3>
+                    <Task key={index} title={task.title} subtasks={task.subtasks} indicators={task.indicators} result={task.result} /></>
                 ))}
             </div>
         </>

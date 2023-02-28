@@ -1,38 +1,95 @@
-/* .add-form{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 70%;
-    margin: 40px auto;
-} */
+.step{
+    width: 90%;
+    margin: auto;
+}
+
+.step-content{
+    height: 70vh;
+}
 
 .add-form{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 65%;
     margin: 40px auto;
 }
 
-/* .form-group{
+.card .add-form{
+    width: 80%;
+}
+
+.step .step-icon{
+    color: white;
+    margin-right: 6px;
+    font-size: 20px;
+}
+
+.step .icon-delete{
+    color: red;
+}
+
+.step .buttons{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
 }
 
-.form-group input,
-.form-group textarea{
-    border-radius: 5px;
-    margin-top: 5px;
+.step .buttons-create{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-step{
+    margin: auto;
+}
+
+.list-objetives{
+    padding: 0;
+}
+
+.objetive{
+    list-style: none;
+    width: 100%;
+    height: auto;
+    padding: 5px 20px;
+    margin: 5px 0;
+    background-color: rgb(225, 225, 252);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bton-trash{
+    background: rgb(159, 6, 6);
+    color: white;
     border: none;
-    outline: none;
-    background: #F5F4FA;
-    padding: 5px 10px;
+    border-radius: 4px;
 }
 
-.form-group input{
-    height: 30px;
+.bton-trash .icon-trash{
+    font-size: 15px;
+    margin: 5px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus{
-    outline: 1px solid rgb(108, 108, 252);
-} */
+.data-title{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-title .btns-actions{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-btn{
+    text-decoration: none;
+}
+
+.title-edit{
+    font-size: 30px;
+}

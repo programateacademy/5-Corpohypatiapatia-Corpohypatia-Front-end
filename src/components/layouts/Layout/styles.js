@@ -4,13 +4,14 @@ import { v } from "../../../styles/variables";
 
 export const SLayout = styled.div`
     display: flex;
+    width:100%;
+    height:100vh;
 `;
 
 export const SMain = styled.main`
     padding: calc(${v.smSpacing} * 2);
-
+    margin-left: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};
     width:100%;
-
     h1 {
         font-size: 14px;
     }

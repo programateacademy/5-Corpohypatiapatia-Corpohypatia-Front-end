@@ -53,7 +53,7 @@ const UserRegister = () => {
     };
 
     return(
-        <div id="container">
+        <div id="container" className="register">
             <h1>&bull; REGISTRO DE USUARIOS &bull;</h1>
             <div className="underline">
             </div>

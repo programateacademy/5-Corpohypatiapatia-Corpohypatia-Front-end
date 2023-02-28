@@ -17,7 +17,6 @@ const App = () => {
             <ThemeProvider theme={themeStyle}>
                 <GlobalStyle />
                 <Helmet>
-                    
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                     <link
@@ -26,10 +25,9 @@ const App = () => {
                     />
                 </Helmet>
                 <>
-                    <Routes/>
-                    {/* <Layout>
+                    <Layout>
                         <Routes />
-                    </Layout> */}
+                    </Layout>
                 </>
             </ThemeProvider>
         </ThemeContext.Provider>
@@ -38,22 +36,3 @@ const App = () => {
 
 export default App;
 
-// import React from "react";
-// import { BrowserRouter } from 'react-router-dom';
-
-// //Components
-
-
-// import AllRoutes from "./routes/Routes"
-
-// function App() {
-// 	return (
-// 		<>
-// 			<BrowserRouter>
-// 				<AllRoutes />
-// 			</BrowserRouter>
-// 		</>
-// 	);
-// }
-
-// export default App;

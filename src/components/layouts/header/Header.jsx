@@ -54,7 +54,7 @@ function Header() {
                                 <button className="btn btn-outline-success" type="submit">Buscar</button>
                         </form>
                             <li className="nav-item ms-auto">
-                                <a className="nav-link active" aria-current="page" href="/">Iniciar sesión</a>
+                                <a className="nav-link active" aria-current="page" href="/login">Iniciar sesión</a>
                             </li>
                         </ul>
                     </div>
