@@ -1,46 +1,47 @@
 import axios from "axios";
 
-const URL = "http://localhost:4000";
+const URL = "http://localhost:8000";
 
 export const addProject = async (data) => {
   try {
-    return await axios.post(`${URL}/add`, data);
+      return await axios.post(`${URL}/add`, data);
   } catch (e) {
-    console.log("Error while calling add User Api", e);
+      console.log("Error while calling project Api", e);
   }
 };
 
 export const getProjects = async () => {
   try {
-    return await axios.get(`${URL}`);
+      return await axios.get(`${URL}`);
   } catch (e) {
-    console.log("Error while calling getMovies API", e);
+      console.log("Error while calling getProject API", e);
   }
 };
 
 export const getProject = async (id) => {
   try {
-    return await axios.get(`${URL}/${id}`);
+      return await axios.get(`${URL}/${id}`);
   } catch (e) {
-    console.log("Error while calling getMovie api", e);
+      console.log("Error while calling getProject api", e);
   }
 };
 
-export const editProject = async (movie, id) => {
+export const editProject = async (project, id) => {
   try {
-    return await axios.put(`${URL}/${id}`, movie);
+      return await axios.put(`${URL}/${id}`, project);
   } catch (e) {
-    console.log("Error while calling editUser api", e);
+      console.log("Error while calling editProject api", e);
   }
 };
+
 
 export const deleteProject = async (id) => {
   try {
-    return await axios.delete(`${URL}/${id}`);
+      return await axios.delete(`${URL}/${id}`);
   } catch (e) {
-    console.log("Error while callign deleteUser api", e);
+      console.log('Error while callign deleteProject api', e)
   }
-};
+}
 
 export const signIn = async (user) => {
   try {
