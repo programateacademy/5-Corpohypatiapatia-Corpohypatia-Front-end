@@ -319,7 +319,7 @@ function StepperComponent() {
         setFeatures(newFeatures);
     }
 
-    // --------------------------------------------
+    // -----------------------------------------------------------
     const defaultValue = {
         project_title: "",
         project_location: "",
