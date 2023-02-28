@@ -1,3 +1,4 @@
+
 // import image for carousel
 import graphic from '../../assets/img/grafico.png'
 import logo from '../../assets/img/logo.jpg'
