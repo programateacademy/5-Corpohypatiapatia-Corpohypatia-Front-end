@@ -173,18 +173,6 @@ function StepperComponent() {
                             </FormControl>
 
                             <h3>Objetivos específicos</h3>
-
-                            {/* <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={1}
-                                    label="Objetivo específico"
-                                    name="specific_objectives"
-                                    onChange={(e) => onValueChange(e)}
-                                />
-                            </FormControl> */}
-
                             <FormControl>
                                 <TextField
                                     id="outlined-multiline-static"
@@ -215,43 +203,7 @@ function StepperComponent() {
                                         </li>
                                     ))}
                                 </ul>
-
-                            {/* <label>
-                                Features:
-                                <ul>
-                                    {specific_objectives.map((feature, index) => (
-                                        <li key={index}>
-                                            {feature}
-                                            <button type="button" onClick={() => handleRemoveFeature(index)}>x</button>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <input type="text" value={newFeature} onChange={handleFeatureChange} name="specific_objectives" />
-                                <button type="button" onClick={handleAddFeature}>Add Feature</button>
-                            </label> */}
                             </FormControl>
-
-                            {/* <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={1}
-                                    label="Objetivo específico"
-                                    name="specific_objective"
-                                    type="text"
-                                    value={newData}
-                                    onChange={(event) => setNewData(event.target.value)}
-                                />
-                            </FormControl>
-
-                            <Button type="submit">Agregar otro objetivo específico</Button>
-
-                            <ul>
-                                {data.map((dato, index) => (
-                                    <li key={index}>{dato}</li>
-                                ))}
-                            </ul>*/}
-
                             <FormControl>
                                 <TextField
                                     id="outlined-multiline-static"
@@ -321,6 +273,10 @@ function StepperComponent() {
         setNewFeature(e.target.value);
     }
 
+    useEffect(()=>{
+        project.specific_objectives = specific_objectives
+    },[newFeature])
+
     const handleAddFeature = () => {
         setFeatures([...specific_objectives, newFeature]);
         setNewFeature('');
@@ -333,7 +289,7 @@ function StepperComponent() {
     }
 
     console.log(specific_objectives)
-    //---------------------------------------------------------------
+    // --------------------------------------------
     const defaultValue = {
         project_title: "",
         project_location: "",
