@@ -19,7 +19,6 @@ const AllRoutes = () => {
       <Routes>
         {/* <Route path='/' element={<ProjectDetails/>} /> */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Navigate to="/" />} />
         <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/admin-projects" element={<AllProjects />} />
         <Route path="/admin-projects/:id" element={<ProjectDetails />} />
