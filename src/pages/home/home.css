@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
   width: 100vw;
   height: 100vh;
@@ -52,3 +53,10 @@
     padding: 15px 25px;
   }
 }
+=======
+/*home*/
+.carousel-item{
+    max-height: 400px;
+    background-size: contain;
+}
+>>>>>>> c8675fae692eb0cdb25e1abf39435850475b4a72
