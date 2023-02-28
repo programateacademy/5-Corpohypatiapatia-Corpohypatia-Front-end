@@ -112,7 +112,7 @@ const linksArray = [
     {
         label: "Lista de proyectos",
         icon: <VscFolderOpened />,
-        to: "/admin-projects",
+        to: "/projects",
     },
     {
         label: "Crear proyectos",
@@ -122,7 +122,7 @@ const linksArray = [
     {
         label: "Lista de usuarios",
         icon: <HiOutlineUserGroup />,
-        to: "/#",
+        to: "/all-users",
     },
     {
         label: "Agregar usuarios",

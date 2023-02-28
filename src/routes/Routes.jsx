@@ -25,16 +25,17 @@ const AllRoutes = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/home" element={<Navigate to="/" />} />
-        <Route path='/admin-projects' element={<AllProjects />} />
-        <Route path='/admin-projects/:id' element={<ProjectDetails />} />
-        <Route path='/admin-projects/edit/:id' element={<ProjectEdit />} />
-        <Route path='/admin-create-project' element={<ProjectCreate />} />
+        <Route path='/projects' element={<AllProjects />} />
+        <Route path='/projects/:id' element={<ProjectDetails />} />
+        <Route path='/projects/edit/:id' element={<ProjectEdit />} />
+        <Route path='/create-project' element={<ProjectCreate />} />
         <Route path='/checklist' element={<Checklist />} />
         <Route path='/step' element={<Steps />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/all-users" element={<AllUsers />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/user-register" element={<UserRegister />} />
         <Route path="/change-password/:token" element={<ChangePassword />} />
       </Routes>
     </>

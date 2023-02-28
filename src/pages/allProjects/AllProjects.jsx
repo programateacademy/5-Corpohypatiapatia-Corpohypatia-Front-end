@@ -68,7 +68,7 @@ function AllProjects() {
             <section>
                 <div className='projects-cards'>
                     {displayPage.map((item) => (
-                        <Link to={`/admin-projects/${item._id}`}>
+                        <Link to={`/projects/${item._id}`}>
                         <CardProjects
                             key={item.id}
                             item={item}
