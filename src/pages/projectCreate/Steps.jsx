@@ -9,7 +9,7 @@ const FormControl = styled(Group)`
     margin: 10px 0;
 `;
 
-const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad'];
+const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad', 'Resultados'];
 
 function StepperComponent() {
 
@@ -204,17 +204,6 @@ function StepperComponent() {
                                     ))}
                                 </ul>
                             </FormControl>
-                            <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={2}
-                                    value={[specific_objectives]}
-                                    label="Enviar objetivos"
-                                    name="specific_objectives"
-                                
-                                />
-                            </FormControl> 
                         </form>
                     </div>
                 );
@@ -260,6 +249,48 @@ function StepperComponent() {
                         </form>
                     </div>
                 );
+                case 4:
+                    return(
+                        <div>
+                        <form className="add-form">
+                            <FormControl>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    multiline
+                                    rows={2}
+                                    label="Resultado"
+                                    name="experience"
+                                    value={project.experience}
+                                    onChange={(e) => onValueChange(e)}
+                                />
+                            </FormControl>
+
+                            <FormControl>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    multiline
+                                    rows={2}
+                                    label="Elementos que aseguren sostenibilidad económica, social y ambiental"
+                                    name="sustainability"
+                                    value={project.sustainability}
+                                    onChange={(e) => onValueChange(e)}
+                                />
+                            </FormControl>
+
+                            <FormControl>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    multiline
+                                    rows={2}
+                                    label="Estrategia de salida al finalizar el proyecto"
+                                    name="exit_strategy"
+                                    value={project.exit_strategy}
+                                    onChange={(e) => onValueChange(e)}
+                                />
+                            </FormControl>
+                        </form>
+                    </div>
+                    )
             default:
                 return "Paso desconocido";
         }
@@ -288,7 +319,6 @@ function StepperComponent() {
         setFeatures(newFeatures);
     }
 
-    console.log(specific_objectives)
     // --------------------------------------------
     const defaultValue = {
         project_title: "",
@@ -332,20 +362,6 @@ function StepperComponent() {
         await addProject(project);
         navigate('/admin-projects');
     }
-
-    // const [data, setData] = useState([]);
-
-    // const addData = (dato) => {
-    //     setData([...data, dato]);
-    // };
-
-    // const [newData, setNewData] = useState("");
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     addData(newData);
-    //     setNewData("");
-    // };
 
     const [activeStep, setActiveStep] = useState(0);
 

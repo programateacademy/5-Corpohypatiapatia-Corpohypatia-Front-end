@@ -231,8 +231,11 @@ function ProjectDetails() {
 
                     <h5 className="card-title">Objetivos específicos</h5>
                     <hr />
-                    •	Reforzar las competencias de NN de 5 a 12 años para la resiliencia y el afrontamiento de la vulnerabilidad, frente al panorama situacional de riesgos, mediante el conocimiento, auto-reconocimiento de necesidades y capacidades emocionales, incorporando enfoques de género y psicopedagógicos. <br /><br />
-                    •	Potenciar dinámicas familiares, comunitarias e institucionales de corresponsabilidad para la  activación de entornos protectores de los NN de la zona involucrada en el proyecto.
+                    <ul>
+                      {project.specific_objectives.map((elemento) => (
+                        <li key={elemento}>{elemento}</li>
+                      ))}
+                    </ul>
                   </div></div>
                 <div
                   class="tab-pane fade"
