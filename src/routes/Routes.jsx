@@ -15,8 +15,8 @@ import Steps from "../pages/projectCreate/Steps";
 import ResetPassword from "../pages/resetPassword/ResetPassword";
 import ChangePassword from "../pages/changePassword/ChangePassword";
 import AllUsers from "../pages/allUsers/AllUsers";
-import CreateUser from "../pages/allUsers/CreateUser";
-import EditUser from "../pages/allUsers/EditUser";
+// import CreateUser from "../pages/allUsers/CreateUser";
+// import EditUser from "../pages/allUsers/EditUser";
 
 const AllRoutes = () => {
   return (

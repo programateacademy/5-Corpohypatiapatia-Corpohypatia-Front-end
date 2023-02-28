@@ -79,7 +79,7 @@ function StepperComponent() {
                             <FormControl>
                                 <TextField
                                     id="outlined-basic"
-                                    label="Dirección de imagen"
+                                    // label="Dirección de imagen"
                                     variant="outlined"
                                     name="imagePath"
                                     type="file"
