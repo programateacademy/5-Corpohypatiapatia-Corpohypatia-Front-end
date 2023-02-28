@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import CardProjects from "../../components/common/cardProject/CardProjects";
 import { Link } from "react-router-dom";
@@ -24,13 +24,11 @@ function AllProjects() {
         setProjects(response.data);
     };
 
-    const searchedProject = projects.filter((item) => {
-        if (search.value === "") return item;
-
-        if (item.project_title.toLowerCase().includes(search.toLowerCase())) return item;
-    });
-
-    // const [category, setCategory] = useState("All");
+    const searchedProject = useMemo(() => {
+        return projects.filter((item) =>
+            item.project_title.toLowerCase().includes(search.toLowerCase())
+        );
+    }, [search, projects]);
 
     // Pagination
     const [pageNumber, setPageNumber] = useState(0);
@@ -69,10 +67,10 @@ function AllProjects() {
                 <div className='projects-cards'>
                     {displayPage.map((item) => (
                         <Link to={`/projects/${item._id}`}>
-                        <CardProjects
-                            key={item.id}
-                            item={item}
-                        /></Link>
+                            <CardProjects
+                                key={item.id}
+                                item={item}
+                            /></Link>
                     ))}
                 </div>
 
