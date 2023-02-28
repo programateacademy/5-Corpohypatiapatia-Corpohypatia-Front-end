@@ -15,6 +15,7 @@ const App = () => {
   const [theme, setTheme] = useState("light");
   const themeStyle = theme === "light" && lightTheme;
 
+<<<<<<< HEAD
   return (
     <ThemeContext.Provider value={{ setTheme, theme }}>
       <ThemeProvider theme={themeStyle}>
@@ -40,6 +41,19 @@ const App = () => {
     </ThemeContext.Provider>
   );
 };
+=======
+import AllRoutes from "./routes/Routes"
+
+function App() {
+	return (
+		<>
+			<BrowserRouter>
+				<AllRoutes />
+			</BrowserRouter>
+		</>
+	);
+}
+>>>>>>> ivn
 
 export default App;
 
