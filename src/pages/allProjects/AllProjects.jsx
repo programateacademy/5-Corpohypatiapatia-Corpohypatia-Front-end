@@ -10,7 +10,7 @@ import { FaSearch } from 'react-icons/fa'
 
 import { getProjects } from "../../service/api";
 import Sidebar from "../../components/layouts/sidebar/Sidebar";
-import { SLayout, SMain } from "../../components/layouts/layout/styles";
+// import { SLayout, SMain } from "../../components/layouts/layout/styles";
 
 function AllProjects() {
 
@@ -58,9 +58,6 @@ function AllProjects() {
 
 
     return (
-        <SLayout>
-            <Sidebar />
-            <SMain>
                 <section className="all-project">
 
                     <h1>Proyectos</h1>
@@ -102,8 +99,6 @@ function AllProjects() {
                         </div>
                     </section>
                 </section>
-            </SMain>
-        </SLayout>
     );
 }
 

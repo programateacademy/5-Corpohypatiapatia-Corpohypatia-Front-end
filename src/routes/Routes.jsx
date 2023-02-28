@@ -28,6 +28,7 @@ const AllRoutes = () => {
         <Route path="/admin-create-project" element={<ProjectCreate />} />
         <Route path="/checklist" element={<Checklist />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/all-users" element={<AllUsers />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/change-password/:token" element={<ChangePassword />} />
       </Routes>
