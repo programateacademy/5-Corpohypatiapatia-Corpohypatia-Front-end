@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-function Sidebar() {
+/* function Sidebar() {
     const handleLogout = () => {
         localStorage.removeItem("token");
         window.location.reload();
@@ -16,8 +15,7 @@ function Sidebar() {
     );
 }
 
-export default Sidebar;
-=======
+export default Sidebar; */
 import SidebarItem from "./SidebarItem"
 import items from "./data.json"
 import './sidebar.css'
@@ -29,4 +27,3 @@ export default function Sidebar(){
         </div>
     )
 }
->>>>>>> 0b8fe5f8e27d33904bea8dfa5c5fa7561b546e17
