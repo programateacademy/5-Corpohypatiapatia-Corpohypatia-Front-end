@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import Sidebar from "../sidebar/Sidebar";
 import { SLayout, SMain } from "./styles";
 
 const Layout = ({ children }) => {
+    const [open, setOpen] = useState()
+
+    const changeOpen = (handleChange) => {
+        setOpen(handleChange)
+    }
+
     return (
         <SLayout>
-            <Sidebar />
-            <SMain>{children}</SMain>
+            <Sidebar changeOpen={changeOpen}/>
+            <SMain isOpen={open}>{children}</SMain>
         </SLayout>
     );
 };

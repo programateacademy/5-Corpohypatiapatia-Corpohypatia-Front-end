@@ -20,7 +20,7 @@ function StepperComponent() {
                 return (
                     <div>
                         <form className="add-form">
-                            <FormControl>
+                            <FormControl >
                                 <TextField
                                     id="outlined-basic"
                                     label="Título del proyecto"
@@ -319,7 +319,7 @@ function StepperComponent() {
         setFeatures(newFeatures);
     }
 
-    // --------------------------------------------
+    // -----------------------------------------------------------
     const defaultValue = {
         project_title: "",
         project_location: "",
