@@ -8,11 +8,11 @@ function Form2() {
   return (
     <div className="form2">
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <label>Problematica</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <textarea
-              class="form-control"
+              className="form-control"
               rows="1"
               placeholder="Escribre problematica del proyecto"
             ></textarea>
@@ -20,9 +20,9 @@ function Form2() {
           <br />
 
           <label>Beneficios</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <textarea
-              class="form-control"
+              className="form-control"
               rows="1"
               placeholder="Escribe beneficios del proyecto"
             ></textarea>
@@ -30,9 +30,9 @@ function Form2() {
           <br />
 
           <label>Ejecución de Proyecto</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <textarea
-              class="form-control"
+              className="form-control"
               rows="1"
               placeholder="Escribe resumen de proyecto"
             ></textarea>
@@ -40,28 +40,28 @@ function Form2() {
           <br />
 
           <label>Marco Logíco</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Escribe resumen metodologíco"
             />
           </div>
           <br />
 
           <label>Objetivo General</label>
-          <div class="col-sm-12">
+          <div className="col-sm-12">
             <textarea
-              class="form-control"
+              className="form-control"
               rows="1"
               placeholder="Escribe el objetivo general del proyecto"
             ></textarea>
             <br />
 
             <label>Objetivos Especificos</label>
-            <div class="col-sm-12">
+            <div className="col-sm-12">
               <textarea
-                class="form-control"
+                className="form-control"
                 rows="1"
                 placeholder="Escribe los objetivos especificos"
               ></textarea>

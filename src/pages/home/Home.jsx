@@ -1,3 +1,4 @@
+
 // import image for carousel
 import Graphic from '../../assets/img/grafico.png'
 import logo from '../../assets/img/logo.jpg'
@@ -18,7 +19,7 @@ function Home() {
                         <p className=' mt-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque earum repudiandae velit ipsa molestiae perferendis quae voluptate, adipisci et porro qui unde ad? Asperiores, accusamus tenetur obcaecati eos velit delectus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime totam a? Laborum quasi nulla corporis alias ducimus. Ad obcaecati cupiditate ab enim molestiae unde quibusdam eligendi dignissimos tenetur. Incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta vel aut consequatur beatae officia vitae veniam, eos recusandae sequi autem quibusdam dolore asperiores? Sequi, aspernatur odit? Dolorem laboriosam cupiditate ad?</p>
                         {/* buttons */}
                         <div className="mt-5">
-                            <button type="button" class="btn btn-outline-secondary btn-lg">Continuar</button>
+                            <button type="button" className="btn btn-outline-secondary btn-lg">Continuar</button>
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
@@ -44,7 +45,7 @@ function Home() {
                     </div>
                     <div className="col-sm-12 col-md-5 col-lg-5 col-xl-5">
                         <div className="ratio ratio-16x9 mb-5">
-                            <iframe src="" frameborder="0"></iframe>
+                            {/* <iframe src="" frameBorder="0"></iframe> */}
                         </div>
                         <p className="fs-3 text-center">¿Quiénes Somos?</p>
                         <p className="mb-5">La Corporación para la Equidad, la Democracia y el Buen Vivir - CORPORACIÓN HYPATIA, es una organización no gubernamental, sin ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia.

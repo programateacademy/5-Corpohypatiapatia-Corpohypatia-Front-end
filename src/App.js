@@ -1,4 +1,3 @@
-// export default App;
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
