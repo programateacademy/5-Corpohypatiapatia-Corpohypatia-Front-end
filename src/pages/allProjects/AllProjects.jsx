@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import CardProjects from "../../components/common/cardProject/CardProjects";
 import { Link } from "react-router-dom";
@@ -24,11 +24,11 @@ function AllProjects() {
         setProjects(response.data);
     };
 
-    const searchedProject = projects.filter((item) => {
-        if (search.value === "") return item;
-
-        if (item.project_title.toLowerCase().includes(search.toLowerCase())) return item;
-    });
+    const searchedProject = useMemo(() => {
+        return projects.filter((item) =>
+            item.project_title.toLowerCase().includes(search.toLowerCase())
+        );
+    }, [search, projects]);
 
     // const [category, setCategory] = useState("All");
 

@@ -231,11 +231,11 @@ function ProjectDetails() {
 
                     <h5 className="card-title">Objetivos específicos</h5>
                     <hr />
-                    <ul>
+                    {/* <ul>
                       {project.specific_objectives.map((elemento) => (
                         <li key={elemento}>{elemento}</li>
                       ))}
-                    </ul>
+                    </ul> */}
                   </div></div>
                 <div
                   class="tab-pane fade"
