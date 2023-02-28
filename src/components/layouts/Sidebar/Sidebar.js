@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
     SDivider,
     SLink,
@@ -33,9 +33,17 @@ import { CgClose } from "react-icons/cg";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-const Sidebar = () => {
+const Sidebar = ({changeOpen}) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = useLocation();
+
+    const handleChangeOpenState = () => {
+        changeOpen(sidebarOpen);
+    };
+
+    useEffect(()=>{
+        handleChangeOpenState();
+    },[sidebarOpen])
 
     function logout() {
         localStorage.removeItem('token');

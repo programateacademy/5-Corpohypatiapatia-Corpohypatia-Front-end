@@ -8,7 +8,7 @@ export const SSidebar = styled.div`
     background: ${({ theme }) => theme.bg};
     height: 100vh;
     padding: ${v.lgSpacing};
-    position: relative;
+    position: fixed;
 
   @media (max-width: 350px){
     width: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};
