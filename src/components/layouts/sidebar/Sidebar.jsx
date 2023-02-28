@@ -1,8 +1,8 @@
-function Sidebar() {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
+/* function Sidebar() {
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        window.location.reload();
+    };
 
   return (
     <div>
@@ -13,8 +13,8 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
-/* import SidebarItem from "./SidebarItem"
+export default Sidebar; */
+import SidebarItem from "./SidebarItem"
 import items from "./data.json"
 import './sidebar.css'
 
@@ -24,4 +24,4 @@ export default function Sidebar(){
           { items.map((item, index) => <SidebarItem key={index} item={item} />) }
         </div>
     )
-} */
+}
