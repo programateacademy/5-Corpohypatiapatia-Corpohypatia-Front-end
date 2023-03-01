@@ -98,10 +98,6 @@ function ProjectDetails() {
             <div class="card-body">
               <div className="contenedor-fechas">
                 <div className="fechas">
-                  <p className="bold">Fecha de corte:</p>
-                  <p>30/03/3030</p>
-                </div>
-                <div className="fechas">
                   <p className="bold">Fecha de actualizacion:</p>
                   <p>30/03/3030</p>
                 </div>

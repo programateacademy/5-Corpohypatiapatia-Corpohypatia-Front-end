@@ -13,6 +13,45 @@ const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia
 
 function StepperComponent() {
 
+
+
+    // const [resultados, setResultados] = useState([]);
+
+    // const handleResultadosInputChange = (event, index) => {
+    //     const { name, value } = event.target;
+    //     const newResultados = [...resultados];
+    //     newResultados[index] = {
+    //         ...newResultados[index],
+    //         [name]: value
+    //     };
+    //     setResultados(newResultados);
+    // };
+
+    // const handleActividadesInputChange = (event, indexResultado, indexActividad) => {
+    //     const { name, value } = event.target;
+    //     const newResultados = [...resultados];
+    //     const actividades = [...newResultados[indexResultado].actividades];
+    //     actividades[indexActividad] = {
+    //         ...actividades[indexActividad],
+    //         [name]: value
+    //     };
+    //     newResultados[indexResultado] = {
+    //         ...newResultados[indexResultado],
+    //         actividades
+    //     };
+    //     setResultados(newResultados);
+    // };
+
+    // const handleAgregarResultado = () => {
+    //     setResultados([...resultados, { nombre: '', actividades: [] }]);
+    // };
+
+    // const handleAgregarActividad = (index) => {
+    //     const newResultados = [...resultados];
+    //     newResultados[index].actividades.push({ nombre: '', descripcion: '' });
+    //     setResultados(newResultados);
+    // };
+
     const getStepContent = (step) => {
 
         switch (step) {
@@ -79,7 +118,7 @@ function StepperComponent() {
                             <FormControl>
                                 <TextField
                                     id="outlined-basic"
-                                    label="Dirección de imagen"
+                                    // label="Dirección de imagen"
                                     variant="outlined"
                                     name="imagePath"
                                     type="file"
@@ -183,22 +222,22 @@ function StepperComponent() {
                                     value={newFeature}
                                     onChange={handleFeatureChange}
                                 />
-                                
-                                <Button 
-                                    type="button" 
+
+                                <Button
+                                    type="button"
                                     onClick={handleAddFeature}>
-                                        Agregar otro objetivo específico
+                                    Agregar otro objetivo específico
                                 </Button>
 
                                 <ul className='list-objetives'>
                                     {specific_objectives.map((feature, index) => (
                                         <li key={index} className="objetive">
                                             {feature}
-                                            <button 
-                                                type="button" 
-                                                className="bton-trash" 
+                                            <button
+                                                type="button"
+                                                className="bton-trash"
                                                 onClick={() => handleRemoveFeature(index)}>
-                                                    <BsTrashFill className='icon-trash'/>
+                                                <BsTrashFill className='icon-trash' />
                                             </button>
                                         </li>
                                     ))}
@@ -249,48 +288,69 @@ function StepperComponent() {
                         </form>
                     </div>
                 );
-                case 4:
-                    return(
-                        <div>
-                        <form className="add-form">
-                            <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={2}
-                                    label="Resultado"
-                                    name="experience"
-                                    value={project.experience}
-                                    onChange={(e) => onValueChange(e)}
-                                />
-                            </FormControl>
+            case 4:
+                return (
+                    <div>
+                        <form className="add-form" onSubmit={handleSubmit}>
+                            {results.map((result, resultIndex) => (
+                                <div key={resultIndex}>
+                                    <TextField
+                                        id="outlined-multiline-static"
+                                        multiline
+                                        rows={2}
+                                        label={`Resultado ${resultIndex + 1}`}
+                                        name="exit_strategy"
+                                        value={result.result || ''}
+                                        onChange={(e) => handleResultChange(resultIndex, e)}
+                                    />
+                                    <div className='activities'>
+                                    {result.activities.map((activity, activityIndex) => (
+                                        <div key={activityIndex}>
+                                            <TextField
+                                                id="outlined-multiline-static"
+                                                multiline
+                                                rows={2}
+                                                label={`Actividad ${activityIndex + 1} - Resultado ${resultIndex + 1}`}
+                                                name="exit_strategy"
+                                                value={activity}
+                                                onChange={(e) => handleActivityChange(resultIndex, activityIndex, e)}
+                                            />
+                                        </div>
+                                    ))}
+                                    <Button type="button" onClick={() => handleAddActivity(resultIndex)}>
+                                        Agregar actividad
+                                    </Button>
+                                </div>
 
-                            <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={2}
-                                    label="Elementos que aseguren sostenibilidad económica, social y ambiental"
-                                    name="sustainability"
-                                    value={project.sustainability}
-                                    onChange={(e) => onValueChange(e)}
-                                />
-                            </FormControl>
-
-                            <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={2}
-                                    label="Estrategia de salida al finalizar el proyecto"
-                                    name="exit_strategy"
-                                    value={project.exit_strategy}
-                                    onChange={(e) => onValueChange(e)}
-                                />
-                            </FormControl>
+                                <div className='activities'>
+                                    {result.indicators.map((indicator, indicatorIndex) => (
+                                        <div key={indicatorIndex}>
+                                            <TextField
+                                                id="outlined-multiline-static"
+                                                multiline
+                                                rows={2}
+                                                label={`Actividad ${indicatorIndex + 1} - Resultado ${resultIndex + 1}`}
+                                                name="exit_strategy"
+                                                value={indicator}
+                                                onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
+                                            />
+                                        </div>
+                                    ))}
+                                    <Button type="button" onClick={() => handleAddIndicator(resultIndex)}>
+                                        Agregar indicador
+                                    </Button>
+                                </div>
+                                
+                                </div>
+                            ))}
+                            <Button type="button" onClick={handleAddResult}>
+                                Agregar resultado
+                            </Button>
+                            {/* <button type="submit">Enviar</button> */}
                         </form>
                     </div>
-                    )
+
+                );
             default:
                 return "Paso desconocido";
         }
@@ -304,9 +364,9 @@ function StepperComponent() {
         setNewFeature(e.target.value);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         project.specific_objectives = specific_objectives
-    },[newFeature])
+    }, [newFeature])
 
     const handleAddFeature = () => {
         setFeatures([...specific_objectives, newFeature]);
@@ -334,6 +394,7 @@ function StepperComponent() {
         methodology_summary: "",
         general_objetive: "",
         specific_objectives: [],
+        results:[],
         experience: "",
         sustainability: "",
         exit_strategy: ""
@@ -420,6 +481,53 @@ function StepperComponent() {
         }
 
     }
+
+    const [results, setResults] = useState([{ activities: [], indicators:[]}]);
+
+    const handleAddResult = () => {
+        setResults([...results, { activities: [], indicators:[] }]);
+    };
+
+    const handleAddActivity = (index) => {
+        const newResults = [...results];
+        newResults[index].activities.push('');
+        setResults(newResults);
+    };
+
+    const handleAddIndicator = (index) => {
+        const newResults = [...results];
+        newResults[index].indicators.push('');
+        setResults(newResults);
+    };
+
+    const handleResultChange = (index, e) => {
+        const newResults = [...results];
+        newResults[index].result = e.target.value;
+        setResults(newResults);
+    };
+
+    const handleActivityChange = (resultIndex, activityIndex, e) => {
+        const newResults = [...results];
+        newResults[resultIndex].activities[activityIndex] = e.target.value;
+        setResults(newResults);
+    };
+
+    const handleIndicatorChange = (resultIndex, indicatorIndex, e) => {
+        const newResults = [...results];
+        newResults[resultIndex].indicators[indicatorIndex] = e.target.value;
+        setResults(newResults);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // enviar los datos al backend a través de una llamada API
+    };
+
+    useEffect(() => {
+        project.results = results
+    }, [results])
+
+    console.log(results)
 
     return (
         <div className='step'>

@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../projectCreate/projectCreate.css'
-import { RiFileEditLine } from "react-icons/ri";
 import Swal from 'sweetalert2';
 
 //import components from material library
 import {
-    Button, Typography, Box, FormControl as Group, TextField, styled, Input,
-    InputLabel,
+    Button,  FormControl as Group, TextField, styled, 
 } from "@mui/material";
 
 //import functions from services api
@@ -43,7 +41,7 @@ const ProjectEdit = () => {
     const [project, setProject] = useState(defaultValue);
 
     //variable that stores the navigation function provided by the hook
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     //hook that accesses the parameters of the current route in the application (in this case, id)
     const { id } = useParams();
@@ -261,17 +259,17 @@ const ProjectEdit = () => {
                                         />
                                     </FormControl>
 
-                                    {/* <FormControl>
+                                    <FormControl>
                                         <TextField
                                             id="outlined-basic"
                                             label="Dirección de imagen"
                                             variant="outlined"
                                             name="imagePath"
-                                            type="file"
-                                            // value={project.imagePath}
+                                            type="text"
+                                            value={project.imagePath}
                                             onChange={(e) => onValueChange(e)}
                                         />
-                                    </FormControl> */}
+                                    </FormControl>
                                 </form>
                             </div>
 
