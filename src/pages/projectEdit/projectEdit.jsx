@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 //import components from material library
 import {
-    Button,  FormControl as Group, TextField, styled, 
+    Button, FormControl as Group, TextField, styled,
 } from "@mui/material";
 
 //import functions from services api
@@ -30,7 +30,7 @@ const defaultValue = {
     alignment: "",
     methodology_summary: "",
     general_objetive: "",
-    specific_objectives: [],
+    // specific_objectives: [],
     experience: "",
     sustainability: "",
     exit_strategy: ""
@@ -101,6 +101,43 @@ const ProjectEdit = () => {
             }
         })
     }
+
+    const specificObjectives = project.specific_objectives
+
+    console.log(specificObjectives)
+
+    const [editedObjectives, setEditedObjectives] = useState(project.specific_objectives);
+
+    console.log(editedObjectives)
+
+    const handleObjectiveChange = (index, event) => {
+        const newObjectives = [...editedObjectives];
+        newObjectives[index] = event.target.value;
+        setEditedObjectives(newObjectives);
+    };
+
+    // const [specificObjectives, setSpecificObjectives] = useState([]);
+
+    // useEffect(() => {
+    //     project.specific_objectives = specificObjectives
+    // }, [specificObjectives])
+
+    // function handleEspecificObjectivesChange(index, event) {
+    //     const newValue = event.target.value;
+    //     setSpecificObjectives(prevState => {
+    //         const newState = [...prevState];
+    //         newState[index] = newValue;
+    //         return newState;
+    //     });
+    // }
+
+    // const [objectives, setObjectives] = useState(project.specific_objectives);
+
+    // const handleChange = (event) => {
+    //     const index = Number(event.target.objective);
+    //     const objective = event.target.value;
+    //     setObjectives([...objectives.slice(0, index), objective, ...objectives.slice(index + 1)]);
+    // };
 
     return (
         <>
@@ -362,6 +399,18 @@ const ProjectEdit = () => {
                                     </FormControl>
 
                                     <h3>Objetivos específicos</h3>
+
+                                    {editedObjectives.map((objective, index) => (
+                                        <div key={index}>
+                                            <label htmlFor={`objective-${index}`}>Objetivo {index + 1}</label>
+                                            <input
+                                                type="text"
+                                                id={`objective-${index}`}
+                                                value={objective}
+                                                onChange={(event) => handleObjectiveChange(index, event)}
+                                            />
+                                        </div>
+                                    ))}
 
                                 </form>
                             </div>

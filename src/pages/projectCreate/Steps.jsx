@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
 import { BsFolderX, BsFolderPlus, BsTrashFill } from 'react-icons/bs'
 import Swal from 'sweetalert2'
-import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, FormControlLabel, Checkbox, styled } from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
+
 
 const FormControl = styled(Group)`
     margin: 10px 0;
 `;
 
-const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad', 'Resultados'];
+const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Resultados', 'Experiencia y sostenibilidad'];
 
 function StepperComponent() {
 
@@ -210,6 +211,84 @@ function StepperComponent() {
             case 3:
                 return (
                     <div>
+                        <form className="add-form results-form">
+                            {results.map((result, resultIndex) => (
+                                <div key={resultIndex} className="results">
+                                    <div className='result-title'><h2>Resultado {resultIndex + 1}</h2>
+                                    <Button variant="outlined" color="error" onClick={() => handleRemoveResult(resultIndex)} disabled={results.length === 1}>Eliminar Resultado</Button></div>
+                                    <TextField
+                                        id="outlined-multiline-static"
+                                        multiline
+                                        rows={2}
+                                        className="textField-result"
+                                        label={`Descripción Resultado ${resultIndex + 1}`}
+                                        name="exit_strategy"
+                                        value={result.result}
+                                        onChange={(e) => handleResultChange(resultIndex, e)}
+                                    />
+                                    <div className='activities'>
+                                        <h4>Actividades de resultado</h4>
+                                        {result.activities.map((activity, activityIndex) => (
+                                            <div key={activityIndex} className="field">
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={2}
+                                                    label={`Actividad ${activityIndex + 1}`}
+                                                    name="description"
+                                                    value={activity.description}
+                                                    onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)}
+                                                    className="textField"
+                                                />
+                                                <input type="checkbox" checked={activity.completed} name="completed" onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)} />
+
+                                                <Button variant="contained" color="error" onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}><BsTrashFill className='icon-trash'/></Button>
+
+                                                {/* <button onClick={() => handleRemove(resultIndex, activityIndex, 'activity')} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button> */}
+
+                                            </div>
+                                        ))}
+
+                                        <Button type="button" color="secondary" variant="contained" onClick={() => handleAddActivity(resultIndex)}>
+                                            Agregar actividad
+                                        </Button>
+                                    </div>
+
+                                    <div className='indicators'>
+                                        <h4>Indicadores</h4>
+                                        {result.indicators.map((indicator, indicatorIndex) => (
+                                            <div className="field" key={indicatorIndex}>
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={2}
+                                                    className="textField"
+                                                    label={`Indicador ${indicatorIndex + 1}`}
+                                                    name="exit_strategy"
+                                                    value={indicator}
+                                                    onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
+                                                />
+                                                <Button variant="contained" color="error" onClick={() => handleRemoveIndicator(resultIndex, indicatorIndex)} disabled={results[resultIndex].indicators.length === 1}><BsTrashFill className='icon-trash' /></Button>
+                                                {/* <button onClick={() => handleRemove(resultIndex, indicatorIndex, 'indicator')} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button> */}
+                                            </div>
+                                        ))}
+                                        <Button type="button" color="secondary" variant="contained" onClick={() => handleAddIndicator(resultIndex)}>
+                                            Agregar indicador
+                                        </Button>
+                                    </div>
+                                    
+                                </div>
+                            ))}
+                            <Button type="button" onClick={handleAddResult}>
+                                Agregar resultado
+                            </Button>
+
+                        </form>
+                    </div>
+                );
+            case 4:
+                return (
+                    <div>
                         <form className="add-form">
                             <FormControl>
                                 <TextField
@@ -246,82 +325,6 @@ function StepperComponent() {
                                     onChange={(e) => onValueChange(e)}
                                 />
                             </FormControl>
-                        </form>
-                    </div>
-                );
-            case 4:
-                return (
-                    <div>
-                        <form className="add-form">
-                            {results.map((result, resultIndex) => (
-                                <div key={resultIndex}>
-                                    <TextField
-                                        id="outlined-multiline-static"
-                                        multiline
-                                        rows={2}
-                                        label={`Resultado ${resultIndex + 1}`}
-                                        name="exit_strategy"
-                                        value={result.result}
-                                        onChange={(e) => handleResultChange(resultIndex, e)}
-                                    />
-                                    <div className='activities'>
-                                        {result.activities.map((activity, activityIndex) => (
-                                            <div key={activityIndex}>
-                                                <TextField
-                                                    id="outlined-multiline-static"
-                                                    multiline
-                                                    rows={2}
-                                                    label={`Actividad ${activityIndex + 1}`}
-                                                    name="description"
-                                                    value={activity.description}
-                                                    onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)}
-                                                />
-                                                <input type="checkbox" checked={activity.completed} name="completed" onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)} />
-
-                                                <button onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button>
-
-                                                {/* <button onClick={() => handleRemove(resultIndex, activityIndex, 'activity')} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button> */}
-
-                                                
-                                            </div>
-                                        ))}
-
-                                        <button type="button" onClick={() => handleAddActivity(resultIndex)}>
-                                            Add Activity
-                                        </button>
-                                    </div>
-
-                                    <div className='activities'>
-                                        {result.indicators.map((indicator, indicatorIndex) => (
-                                            <div key={indicatorIndex}>
-                                                <TextField
-                                                    id="outlined-multiline-static"
-                                                    multiline
-                                                    rows={2}
-                                                    label={`Indicador ${indicatorIndex + 1} - Resultado ${resultIndex + 1}`}
-                                                    name="exit_strategy"
-                                                    value={indicator}
-                                                    onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
-                                                />
-                                                <button onClick={() => handleRemoveIndicator(resultIndex, indicatorIndex)} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button>
-                                                {/* <button onClick={() => handleRemove(resultIndex, indicatorIndex, 'indicator')} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button> */}
-                                            </div>
-                                        ))}
-                                        <Button type="button" onClick={() => handleAddIndicator(resultIndex)}>
-                                            Agregar indicador
-                                        </Button>
-                                    </div>
-                                    <button onClick={() => handleRemoveResult(resultIndex)} disabled={results.length === 1}>Eliminar</button>
-                                </div>
-
-
-                            ))}
-                            <Button type="button" onClick={handleAddResult}>
-                                Agregar resultado
-                            </Button>
-
-
-
                         </form>
                     </div>
 
