@@ -21,10 +21,55 @@ function EntityForm() {
         datosBack()
     }, [])
 
+    //get data
     const datosBack = async () => {
-        const res = await axios.get('http://localhost:9000/api/data')
+        const res = await axios.get('')
         console.log(res.data);
         setDatos(res.data)
+    }
+
+    //add data
+    const handleAdd = async (e) => {
+        e.preventDefault();
+        await axios.post('', {
+            entity_name,
+            entity_adress,
+            entity_webpage,
+            entity_phone,
+            contact_name,
+            contact_phone,
+            contact_email,
+            legal_status,
+            country,
+            foundaion_year,
+            registry_nit
+        });
+        datosBack();
+    }
+
+    //update data
+    const handleUpdate = async (e) =>{
+        e.preventDefault();
+        await axios.put(``, {
+            entity_name,
+            entity_adress,
+            entity_webpage,
+            entity_phone,
+            contact_name,
+            contact_phone,
+            contact_email,
+            legal_status,
+            country,
+            foundaion_year,
+            registry_nit
+        })
+        datosBack()
+    }
+
+    //remove data
+    const handleRemove = async (_id) =>{
+        await axios.delete (``)
+        datosBack()
     }
 
     return (
