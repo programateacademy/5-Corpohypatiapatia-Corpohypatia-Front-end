@@ -360,7 +360,7 @@ function StepperComponent() {
     //function that adds project details to a database
     const addProjectDetails = async () => {
         await addProject(project);
-        navigate('/admin-projects');
+        navigate('/projects');
     }
 
     const [activeStep, setActiveStep] = useState(0);
