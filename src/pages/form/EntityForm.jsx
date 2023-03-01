@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import Data from './Data'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Data from './Data';
+//confirm-alert
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function EntityForm() {
     //data db
@@ -76,12 +79,29 @@ function EntityForm() {
 
     //remove data
     const handleRemove = async (_id) => {
-        await axios.delete(``)
+        await axios.delete(`${_id}`)
         datosBack()
     }
+    //confirmation remove
+    const confirm = (_id) =>{
+        confirmAlert({
+            title: 'confirmación',
+            message: '¿Deseas eliminar el registro?',
+            buttons:[
+                {
+                    label: 'Si',
+                    onClick: () => handleRemove(_id)
+                },
+                {
+                    label: 'No',
+                }
+            ]
+        })
+    };
 
+    //change status button
     const activeEdit = async (_id) => {
-        const respuesta = await axios.get(`http://localhost:9000/api/data/${_id}`)
+        const respuesta = await axios.get(``)
         setEntity_name(respuesta.data.entity_name)
         setEntity_adress(respuesta.data.entity_adress)
         setEntity_webpage(respuesta.data.entity_webpage)
@@ -143,7 +163,7 @@ function EntityForm() {
                     </div>
                 </form>
             </div>
-            <Data datos={datos} activeEdit={activeEdit}/>
+            <Data datos={datos} confirm={confirm} activeEdit={activeEdit}/>
         </>
     )
 }
