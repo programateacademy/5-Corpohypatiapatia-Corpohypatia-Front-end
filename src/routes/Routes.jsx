@@ -3,8 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 //import components
 import Home from "../pages/home/Home";
 import AllProjects from "../pages/allProjects/AllProjects";
-import ProjectCreate from "../pages/projectCreate/ProjectCreate";
-import ProjectDetails from "../pages/projectDetails/ProjectDetails"
+import ProjectCreate from "../pages/projectCreate/projectCreate";
+import ProjectDetails from "../pages/projectDetails/projectDetails"
 import Checklist from "../pages/projectDetails/Checklist";
 import ProjectEdit from "../pages/projectEdit/projectEdit";
 

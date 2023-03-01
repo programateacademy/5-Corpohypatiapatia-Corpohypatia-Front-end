@@ -1,6 +1,6 @@
 // import image for carousel
 import Graphic from '../../assets/img/grafico.png'
-import logo from '../../assets/img/logo.jpg'
+import logo from '../../assets/img/Logo.jpg'
 import organi from '../../assets/img/organigrama.png'
 import onu from '../../assets/img/min-onu.png'
 import './home.css'

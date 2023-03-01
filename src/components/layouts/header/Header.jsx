@@ -1,4 +1,4 @@
-import logo from '../../../assets/img/logo.jpg'
+import logo from '../../../assets/img/Logo.jpg'
 import React, {useState, useEffect} from 'react';
 
 function Header() {
