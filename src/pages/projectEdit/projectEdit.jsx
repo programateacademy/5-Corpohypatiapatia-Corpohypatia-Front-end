@@ -30,7 +30,7 @@ const defaultValue = {
     alignment: "",
     methodology_summary: "",
     general_objetive: "",
-    // specific_objectives: [],
+    specific_objectives: [],
     experience: "",
     sustainability: "",
     exit_strategy: ""
@@ -84,8 +84,6 @@ const ProjectEdit = () => {
                 window.history.back();
             }
         })
-        // navigate("/admin-projects");
-        // await editProject(project, id);
     };
 
     const cancelEdit = () => {
@@ -102,43 +100,6 @@ const ProjectEdit = () => {
         })
     }
 
-    const specificObjectives = project.specific_objectives
-
-    console.log(specificObjectives)
-
-    const [editedObjectives, setEditedObjectives] = useState(project.specific_objectives);
-
-    console.log(editedObjectives)
-
-    const handleObjectiveChange = (index, event) => {
-        const newObjectives = [...editedObjectives];
-        newObjectives[index] = event.target.value;
-        setEditedObjectives(newObjectives);
-    };
-
-    // const [specificObjectives, setSpecificObjectives] = useState([]);
-
-    // useEffect(() => {
-    //     project.specific_objectives = specificObjectives
-    // }, [specificObjectives])
-
-    // function handleEspecificObjectivesChange(index, event) {
-    //     const newValue = event.target.value;
-    //     setSpecificObjectives(prevState => {
-    //         const newState = [...prevState];
-    //         newState[index] = newValue;
-    //         return newState;
-    //     });
-    // }
-
-    // const [objectives, setObjectives] = useState(project.specific_objectives);
-
-    // const handleChange = (event) => {
-    //     const index = Number(event.target.objective);
-    //     const objective = event.target.value;
-    //     setObjectives([...objectives.slice(0, index), objective, ...objectives.slice(index + 1)]);
-    // };
-
     return (
         <>
             <div className="card-foto card-edit h-25 w-75 mx-auto">
@@ -153,22 +114,6 @@ const ProjectEdit = () => {
                     </div>
                 </div>
             </div >
-
-            {/* <div class="card w-75 mx-auto">
-                <div class="card-body">
-                    <div className="contenedor-fechas">
-                        Editar projecto | {project.project_title}
-                        <div className="fechas">
-                            <p className="bold">Duración:</p>
-                            <p>{project.project_duration}</p>
-                        </div>
-                        <div className="fechas">
-                            <p className="bold">Presupuesto:</p>
-                            <p>{project.project_budget}</p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
             <div className="card w-75 mx-auto">
                 <div className="card-header">
@@ -400,14 +345,14 @@ const ProjectEdit = () => {
 
                                     <h3>Objetivos específicos</h3>
 
-                                    {editedObjectives.map((objective, index) => (
+                                    {project.specific_objectives.map((objective, index) => (
                                         <div key={index}>
                                             <label htmlFor={`objective-${index}`}>Objetivo {index + 1}</label>
                                             <input
                                                 type="text"
                                                 id={`objective-${index}`}
                                                 value={objective}
-                                                onChange={(event) => handleObjectiveChange(index, event)}
+                                                // onChange=
                                             />
                                         </div>
                                     ))}
@@ -463,65 +408,6 @@ const ProjectEdit = () => {
                     </div>
                 </div>
             </div>
-
-
-            {/* <section className="container_all">
-                <section className="container_form">
-                    <div className="title">
-                        <div className="triangle"></div>
-                        <h1>EDITAR PROYECTO - {project.project_title}</h1>
-                    </div> */}
-
-            {/* <form className="add-form">
-                        <FormControl>
-                            <InputLabel>Titulo</InputLabel>
-                            {/* executes event handling function whenever the value of the input field changes 
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_title"
-                                value={project.project_title}
-                            />
-                        </FormControl>
-
-                        <FormControl>
-                            <InputLabel>Ubicación</InputLabel>
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_location"
-                                value={project.project_location}
-                            />
-                        </FormControl>
-
-
-                        <InputLabel>Duración</InputLabel>
-                        <Input onChange={(e) => onValueChange(e)}
-                            name="project_duration"
-                            value={project.project_duration}
-                        />
-
-
-                        <FormControl>
-                            <InputLabel>Presupuesto</InputLabel>
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_budget"
-                                value={project.project_budget}
-                            />
-                        </FormControl>
-
-                        <div className="btns-actions">
-                            <Link to='/all'><button className="btn btn-edit"> CANCELAR </button></Link>
-                            <button className="btn" onClick={() => editProjectDetails()}>
-                                GUARDAR CAMBIOS
-                            </button>
-                        </div>
-
-                    </form> */}
-            {/* </section>  </section> */}
-
-            {/* <div className="btns-actions">
-                <Link to='/admin-projects'><Button variant="outlined" color="error"> CANCELAR </Button></Link>
-                <Button variant="contained" color="primary" onClick={() => editProjectDetails()}>
-                    GUARDAR CAMBIOS
-                </Button>
-            </div> */}
         </>
     );
 };
