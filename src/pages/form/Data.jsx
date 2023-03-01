@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Data({datos}) {
+function Data({datos, activeEdit}) {
     return (
         <div className='container my-3'>
             <table className='table table-striped align-middle' >
@@ -77,7 +77,7 @@ function Data({datos}) {
                                 </tr>
                             </tbody>
                             <div className='d-grid gap-2 d-md-block'>
-                                <button type="submit" className="btn btn-outline-warning m-3" onClick={() => console.log()}>Editar</button>
+                                <button type="submit" className="btn btn-outline-warning m-3" onClick={() => activeEdit()}>Editar</button>
                                 <button type="submit" className="btn btn-outline-danger m-3" onClick={() => console.log()}>Eliminar</button>
                             </div>
                         </>

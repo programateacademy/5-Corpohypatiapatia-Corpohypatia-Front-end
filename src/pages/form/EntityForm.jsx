@@ -6,6 +6,10 @@ function EntityForm() {
     //data db
     const [datos, setDatos] = useState([])
 
+    //state button edit
+    const [validation, setValidation] = useState(false)
+
+    //hooks
     const [entity_name, setEntity_name] = useState('')
     const [entity_adress, setEntity_adress] = useState('')
     const [entity_webpage, setEntity_webpage] = useState('')
@@ -17,6 +21,8 @@ function EntityForm() {
     const [country, setCountry] = useState('')
     const [foundaion_year, setFoundaion_year] = useState('')
     const [registry_nit, setRegistry_nit] = useState('')
+
+    const [id, setId] = useState()
 
     useEffect(() => {
         datosBack()
@@ -51,7 +57,7 @@ function EntityForm() {
     //update data
     const handleUpdate = async (e) => {
         e.preventDefault();
-        await axios.put(``, {
+        await axios.put(` ${id}`, {
             entity_name,
             entity_adress,
             entity_webpage,
@@ -65,12 +71,31 @@ function EntityForm() {
             registry_nit
         })
         datosBack()
+        setValidation(false)
     }
 
     //remove data
     const handleRemove = async (_id) => {
         await axios.delete(``)
         datosBack()
+    }
+
+    const activeEdit = async (_id) => {
+        const respuesta = await axios.get(`http://localhost:9000/api/data/${_id}`)
+        setEntity_name(respuesta.data.entity_name)
+        setEntity_adress(respuesta.data.entity_adress)
+        setEntity_webpage(respuesta.data.entity_webpage)
+        setEntity_phone(respuesta.data.entity_phone)
+        setContact_name(respuesta.data.contact_name)
+        setContact_phone(respuesta.data.contact_phone)
+        setContact_email(respuesta.data.contact_email)
+        setLegal_status(respuesta.data.legal_status)
+        setCountry(respuesta.data.country)
+        setFoundaion_year(respuesta.data.foundaion_year)
+        setRegistry_nit(respuesta.data.registry_nit)
+        setId(_id)
+        setValidation(true)
+        //console.log(id);
     }
 
     return (
@@ -109,9 +134,16 @@ function EntityForm() {
                         <input type="text" id="nit" className="form-control mb-4" placeholder="" onChange={(e) => setRegistry_nit(e.target.value)} value={registry_nit} required />
 
                     </div>
+                    <div className='d-grid gap-2 col-3 mx-auto'>
+                        { validation ? (
+                            <button type="submit" className="btn btn-warning m-3" onClick={(e) => handleUpdate(e)}>Modificar</button>
+                        ) : (
+                            <button type="submit" className="btn btn-success m-3" onClick={(e) => handleAdd(e)}>Guardar</button>
+                        )}
+                    </div>
                 </form>
             </div>
-            <Data datos={datos} />
+            <Data datos={datos} activeEdit={activeEdit}/>
         </>
     )
 }
