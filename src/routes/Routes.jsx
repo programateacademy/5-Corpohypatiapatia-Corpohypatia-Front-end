@@ -7,6 +7,7 @@ import ProjectCreate from "../pages/projectCreate/projectCreate";
 import ProjectDetails from "../pages/projectDetails/projectDetails"
 import Checklist from "../pages/projectDetails/Checklist";
 import ProjectEdit from "../pages/projectEdit/projectEdit";
+import EntityForm from '../pages/form/EntityForm'
 
 import Login from "../pages/login/Login"
 import UserRegister from "../pages/userRegister/UserRegister"
@@ -27,7 +28,7 @@ const AllRoutes = () => {
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/user-register' element={<UserRegister/>} />
-
+                <Route path= '/form' element={<EntityForm />} />
                 <Route path='/checklist' element={<Checklist/>} />
                 <Route path='/step' element={<Steps/>} />
             </Routes>
