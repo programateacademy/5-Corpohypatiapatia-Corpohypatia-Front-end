@@ -45,6 +45,7 @@ export const deleteProject = async (id) => {
 
 export const signIn = async (user) => {
   try {
+    console.log(user);
     return await axios.post(URL + "/signin", user);
   } catch (e) {
     console.log("Error while calling signIn Api", e);
