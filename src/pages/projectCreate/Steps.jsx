@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
 import { BsFolderX, BsFolderPlus, BsTrashFill } from 'react-icons/bs'
 import Swal from 'sweetalert2'
-import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, FormControlLabel, Checkbox, styled } from '@mui/material';
 
 const FormControl = styled(Group)`
     margin: 10px 0;
@@ -12,45 +12,6 @@ const FormControl = styled(Group)`
 const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Experiencia y sostenibilidad', 'Resultados'];
 
 function StepperComponent() {
-
-
-
-    // const [resultados, setResultados] = useState([]);
-
-    // const handleResultadosInputChange = (event, index) => {
-    //     const { name, value } = event.target;
-    //     const newResultados = [...resultados];
-    //     newResultados[index] = {
-    //         ...newResultados[index],
-    //         [name]: value
-    //     };
-    //     setResultados(newResultados);
-    // };
-
-    // const handleActividadesInputChange = (event, indexResultado, indexActividad) => {
-    //     const { name, value } = event.target;
-    //     const newResultados = [...resultados];
-    //     const actividades = [...newResultados[indexResultado].actividades];
-    //     actividades[indexActividad] = {
-    //         ...actividades[indexActividad],
-    //         [name]: value
-    //     };
-    //     newResultados[indexResultado] = {
-    //         ...newResultados[indexResultado],
-    //         actividades
-    //     };
-    //     setResultados(newResultados);
-    // };
-
-    // const handleAgregarResultado = () => {
-    //     setResultados([...resultados, { nombre: '', actividades: [] }]);
-    // };
-
-    // const handleAgregarActividad = (index) => {
-    //     const newResultados = [...resultados];
-    //     newResultados[index].actividades.push({ nombre: '', descripcion: '' });
-    //     setResultados(newResultados);
-    // };
 
     const getStepContent = (step) => {
 
@@ -291,7 +252,7 @@ function StepperComponent() {
             case 4:
                 return (
                     <div>
-                        <form className="add-form" onSubmit={handleSubmit}>
+                        <form className="add-form">
                             {results.map((result, resultIndex) => (
                                 <div key={resultIndex}>
                                     <TextField
@@ -300,53 +261,67 @@ function StepperComponent() {
                                         rows={2}
                                         label={`Resultado ${resultIndex + 1}`}
                                         name="exit_strategy"
-                                        value={result.result || ''}
+                                        value={result.result}
                                         onChange={(e) => handleResultChange(resultIndex, e)}
                                     />
                                     <div className='activities'>
-                                    {result.activities.map((activity, activityIndex) => (
-                                        <div key={activityIndex}>
-                                            <TextField
-                                                id="outlined-multiline-static"
-                                                multiline
-                                                rows={2}
-                                                label={`Actividad ${activityIndex + 1} - Resultado ${resultIndex + 1}`}
-                                                name="exit_strategy"
-                                                value={activity}
-                                                onChange={(e) => handleActivityChange(resultIndex, activityIndex, e)}
-                                            />
-                                        </div>
-                                    ))}
-                                    <Button type="button" onClick={() => handleAddActivity(resultIndex)}>
-                                        Agregar actividad
-                                    </Button>
+                                        {result.activities.map((activity, activityIndex) => (
+                                            <div key={activityIndex}>
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={2}
+                                                    label={`Actividad ${activityIndex + 1}`}
+                                                    name="description"
+                                                    value={activity.description}
+                                                    onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)}
+                                                />
+                                                <input type="checkbox" checked={activity.completed} name="completed" onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)} />
+
+                                                <button onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button>
+
+                                                {/* <button onClick={() => handleRemove(resultIndex, activityIndex, 'activity')} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button> */}
+
+                                                
+                                            </div>
+                                        ))}
+
+                                        <button type="button" onClick={() => handleAddActivity(resultIndex)}>
+                                            Add Activity
+                                        </button>
+                                    </div>
+
+                                    <div className='activities'>
+                                        {result.indicators.map((indicator, indicatorIndex) => (
+                                            <div key={indicatorIndex}>
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={2}
+                                                    label={`Indicador ${indicatorIndex + 1} - Resultado ${resultIndex + 1}`}
+                                                    name="exit_strategy"
+                                                    value={indicator}
+                                                    onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
+                                                />
+                                                <button onClick={() => handleRemoveIndicator(resultIndex, indicatorIndex)} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button>
+                                                {/* <button onClick={() => handleRemove(resultIndex, indicatorIndex, 'indicator')} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button> */}
+                                            </div>
+                                        ))}
+                                        <Button type="button" onClick={() => handleAddIndicator(resultIndex)}>
+                                            Agregar indicador
+                                        </Button>
+                                    </div>
+                                    <button onClick={() => handleRemoveResult(resultIndex)} disabled={results.length === 1}>Eliminar</button>
                                 </div>
 
-                                <div className='activities'>
-                                    {result.indicators.map((indicator, indicatorIndex) => (
-                                        <div key={indicatorIndex}>
-                                            <TextField
-                                                id="outlined-multiline-static"
-                                                multiline
-                                                rows={2}
-                                                label={`Actividad ${indicatorIndex + 1} - Resultado ${resultIndex + 1}`}
-                                                name="exit_strategy"
-                                                value={indicator}
-                                                onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
-                                            />
-                                        </div>
-                                    ))}
-                                    <Button type="button" onClick={() => handleAddIndicator(resultIndex)}>
-                                        Agregar indicador
-                                    </Button>
-                                </div>
-                                
-                                </div>
+
                             ))}
                             <Button type="button" onClick={handleAddResult}>
                                 Agregar resultado
                             </Button>
-                            {/* <button type="submit">Enviar</button> */}
+
+
+
                         </form>
                     </div>
 
@@ -394,7 +369,7 @@ function StepperComponent() {
         methodology_summary: "",
         general_objetive: "",
         specific_objectives: [],
-        results:[],
+        results: [],
         experience: "",
         sustainability: "",
         exit_strategy: ""
@@ -421,6 +396,7 @@ function StepperComponent() {
     //function that adds project details to a database
     const addProjectDetails = async () => {
         await addProject(project);
+
         navigate('/admin-projects');
     }
 
@@ -482,22 +458,35 @@ function StepperComponent() {
 
     }
 
-    const [results, setResults] = useState([{ activities: [], indicators:[]}]);
+    // const [activitiess, setActivities] = useState([{ description: '', completed: false }]);
+    // const handleActivityChange = (event, index) => {
+    //     const newActivities = [...activitiess];
+    //     newActivities[index][event.target.name] = event.target.value;
+    //     setActivities(newActivities);
+    // };
+
+    // const handleAddActivity = () => {
+    //     setActivities([...activitiess, { description: '', completed: false }]);
+    // };
+
+
+    // const handleRemoveActivity = (index) => {
+    //     const newActivities = [...activitiess];
+    //     newActivities.splice(index, 1);
+    //     setActivities(newActivities);
+    // };
+
+
+
+
+
+    //--------prueba con nuevo esquema
+
+    const [results, setResults] = useState([{ activities: [], indicators: [] }]);
 
     const handleAddResult = () => {
-        setResults([...results, { activities: [], indicators:[] }]);
-    };
+        setResults([...results, { activities: [], indicators: [] }]);
 
-    const handleAddActivity = (index) => {
-        const newResults = [...results];
-        newResults[index].activities.push('');
-        setResults(newResults);
-    };
-
-    const handleAddIndicator = (index) => {
-        const newResults = [...results];
-        newResults[index].indicators.push('');
-        setResults(newResults);
     };
 
     const handleResultChange = (index, e) => {
@@ -506,9 +495,27 @@ function StepperComponent() {
         setResults(newResults);
     };
 
-    const handleActivityChange = (resultIndex, activityIndex, e) => {
+    const handleRemoveResult = (index) => {
+        if (results.length === 1) {
+            return;
+        }
         const newResults = [...results];
-        newResults[resultIndex].activities[activityIndex] = e.target.value;
+        newResults.splice(index, 1);
+        setResults(newResults);
+    };
+
+    const handleActivityChange = (event, index, resultIndex) => {
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities];
+        newActivities[index][event.target.name] = event.target.value;
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    const handleAddActivity = (resultIndex) => {
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities, { description: '', completed: false }];
+        newResults[resultIndex].activities = newActivities;
         setResults(newResults);
     };
 
@@ -518,16 +525,99 @@ function StepperComponent() {
         setResults(newResults);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // enviar los datos al backend a través de una llamada API
+    const handleAddIndicator = (index) => {
+        const newResults = [...results];
+        newResults[index].indicators.push('');
+        setResults(newResults);
     };
+
+    // const handleRemove = (resultIndex, index, property) => {
+    //     const resultProperty = `${property}`;
+    //     if (results[resultIndex][resultProperty].length === 1) {
+    //         return;
+    //     }
+    //     const newResults = [...results];
+    //     const newItems = [...newResults[resultIndex][resultProperty]];
+    //     newItems.splice(index, 1);
+    //     newResults[resultIndex][resultProperty] = newItems;
+    //     setResults(newResults);
+    // };
 
     useEffect(() => {
         project.results = results
     }, [results])
 
-    console.log(results)
+    const handleRemoveActivity = (resultIndex, index) => {
+        if (results[resultIndex].activities.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities];
+        newActivities.splice(index, 1);
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    const handleRemoveIndicator = (resultIndex, index) => {
+        if (results[resultIndex].indicators.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        const newIndicators = [...newResults[resultIndex].indicators];
+        newIndicators.splice(index, 1);
+        newResults[resultIndex].indicators = newIndicators;
+        setResults(newResults);
+    };
+
+
+
+
+    //-----------------Prueba 3 con nuevo esquema
+
+
+
+    // const handleActivityChange = (event, resultIndex, activityIndex) => {
+    //     const newResults = [...results];
+    //     newResults[resultIndex].activities[activityIndex][event.target.name] = event.target.value;
+    //     setResults(newResults);
+    // };
+
+    // const handleAddActivity = (resultIndex) => {
+    //     const newResults = [...results];
+    //     newResults[resultIndex].activities.push({ description: '', completed: false });
+    //     setResults(newResults);
+    // };
+
+
+    //------------------------Prueba 2 con nuevo esquema
+
+    // const [activities, setActivities] = useState([]);
+
+    // const agregarActividad = () => {
+    //     setActivities([...activities, { description: '', completed: false }]);
+    // };
+
+    // const handleChangeActividad = (index, e) => {
+    //     const nuevasActividades = [...activities];
+    //     nuevasActividades[index].description = e.target.value;
+    //     setActivities(nuevasActividades);
+    // };
+
+    //--------funcional primero
+
+    // const handleAddActivity = (index) => {
+    //     const newResults = [...results];
+    //     newResults[index].activities.push('');
+    //     setResults(newResults);
+    // };
+
+    // const handleActivityChange = (resultIndex, activityIndex, e) => {
+    //     const newResults = [...results];
+    //     newResults[resultIndex].activities[activityIndex] = e.target.value;
+    //     // console.log(`resultados ${newResults}`)
+    //     setResults(newResults);
+    // };
+
 
     return (
         <div className='step'>
