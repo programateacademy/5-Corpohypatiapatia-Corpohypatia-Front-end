@@ -5,6 +5,18 @@ function EntityForm() {
     //data db
     const [datos, setDatos] = useState([])
 
+    const [entity_name, setEntity_name] = useState('')
+    const [entity_adress, setEntity_adress] = useState('')
+    const [entity_webpage, setEntity_webpage] = useState('')
+    const [entity_phone, setEntity_phone] = useState('')
+    const [contact_name, setContact_name] = useState('')
+    const [contact_phone, setContact_phone] = useState('')
+    const [contact_email, setContact_email] = useState('')
+    const [legal_status, setLegal_status] = useState('')
+    const [country, setCountry] = useState('')
+    const [foundaion_year, setFoundaion_year] = useState('')
+    const [registry_nit, setRegistry_nit] = useState('')
+
     useEffect(() => {
         datosBack()
     }, [])
