@@ -51,7 +51,7 @@ const Login = () => {
         setTimeout(() => {
           setMensaje("");
           localStorage.setItem("token", res.data.token);
-          navigate(`/Home`);
+          navigate(`/projects`);
         }, 5000);
       } else {
         const message = res.data.message;

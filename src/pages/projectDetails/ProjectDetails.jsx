@@ -12,14 +12,16 @@ import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
 
 function ProjectDetails() {
-
   const [project, setProject] = useState([]);
 
   const { id } = useParams();
+  const token = localStorage.getItem("token");
 
   const loadProjectsDetails = async () => {
-    const response = await getProject(id);
-    setProject(response.data);
+    if (token) {
+      const response = await getProject(id, token);
+      setProject(response.data);
+    }
   };
 
   useEffect(() => {
@@ -33,29 +35,27 @@ function ProjectDetails() {
 
   return (
     <div className="contenedor-Detalle">
-
       <div className="card-foto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
         <div className="reverse">
           <div className="cards">
             <div className="texto-v">
+              <p className="texto-bold">Proyecto: {project.project_title}</p>
               <p className="texto-bold">
-                Proyecto: {project.project_title}
+                Entidad: Corporación para la Equidad, la Democracia y el Buen
+                Vivir – Corpohypatia.
               </p>
               <p className="texto-bold">
-                Entidad: Corporación para la Equidad, la Democracia y el Buen Vivir – Corpohypatia.
-              </p>
-              <p className="texto-bold">
-                Estrategia de bienestar emocional de niños y niñas de 5 a 12 años en el municipio de Bucaramanga, Santander.
+                Estrategia de bienestar emocional de niños y niñas de 5 a 12
+                años en el municipio de Bucaramanga, Santander.
               </p>
             </div>
 
-            <Link to={`/admin-projects/edit/${project._id}`} className="button edit">
+            <Link to={`/projects/edit/${project._id}`} className="button edit">
               <button className="boton-editar">
                 Editar <RiFileEditLine className="icon-edit" />
               </button>
             </Link>
-
           </div>
 
           <div className="elemento-avance">
@@ -71,19 +71,19 @@ function ProjectDetails() {
             </div>
           </div>
         </div>
-      </div >
+      </div>
 
-      <div class="margen">
-        <div class="segun-margen">
+      <div className="margen">
+        <div className="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <div class="card">
+          <div className="card">
             <div className="forma">
-              <div class="cards-indicador">
+              <div className="cards-indicador">
                 <div className="rectangulo">
                   <p>Indicador</p>
                 </div>
-                {/* <p class="card-text">Lorem Ipsum is simply dummy text</p> */}
+                {/* <p className="card-text">Lorem Ipsum is simply dummy text</p> */}
               </div>
               {/* <div className="indicador">
                 <p className="porcetanje-indi">76.52% </p>
@@ -94,8 +94,8 @@ function ProjectDetails() {
           </div>
           {/* card sencilla fechas*/}
 
-          <div class="card">
-            <div class="card-body">
+          <div className="card">
+            <div className="card-body">
               <div className="contenedor-fechas">
                 <div className="fechas">
                   <p className="bold">Fecha de corte:</p>
@@ -119,10 +119,10 @@ function ProjectDetails() {
 
           <div className="card">
             <div className="card-header">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+              <ul className="nav nav-tabs" id="myTab" role="tablist">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link active"
+                    className="nav-link active"
                     id="resumen-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#resumen"
@@ -134,9 +134,9 @@ function ProjectDetails() {
                     Resumen
                   </button>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="resultados-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#resultados"
@@ -148,9 +148,9 @@ function ProjectDetails() {
                     Objetivos
                   </button>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="ficha-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#ficha"
@@ -163,9 +163,9 @@ function ProjectDetails() {
                   </button>
                 </li>
 
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="Documento-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#Documento"
@@ -178,9 +178,9 @@ function ProjectDetails() {
                   </button>
                 </li>
               </ul>
-              <div class="tab-content" id="myTabContent">
+              <div className="tab-content" id="myTabContent">
                 <div
-                  class="tab-pane fade show active"
+                  className="tab-pane fade show active"
                   id="resumen"
                   role="tabpanel"
                   aria-labelledby="resumen-tab"
@@ -191,16 +191,25 @@ function ProjectDetails() {
                     <p className="card-text">
                       {/* <ReadMore text={project.problematic_summary}/> */}
                       {project.problematic_summary}
-                    </p><br />
-                    <h5 className="card-title">Beneficiarios / población diana</h5>
+                    </p>
+                    <br />
+                    <h5 className="card-title">
+                      Beneficiarios / población diana
+                    </h5>
                     <hr />
                     {project.beneficiaries}
-                    <br /><br />
+                    <br />
+                    <br />
                     <h5 className="card-title">Resumen ejecutivo</h5>
                     <hr />
                     {project.executive_summary}
-                    <br /><br />
-                    <h5 className="card-title">Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales</h5>
+                    <br />
+                    <br />
+                    <h5 className="card-title">
+                      Alineación del proyecto con políticas públicas y
+                      prioridades locales, regionales, estatales y/o
+                      Internacionales
+                    </h5>
                     <hr />
                     {project.alignment}
 
@@ -218,7 +227,7 @@ function ProjectDetails() {
                   </div> */}
                 </div>
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="resultados"
                   role="tabpanel"
                   aria-labelledby="resultados-tab"
@@ -228,38 +237,49 @@ function ProjectDetails() {
                     <h5 className="card-title">Objetivo general</h5>
                     <hr />
                     {project.general_objetive} <br /> <br />
-
                     <h5 className="card-title">Objetivos específicos</h5>
                     <hr />
                     <ul>
-                      {project.specific_objectives.map((elemento) => (
+                      {/* {project.specific_objectives.map((elemento) => (
                         <li key={elemento}>{elemento}</li>
-                      ))}
+                      ))} */}
                     </ul>
-                  </div></div>
+                  </div>
+                </div>
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="ficha"
                   role="tabpanel"
                   aria-labelledby="ficha-tab"
-                ><div className="card-body">
+                >
+                  <div className="card-body">
                     <h5 className="card-title">Experiencia y capacidad</h5>
                     <hr />
-                    {project.experience}</div>
+                    {project.experience}
+                  </div>
                 </div>
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="Documento"
                   role="tabpanel"
                   aria-labelledby="contact-tab"
-                ><div className="card-body">
-                    <h5 className="card-title">Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto</h5>
+                >
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      Identificación de elementos que aseguren la sostenibilidad
+                      económica, social y ambiental del Proyecto
+                    </h5>
                     <hr />
-                    {project.sustainability}<br /><br />
+                    {project.sustainability}
+                    <br />
+                    <br />
 
-                    <h5 className="card-title">Estrategia de salida al finalizar el proyecto</h5>
+                    <h5 className="card-title">
+                      Estrategia de salida al finalizar el proyecto
+                    </h5>
                     <hr />
-                    {project.exit_strategy}</div>
+                    {project.exit_strategy}
+                  </div>
                 </div>
               </div>
             </div>
@@ -269,7 +289,7 @@ function ProjectDetails() {
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
       </div>
-    </div >
+    </div>
   );
 }
 
