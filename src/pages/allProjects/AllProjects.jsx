@@ -3,94 +3,93 @@ import ReactPaginate from "react-paginate";
 import CardProjects from "../../components/common/cardProject/CardProjects";
 import { Link } from "react-router-dom";
 
-import './allProjects.css'
-import { FaSearch } from 'react-icons/fa'
+import "./allProjects.css";
+import { FaSearch } from "react-icons/fa";
 
 import { getProjects } from "../../service/api";
 
 function AllProjects() {
+  const [search, setSearch] = useState("");
+  const [projects, setProjects] = useState([]);
+  const token = localStorage.getItem("token");
+  /* updates the list of projects each time the component is rendered */
+  useEffect(() => {
+    getAllProjects();
+  },[]);
 
-    const [search, setSearch] = useState("");
-    const [projects, setProjects] = useState([]);
+  /* use the getProjects API service to retrieve the list of projects from the database */
+  const getAllProjects = async () => {
+    if (token) {
+      let response = await getProjects(token);
+      setProjects(response.data);
+    }
+  };
 
-    /* updates the list of projects each time the component is rendered */
-    useEffect(() => {
-        getAllProjects();
-    }, [projects]);
+  const searchedProject = projects.filter((item) => {
+    if (search.value === "") return item;
 
-    /* use the getProjects API service to retrieve the list of projects from the database */
-    const getAllProjects = async () => {
-        let response = await getProjects();
-        setProjects(response.data);
-    };
+    if (item.project_title.toLowerCase().includes(search.toLowerCase()))
+      return item;
+  });
 
-    const searchedProject = projects.filter((item) => {
-        if (search.value === "") return item;
+  // const [category, setCategory] = useState("All");
 
-        if (item.project_title.toLowerCase().includes(search.toLowerCase())) return item;
-    });
+  // Pagination
+  const [pageNumber, setPageNumber] = useState(0);
 
-    // const [category, setCategory] = useState("All");
+  const projectPerPage = 6;
 
-    // Pagination
-    const [pageNumber, setPageNumber] = useState(0);
+  const visitedPage = pageNumber * projectPerPage;
 
-    const projectPerPage = 6;
+  const displayPage = searchedProject.slice(
+    visitedPage,
+    visitedPage + projectPerPage
+  );
 
-    const visitedPage = pageNumber * projectPerPage;
+  const pageCount = Math.ceil(searchedProject.length / projectPerPage);
 
-    const displayPage = searchedProject.slice(
-        visitedPage,
-        visitedPage + projectPerPage
-    );
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
-    const pageCount = Math.ceil(searchedProject.length / projectPerPage);
+  return (
+    <section className="all-project">
+      <section className="filters">
+        <div className="search">
+          <input
+            placeholder="Busca por el nombre"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <FaSearch className="search_icon" />
+        </div>
+      </section>
 
-    const changePage = ({ selected }) => {
-        setPageNumber(selected);
-    };
+      <section>
+        <div className="projects-cards">
+          {displayPage.map((item) => (
+            <Link to={`/projects/${item._id}`}>
+              <CardProjects key={item.id} item={item} />
+            </Link>
+          ))}
+        </div>
 
-    return (
-        <section className="all-project">
-
-            <section className="filters">
-                <div className='search'>
-                    <input
-                        placeholder='Busca por el nombre'
-                        type="text"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <FaSearch className='search_icon' />
-                </div>
-            </section>
-
-            <section>
-                <div className='projects-cards'>
-                    {displayPage.map((item) => (
-                        <Link to={`/projects/${item._id}`}>
-                        <CardProjects
-                            key={item.id}
-                            item={item}
-                        /></Link>
-                    ))}
-                </div>
-
-                <div className="container_paginate">
-                    <ReactPaginate
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        previousLabel="Anterior"
-                        previousClassName="previousBttns"
-                        nextLabel="Siguiente"
-                        nextClassName="previousBttns"
-                        containerClassName="paginationBttns"
-                        activeClassName={"active_pagination"}
-                    />
-                </div>
-            </section>
-        </section>
-    );
+        <div className="container_paginate">
+          <ReactPaginate
+            pageCount={pageCount}
+            onPageChange={changePage}
+            previousLabel="Anterior"
+            previousClassName="previousBttns"
+            nextLabel="Siguiente"
+            nextClassName="previousBttns"
+            containerClassName="paginationBttns"
+            activeClassName={"active_pagination"}
+          />
+        </div>
+      </section>
+    </section>
+  );
 }
 
 export default AllProjects;
