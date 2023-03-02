@@ -11,9 +11,13 @@ function Checklist() {
 
     const { id } = useParams();
 
+    const token = localStorage.getItem("token");
+
     const loadProjectsDetails = async () => {
-        const response = await getProject(id);
-        setProject(response.data);
+        if (token) {
+            const response = await getProject(id, token);
+            setProject(response.data);
+        }
     };
 
     useEffect(() => {

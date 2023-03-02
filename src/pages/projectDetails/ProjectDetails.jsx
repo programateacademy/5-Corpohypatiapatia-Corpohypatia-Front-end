@@ -90,10 +90,10 @@ function ProjectDetails() {
     return (
       <>
         <div id="container-loader">
-          <label class="loading-title">Cargando información de proyecto...</label>
-          <span class="loading-circle sp1">
-            <span class="loading-circle sp2">
-              <span class="loading-circle sp3"></span>
+          <label className="loading-title">Cargando información de proyecto...</label>
+          <span className="loading-circle sp1">
+            <span className="loading-circle sp2">
+              <span className="loading-circle sp3"></span>
             </span>
           </span>
         </div>
@@ -144,11 +144,11 @@ function ProjectDetails() {
         </div>
       </div>
 
-      <div class="margen w-75 mx-auto">
-        <div class="segun-margen">
+      <div className="margen w-75 mx-auto">
+        <div className="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <Checklist results={project.results} />
+          <Checklist/>
 
           <div className="card">
             <div className="card-body">

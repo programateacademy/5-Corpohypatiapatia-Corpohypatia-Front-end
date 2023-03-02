@@ -54,10 +54,14 @@ const ProjectEdit = () => {
         loadProjectDetails();
     }, []);
 
+    const token = localStorage.getItem("token");
+
     //Get movie data from database and update application status
     const loadProjectDetails = async () => {
-        const response = await getProject(id);
-        setProject(response.data);
+        if (token) {
+            const response = await getProject(id, token);
+            setProject(response.data);
+        }
     };
 
     //event handling function to update object state
