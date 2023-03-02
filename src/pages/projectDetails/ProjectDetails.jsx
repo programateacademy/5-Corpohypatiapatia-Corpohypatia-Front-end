@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getProject, editProject } from "../../service/api";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProject, editProject, deleteProject } from "../../service/api";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+
 
 // import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
@@ -10,7 +12,7 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
-import { Switch, FormControlLabel } from '@mui/material';
+import Swal from 'sweetalert2';
 
 
 function ProjectDetails() {
@@ -28,39 +30,79 @@ function ProjectDetails() {
 
   // useEffect(() => {
   //   loadProjectsDetails();
-  // }, [project]);
+  // }, []);
 
   const [project, setProject] = useState(null);
-  const [isEnabled, setIsEnabled] = useState(project?.enabled);
+
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
-  const loadProjectDetails = async () => {
+  const loadProjectsDetails = async () => {
     const response = await getProject(id);
     setProject(response.data);
   };
 
   useEffect(() => {
-    loadProjectDetails();
-  }, [id, project]);
+    loadProjectsDetails();
+  }, [project]);
 
-  useEffect(() => {
-    const updateProject = async () => {
-      try {
-        await editProject({ enabled: isEnabled }, id);
-      } catch (error) {
-        console.error(error);
+  const handleCheckboxChange = async (e) => {
+    const updatedProject = { ...project };
+    updatedProject.enabled = e.target.checked;
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: `¿Estás seguro de querer ${project.enabled === !true ? "habilitar" : "deshabilitar"} este proyecto?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'Cancelar',
+    });
+    if (result.isConfirmed) {
+      await editProject(updatedProject, id);
+      await loadProjectsDetails();
+      await Swal.fire({
+        title: '¡Hecho!',
+        text: 'Cambios guardados con éxito',
+        icon: 'success',
+        timer: 1500,
+      });
+    } else {
+      e.target.checked = !e.target.checked;
+    }
+  };
+
+  const deleteProjectDetails = async (id) => {
+    Swal.fire({
+      title: "¿Estás seguro de querer eliminar este proyecto?",
+      text: "¡No podrás revertir esta acción!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Si, ¡bórralo!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProject(id);
+        navigate('/admin-projects');
+        Swal.fire(
+          "¡Proyecto eliminado!",
+          `El registro de este proyecto ha sido borrado con éxito`,
+          "success"
+        );
       }
-    };
-
-    updateProject();
-  }, [isEnabled, id]);
+    });
+  };
 
 
   if (!project) {
     return (
       <>
         <div id="container-loader">
-          <label class="loading-title">Cargando información de proyecto ...</label>
+          <label class="loading-title">Cargando información de proyecto...</label>
           <span class="loading-circle sp1">
             <span class="loading-circle sp2">
               <span class="loading-circle sp3"></span>
@@ -75,16 +117,6 @@ function ProjectDetails() {
 
 
     <div className="contenedor-Detalle">
-
-      <FormControlLabel
-        control={
-          <Switch
-            checked={isEnabled}
-            onChange={(event) => setIsEnabled(event.target.checked)}
-          />
-        }
-        label="Habilitado"
-      />
 
       <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
@@ -111,9 +143,9 @@ function ProjectDetails() {
           </div>
 
           <div className="elemento-avance">
-            {/* <button className="Boton-regresar">
+            <button className="Boton-regresar" onClick={() => window.history.back()}>
               Regresar <RiArrowGoBackFill className="icon-regreso" />
-            </button> */}
+            </button>
 
             <div className="avance">
               <p>Avance</p>
@@ -131,20 +163,20 @@ function ProjectDetails() {
           <h2 className="title-margin">Indicadores:</h2>
           <Checklist results={project.results} />
 
-          <div class="card ">
+          <div class="card">
             <div class="card-body">
               <div className="contenedor-fechas">
                 <div className="fechas">
-                  <p className="bold">Fecha de actualizacion:</p>
-                  <p>30/03/3030</p>
+                  <div className="result-percentage">
+                    <h2>{project.project_duration}</h2>
+                    <p>Duración</p>
+                  </div>
                 </div>
                 <div className="fechas">
-                  <p className="bold">Duración:</p>
-                  <p>{project.project_duration}</p>
-                </div>
-                <div className="fechas">
-                  <p className="bold">Presupuesto:</p>
-                  <p>{project.project_budget}</p>
+                  <div className="result-percentage">
+                    <h2>{project.project_budget}</h2>
+                    <p>Presupuesto</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -289,6 +321,24 @@ function ProjectDetails() {
         <button className="boton-export">
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
+      </div>
+
+      <div className="project-status">
+        <Button className="button delete" variant="contained" color="error"
+          onClick={() => deleteProjectDetails(project._id)}> Eliminar proyecto
+        </Button>
+        <div className="project-status_cont">
+          <p>Estado del proyecto:</p>
+          <div className="check-status">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="habilitado"
+              checked={project?.enabled || false}
+              onChange={handleCheckboxChange}
+            />
+            <label className="form-check-label" htmlFor="habilitado">Habilitado</label></div>
+        </div>
       </div>
     </div >)
 }

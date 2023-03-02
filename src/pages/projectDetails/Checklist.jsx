@@ -49,14 +49,14 @@ function Checklist() {
         const totalPercentage = resultPercentages.reduce((total, percentage) => total + percentage, 0);
         const projectPercentage = Math.round(totalPercentage / newProject.results.length);
         newProject.project_percentage = projectPercentage;
-      };
+    };
 
     if (!project) {
         return (
             <p>carganding</p>
         );
     }
-    
+
     return (
         <>
 
@@ -65,18 +65,23 @@ function Checklist() {
                 {project.results.map((result, resultIndex) => (
                     <div key={result._id}>
                         <div class="card tasks">
-                            <div className="forma">
-                                <div class="card-indicator">
-                                    <div className="rectangulo">
-                                        <p>Resultado {resultIndex + 1}</p>
+                            <div className="form">
+                                <div className="result-container">
+                                    <div class="card-indicator">
+                                        <div className="rectangulo">
+                                            <p>Resultado {resultIndex + 1}</p>
+                                        </div>
+                                        <p>{result.result}</p>
                                     </div>
-                                    <p>{result.percentage}%</p>
+                                    <div className="result-percentage">
+                                        <h2>{result.percentage}%</h2>
+                                        <p>Avance</p>
+                                    </div>
                                 </div>
-                                <p>{result.result}</p>
                                 <h4>Indicadores</h4>
                                 <ul>
                                     {result.indicators.map((indicator) => (
-                                        <li key={indicator} className="indicator"><FaRegHandPointRight className="icon-ind"/>{indicator}</li>
+                                        <li key={indicator} className="indicator"><FaRegHandPointRight className="icon-ind" />{indicator}</li>
                                     ))}
                                 </ul>
                                 <h4>Actividades</h4>

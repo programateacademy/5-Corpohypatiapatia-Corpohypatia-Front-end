@@ -132,16 +132,34 @@
     transition-delay: 0.15s;
 }
 
-.card-indicator{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.result-container{
+    display: grid;
+    grid-template-columns: 80% 20%;
     align-items: center;
+}
+
+.result-percentage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-percentage p, h2{
+    margin: 0;
+    padding: 0;
+}
+
+.card-indicator{
+    /* display: flex; */
+    width: 100%;
+    /* justify-content: space-between;
+    align-items: center; */
     margin: 10px 0;
 }
 
 .card-indicator .rectangulo{
-    margin: 0;
+    margin: 0 0 10px 0;
 }
 
 .tasks{
@@ -152,11 +170,12 @@
 .tasks ul{
     list-style: none;
     text-align: start;
+    padding: 0;
 }
 
 .activity{
     display: flex;
-    background: rgba(208, 249, 255, 0.674);
+    background: rgba(208, 249, 255, 0.479);
     margin: 6px 0;
     padding: 5px 20px;
     align-items: center;

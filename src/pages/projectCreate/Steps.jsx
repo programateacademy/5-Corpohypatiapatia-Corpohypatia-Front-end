@@ -377,7 +377,7 @@ function StepperComponent() {
         experience: "",
         sustainability: "",
         exit_strategy: "",
-        enabled:false,
+        enabled:true,
     };
 
     // const local = (field, value) => {
