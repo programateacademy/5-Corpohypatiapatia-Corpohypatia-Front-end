@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import '../projectCreate/projectCreate.css'
 import Swal from 'sweetalert2';
+import { BsTrashFill } from 'react-icons/bs'
 
 //import components from material library
 import {
@@ -10,6 +11,8 @@ import {
 
 //import functions from services api
 import { editProject, getProject } from "../../service/api";
+
+import "./projectEdit.css"
 
 //styled components - emotion library
 const FormControl = styled(Group)`
@@ -98,6 +101,40 @@ const ProjectEdit = () => {
                 window.history.back();
             }
         })
+    }
+
+    //edit specific objectives 
+    const handleInputChange = (index, value) => {
+        const newObjectives = [...project.specific_objectives];
+        newObjectives[index] = value;
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    const handleAddObjective = () => {
+        const newObjectives = [...project.specific_objectives, ""];
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    const handleDeleteObjective = (index) => {
+        const newObjectives = [...project.specific_objectives];
+        newObjectives.splice(index, 1);
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    if (!project) {
+        return <div>Loading...</div>;
     }
 
     return (
@@ -345,17 +382,24 @@ const ProjectEdit = () => {
 
                                     <h3>Objetivos específicos</h3>
 
-                                    {project.specific_objectives.map((objective, index) => (
-                                        <div key={index}>
-                                            <label htmlFor={`objective-${index}`}>Objetivo {index + 1}</label>
-                                            <input
-                                                type="text"
-                                                id={`objective-${index}`}
-                                                value={objective}
-                                                // onChange=
-                                            />
-                                        </div>
-                                    ))}
+                                    <div className="specificObjective">
+                                        {project.specific_objectives.map((objective, index) => (
+                                            <div key={index} className="field" >
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={1}
+                                                    label={`Objetivo específico ${index + 1}`}
+                                                    name="general_objetive"
+                                                    value={objective}
+                                                    className="textField"
+                                                    onChange={(e) => handleInputChange(index, e.target.value)}
+                                                />
+                                                <Button variant="contained" color="error" onClick={() => handleDeleteObjective(index)}><BsTrashFill className='icon-trash' /></Button>
+                                            </div>
+                                        ))}
+                                        <Button onClick={handleAddObjective} type="button" color="secondary" variant="contained">Agregar objetivo</Button>
+                                    </div>
 
                                 </form>
                             </div>

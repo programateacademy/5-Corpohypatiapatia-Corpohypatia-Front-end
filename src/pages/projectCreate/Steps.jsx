@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
 import { BsFolderX, BsFolderPlus, BsTrashFill } from 'react-icons/bs'
 import Swal from 'sweetalert2'
-import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled} from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
 
 
 const FormControl = styled(Group)`
@@ -83,7 +83,7 @@ function StepperComponent() {
                                     // label="Dirección de imagen"
                                     variant="outlined"
                                     name="imagePath"
-                                    type="file"
+                                    type="string"
                                     value={project.imagePath}
                                     onChange={(e) => onValueChange(e)}
                                 />
@@ -174,37 +174,25 @@ function StepperComponent() {
                             </FormControl>
 
                             <h3>Objetivos específicos</h3>
-                            <FormControl>
-                                <TextField
-                                    id="outlined-multiline-static"
-                                    multiline
-                                    rows={1}
-                                    label="Objetivo específico"
-                                    type="text"
-                                    value={newFeature}
-                                    onChange={handleFeatureChange}
-                                />
-
-                                <Button
-                                    type="button"
-                                    onClick={handleAddFeature}>
-                                    Agregar otro objetivo específico
-                                </Button>
-
-                                <ul className='list-objetives'>
-                                    {specific_objectives.map((feature, index) => (
-                                        <li key={index} className="objetive">
-                                            {feature}
-                                            <button
-                                                type="button"
-                                                className="bton-trash"
-                                                onClick={() => handleRemoveFeature(index)}>
-                                                <BsTrashFill className='icon-trash' />
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </FormControl>
+                            <div className="specificObjective">
+                                {objectives.map((objective, index) => (
+                                    <div key={index} className="field" >
+                                        <TextField
+                                            id="outlined-multiline-static"
+                                            multiline
+                                            rows={1}
+                                            label={`Objetivo específico ${index + 1}`}
+                                            name="general_objetive"
+                                            value={objective}
+                                            className="textField"
+                                            onChange={(e) => handleObjectiveChange(index, e.target.value)}
+                                        />
+                                        <Button variant="contained" color="error" onClick={() => handleDeleteObjective(index)}
+                                            disabled={objectives.length === 1}><BsTrashFill className='icon-trash' /></Button>
+                                    </div>
+                                ))}
+                                <Button onClick={handleAddObjective} type="button" color="secondary" variant="contained">Agregar objetivo</Button>
+                            </div>
                         </form>
                     </div>
                 );
@@ -215,7 +203,7 @@ function StepperComponent() {
                             {results.map((result, resultIndex) => (
                                 <div key={resultIndex} className="results">
                                     <div className='result-title'><h2>Resultado {resultIndex + 1}</h2>
-                                    <Button variant="outlined" color="error" onClick={() => handleRemoveResult(resultIndex)} disabled={results.length === 1}>Eliminar Resultado</Button></div>
+                                        <Button variant="outlined" color="error" onClick={() => handleRemoveResult(resultIndex)} disabled={results.length === 1}>Eliminar Resultado</Button></div>
                                     <TextField
                                         id="outlined-multiline-static"
                                         multiline
@@ -242,7 +230,7 @@ function StepperComponent() {
                                                 />
                                                 <input type="checkbox" checked={activity.completed} name="completed" onChange={(e) => handleActivityChange(e, activityIndex, resultIndex)} />
 
-                                                <Button variant="contained" color="error" onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}><BsTrashFill className='icon-trash'/></Button>
+                                                <Button variant="contained" color="error" onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}><BsTrashFill className='icon-trash' /></Button>
 
                                                 {/* <button onClick={() => handleRemove(resultIndex, activityIndex, 'activity')} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button> */}
 
@@ -276,7 +264,7 @@ function StepperComponent() {
                                             Agregar indicador
                                         </Button>
                                     </div>
-                                    
+
                                 </div>
                             ))}
                             <Button type="button" onClick={handleAddResult}>
@@ -334,28 +322,29 @@ function StepperComponent() {
         }
     };
 
-    //specific objetives
-    const [specific_objectives, setFeatures] = useState([]);
-    const [newFeature, setNewFeature] = useState('');
+    const [objectives, setObjectives] = useState([""]);
 
-    const handleFeatureChange = (e) => {
-        setNewFeature(e.target.value);
-    }
+    const handleObjectiveChange = (index, value) => {
+        const newObjectives = [...objectives];
+        newObjectives[index] = value;
+
+        setObjectives(newObjectives);
+    };
+
+    const handleAddObjective = () => {
+        setObjectives([...objectives, ""]);
+    };
+
+    const handleDeleteObjective = (index) => {
+        const newObjectives = [...objectives];
+        newObjectives.splice(index, 1);
+
+        setObjectives(newObjectives);
+    };
 
     useEffect(() => {
-        project.specific_objectives = specific_objectives
-    }, [newFeature])
-
-    const handleAddFeature = () => {
-        setFeatures([...specific_objectives, newFeature]);
-        setNewFeature('');
-    }
-
-    const handleRemoveFeature = (index) => {
-        const newFeatures = [...specific_objectives];
-        newFeatures.splice(index, 1);
-        setFeatures(newFeatures);
-    }
+        project.specific_objectives = objectives
+    }, [objectives])
 
     // -----------------------------------------------------------
     const defaultValue = {
@@ -373,11 +362,11 @@ function StepperComponent() {
         general_objetive: "",
         specific_objectives: [],
         results: [],
-        project_percentage:0,
+        project_percentage: 0,
         experience: "",
         sustainability: "",
         exit_strategy: "",
-        enabled:true,
+        enabled: true,
     };
 
     // const local = (field, value) => {
@@ -390,10 +379,14 @@ function StepperComponent() {
     //variable that stores the navigation function provided by the hook
     const navigate = useNavigate();
 
+   
+
     //function that updates the state of the form whenever a change occurs in a form element
     const onValueChange = (e) => {
         // local(e.target.name, e.target.value)
         setProject({ ...project, [e.target.name]: e.target.value });
+
+        
         // console.log(e.target.name, e.target.value)
 
     };
@@ -403,6 +396,9 @@ function StepperComponent() {
         await addProject(project);
 
         navigate('/admin-projects');
+        setActiveStep(0);
+        setProject(defaultValue)
+        localStorage.removeItem('activeStep');
     }
 
     const [activeStep, setActiveStep] = useState(0);
@@ -455,7 +451,7 @@ function StepperComponent() {
         }
         else {
             return (
-                <Button variant="contained" color="primary" onClick={handleNext}>
+                <Button variant="contained" color="primary"  onClick={handleNext}>
                     Siguiente
                 </Button>
             );
@@ -463,10 +459,10 @@ function StepperComponent() {
 
     }
 
-    const [results, setResults] = useState([{ percentage:0, activities: [], indicators: [] }]);
+    const [results, setResults] = useState([{ percentage: 0, activities: [], indicators: [] }]);
 
     const handleAddResult = () => {
-        setResults([...results, { percentage:0, activities: [], indicators: [] }]);
+        setResults([...results, { percentage: 0, activities: [], indicators: [] }]);
 
     };
 
