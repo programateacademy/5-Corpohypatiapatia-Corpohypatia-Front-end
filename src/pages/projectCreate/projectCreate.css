@@ -4,7 +4,7 @@
 }
 
 .step-content{
-    height: 70vh;
+    min-height: 70vh;
 }
 
 .add-form{
@@ -12,6 +12,47 @@
     flex-direction: column;
     width: 65%;
     margin: 40px auto;
+}
+
+.results-form{
+    width: 80%;
+}
+
+.results-form h4{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.153);
+}
+
+.results-form .textField{
+    width: 90%;
+    margin: 6px 0;
+}
+
+.results-form .textField-result{
+    width: 100%;
+}
+
+.results{
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.result-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.field{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activities{
+    margin: 10px 0;
 }
 
 .card .add-form{
@@ -32,7 +73,8 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    margin: auto;
+    margin:auto;
+    padding: 20px 0 30px 0;
 }
 
 .step .buttons-create{
@@ -92,4 +134,8 @@
 
 .title-edit{
     font-size: 30px;
+}
+
+.activities input[type=checkbox]{
+    display: none;
 }

@@ -19,7 +19,7 @@ function CardProjects (props){
         maintainAspectRatio: false,
     };
 
-    const { project_title, imagePath } = props.item;
+    const { project_title, project_duration, project_budget, imagePath } = props.item;
 
     return(
         <article className='card-projects'>
@@ -29,7 +29,17 @@ function CardProjects (props){
             <div className="circular-graphic">
                 <CircularGraphic data={data} options={options}/>
             </div>
-            <p>{project_title}</p>
+            <h2 className='title'>{project_title}</h2>
+            <div className='specifications'>
+                <div className='specification'>
+                    <span>Duración</span>
+                    <p>{project_duration}</p>
+                </div>
+                <div>
+                    <span>Presupuesto</span>
+                    <p>{project_budget}</p>
+                </div>
+            </div>
         </article>
     );
 }

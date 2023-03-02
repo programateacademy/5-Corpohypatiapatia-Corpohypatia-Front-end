@@ -4,48 +4,68 @@ const URL = "http://localhost:8000";
 
 export const addProject = async (data) => {
   try {
-      return await axios.post(`${URL}/add`, data);
+    return await axios.post(`${URL}/project/add`, data);
   } catch (e) {
-      console.log("Error while calling project Api", e);
+    console.log("Error while calling project Api", e);
   }
 };
 
-export const getProjects = async () => {
+export const getProjects = async (token) => {
   try {
-      return await axios.get(`${URL}`);
+    return await axios.get(`${URL}/project`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
   } catch (e) {
-      console.log("Error while calling getProject API", e);
+    console.log("Error while calling getProject API", e);
   }
 };
 
-export const getProject = async (id) => {
+export const getProject = async (id, token) => {
   try {
-      return await axios.get(`${URL}/${id}`);
+    return await axios.get(`${URL}/project/${id}`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
   } catch (e) {
-      console.log("Error while calling getProject api", e);
+    console.log("Error while calling getProject api", e);
   }
 };
 
-export const editProject = async (project, id) => {
+export const editProject = async (project, id, token) => {
   try {
-      return await axios.put(`${URL}/${id}`, project);
+    return await axios.put(`${URL}/project/${id}`, project, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
   } catch (e) {
-      console.log("Error while calling editProject api", e);
+    console.log("Error while calling editProject api", e);
   }
 };
 
-
-export const deleteProject = async (id) => {
+export const deleteProject = async (id, token) => {
   try {
-      return await axios.delete(`${URL}/${id}`);
+    return await axios.delete(`${URL}/project/${id}`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
   } catch (e) {
-      console.log('Error while callign deleteProject api', e)
+    console.log("Error while callign deleteProject api", e);
   }
-}
+};
 
-export const signIn = async (user) => {
+export const signIn = async (user, token) => {
   try {
-    return await axios.post(URL + "/signin", user);
+    console.log(user);
+    return await axios.post(URL + "/signin", user, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
   } catch (e) {
     console.log("Error while calling signIn Api", e);
   }

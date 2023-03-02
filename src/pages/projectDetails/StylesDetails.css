@@ -1,261 +1,266 @@
 :root {
   --colorwhite: #fff;
-  --colorazul:#1F2A40;
-  --colorverde:#00764B;
-  --colorgrisclaro:#A6A6A6;
+  --colorazul: #1F2A40;
+  --colorverde: #00764B;
+  --colorgrisclaro: #A6A6A6;
 }
+
 /* Estilos de del componente detalle proyecto */
 
 /* Contenedor principal */
-  .contenedor-Detalle{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-direction: column;
-  }
+.contenedor-Detalle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .card-foto {
-    display: flex;
-    margin: 30px;
-    width: 800px;
-    height: 100%;
-    background-color: var(--colorazul);
-    color: var(--colorwhite);
-    border-radius: 15px;
-  }
-  
-  .margen{
-    margin: 30px;
-    width: 800px;
-    border:2px solid #C7C5C5;
-    border-radius: 15px;
-  }
-  
-  .elemento-avance{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* width: 200px; */
-    margin: 10px;
-    text-align: center;
-  }
+.card-foto {
+  display: flex;
+  margin: 30px;
+  width: 800px;
+  height: 100%;
+  background-color: var(--colorazul);
+  color: var(--colorwhite);
+  border-radius: 15px;
+}
 
-  .avance{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 40px;
-    font-size: 18px;
-    font-weight: 500;
-  }
+.margen {
+  margin: 30px;
+  width: 800px;
+  border: 2px solid #C7C5C5;
+  border-radius: 15px;
+}
 
-  .porcentaje-avance{
-    font-size: 40px;
-  }
+.elemento-avance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 200px; */
+  margin: 10px;
+  text-align: center;
+}
+
+.avance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.porcentaje-avance {
+  font-size: 40px;
+}
 
 /*Botones  */
-  .Boton-regresar{
-    width: 119px;
-    height: 50px;
-    color: var(--colorwhite);
-    border:2px solid var(--colorwhite);
-    background-color: var(--colorazul);
-    border-radius: 5px;
-    font-size: 18px;
-  }
+.Boton-regresar {
+  width: 119px;
+  height: 50px;
+  color: var(--colorwhite);
+  border: 2px solid var(--colorwhite);
+  background-color: var(--colorazul);
+  border-radius: 5px;
+  font-size: 18px;
+}
 
-  .Boton-regresar:hover{
-    color: #6693FD;
-    border-color: #6693FD;
-  }
+.Boton-regresar:hover {
+  color: #6693FD;
+  border-color: #6693FD;
+}
 
-  .boton-editar{
-    width: 120px;
-    height: 50px;
-    color: var(--colorwhite);
-    background-color: var(--colorverde);
-    border: var(--colorverde);
-    margin-top:40px;
-    font-size: 20px;
-  }
-  
-  .card-text p{
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* comoponente de descripcion */
-  .card{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 30px;
-    width: 750px;
-  }
-  /* Arriba | Derecha | Abajo | Izquierda */
-  .cards{
-    margin:20px 0px 10px 20px;
-    padding-right: 10px;
-    border-right:3px solid var(--colorgrisclaro) ;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 12px;
-  }
+.boton-editar {
+  width: 120px;
+  height: 50px;
+  color: var(--colorwhite);
+  background-color: var(--colorverde);
+  border: var(--colorverde);
+  margin-top: 40px;
+  font-size: 20px;
+}
 
-  .bold{
-    font-weight: 600;
-  }
-  
-  .card-body{
-    text-align: left;
-  }
+.card-text p {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
 
-  .texto-v{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    font-size: 20px;
-    margin-top: 10px;
-  }
+/* comoponente de descripcion */
+.card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 30px;
+  width: 90%;
+  margin: 20px auto;
+}
 
-  .texto-bold{
-    margin-right:5px ;
-    font-weight: 400;
-    font-size: 12px;
-  }
+/* Arriba | Derecha | Abajo | Izquierda */
+.cards {
+  margin: 20px 0px 10px 15%;
+  padding-right: 10px;
+  border-right: 3px solid var(--colorgrisclaro);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
 
-  .texto-parrafo{
-    justify-content: left;
-  }
+.bold {
+  font-weight: 600;
+}
 
-  
-  .card-text{
-    width: 100%;
-    text-align:left;
-    margin: 10px;
-  }
-  
-  .card-title{
-    display: flex;
-    text-align: left;
-    font-weight: 500;
-  
-  }
-  
-  .texto-fecha p{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    font-weight: 600;
-  }
-  
-  .boton-export{
-    width: 120px;
-    height: 50px;
-    color: var(--colorwhite);
-    background-color: #760000;
-    border-color: #760000;
-    margin: 20px;
-    font-size: 18px;
-  }
-  
-  .imagen{
-    background-color: #760000;
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    text-align: center;
-    justify-content: center;
-    object-fit: cover;
-  }
-  
-  .contenedor-fechas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .fechas{
-    text-align: left;
-    margin: 10px;
-  }
-  
-  .rectangulo{
-    margin: 20px 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    width: 100px;
-    height: 30px;
-    border-radius: 4px;
-    background-color: var(--colorazul);
-    color: var(--colorwhite);
-  }
+.card-body {
+  text-align: left;
+}
 
-  .rectangulo p{
-    margin: 0;
-    padding: 0;
-  }
+.texto-v {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  font-size: 20px;
+  margin-top: 10px;
+}
 
-  .forma{
-    display: flex;
-    flex-wrap: wrap;
-  }
+.texto-bold {
+  margin-right: 5px;
+  font-weight: 400;
+  font-size: 12px;
+}
 
-.indicador{
+.texto-parrafo {
+  justify-content: left;
+}
+
+
+.card-text {
+  width: 100%;
+  text-align: left;
+  margin: 10px;
+}
+
+.card-title {
+  display: flex;
+  text-align: left;
+  font-weight: 500;
+
+}
+
+.texto-fecha p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 600;
+}
+
+.boton-export {
+  width: 120px;
+  height: 50px;
+  color: var(--colorwhite);
+  background-color: #760000;
+  border-color: #760000;
+  margin: 20px;
+  font-size: 18px;
+}
+
+.imagen {
+  background-color: #760000;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.contenedor-fechas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.fechas {
+  text-align: left;
+  margin: 10px;
+}
+
+.rectangulo {
+  margin: 20px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  width: 250px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: var(--colorazul);
+  color: var(--colorwhite);
+}
+
+.rectangulo p {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.forma {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.indicador {
   display: flex;
   flex-direction: column;
   width: 140px;
   font-weight: 500;
 }
 
-.cards-indicador{
+.cards-indicador {
   width: 600px;
-  display: flex;    
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.texto-avance{
+.texto-avance {
   font-size: 20px;
   font-weight: 600;
 }
 
-.card-texts{
+.card-texts {
   display: flex;
   text-align: left;
   font-size: 15px;
   width: 290px;
-  color:#464646
+  color: #464646
 }
 
-.porcetanje-indi{
+.porcetanje-indi {
   font-size: 20px;
 }
 
-.reverse{
-  display: flex;
-  flex-direction: row;
-  height: 300px;
+.reverse {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
 }
 
-.title-margin{
+.title-margin {
   width: 92%;
   margin: 20px auto 0;
 }
 
 
-@media (max-width: 730px){
+@media (max-width: 730px) {
   .card-foto {
     display: flex;
     flex-direction: column;
@@ -264,7 +269,7 @@
     border-radius: 15px;
   }
 
-  .imagen{
+  .imagen {
     display: flex;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -273,24 +278,24 @@
     height: 300px;
   }
 
-  .cards{
-    margin:20px 50px 10px 50px;
+  .cards {
+    margin: 20px 50px 10px 50px;
     width: 300px;
-    border-right:2px solid var(--colorgrisclaro);
+    border-right: 2px solid var(--colorgrisclaro);
     border-top: none;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     font-size: 12px;
   }
 
-  .reverse{
+  .reverse {
     display: flex;
     flex-direction: row;
   }
 
-  .indicador{
+  .indicador {
     margin-top: 20px;
     width: 160px;
     display: flex;
@@ -300,7 +305,7 @@
     font-size: 40px;
   }
 
-  .texto-v{
+  .texto-v {
     margin-top: 20px;
     display: flex;
     width: 300px;
@@ -308,26 +313,27 @@
     margin-top: 10px;
   }
 
-  .elemento-avance{
+  .elemento-avance {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin:20px auto;
+    margin: 20px auto;
     width: 200px;
   }
 
-  .margen{
+  .margen {
     margin: 30px;
     width: 600px;
-    border:2px solid #C7C5C5;
+    border: 2px solid #C7C5C5;
     border-radius: 15px;
   }
-  .cards-indicador{
-    width: 350px;   
+
+  .cards-indicador {
+    width: 350px;
   }
 
-  .card{
+  .card {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -335,34 +341,34 @@
     width: 530px;
   }
 
-  .contenedor-fechas{
+  .contenedor-fechas {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .card-texts{
+  .card-texts {
     font-size: 15px;
     width: 450px;
-    color:#464646
+    color: #464646
   }
 
-  .contenedor-fechas{
+  .contenedor-fechas {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  .fechas{
+  .fechas {
     width: 200px;
     text-align: left;
     margin: 10px;
   }
-  
-} 
+
+}
 
 
 /* media queries */
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
   .card-foto {
     display: flex;
     flex-direction: column;
@@ -372,7 +378,7 @@
     border-radius: 15px;
   }
 
-  .imagen{
+  .imagen {
     display: flex;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -381,25 +387,25 @@
     height: 300px;
   }
 
-  .cards{
-    margin:20px 50px 10px 50px;
+  .cards {
+    margin: 20px 50px 10px 50px;
     width: 300px;
-    border-top:2px solid var(--colorgrisclaro);
+    border-top: 2px solid var(--colorgrisclaro);
     border-right: none;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     font-size: 12px;
   }
 
-  .reverse{
+  .reverse {
     margin-top: 290px;
     display: flex;
     flex-direction: column-reverse;
   }
 
-  .indicador{
+  .indicador {
     margin-top: 20px;
     width: 400px;
     display: flex;
@@ -410,7 +416,7 @@
     font-size: 40px;
   }
 
-  .texto-v{
+  .texto-v {
     margin-top: 20px;
     display: flex;
     width: 300px;
@@ -418,26 +424,27 @@
     margin-top: 10px;
   }
 
-  .elemento-avance{
+  .elemento-avance {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin:20px auto;
+    margin: 20px auto;
     width: 200px;
   }
 
-  .margen{
+  .margen {
     margin: 30px;
     width: 400px;
-    border:2px solid #C7C5C5;
+    border: 2px solid #C7C5C5;
     border-radius: 15px;
   }
-  .cards-indicador{
-    width: 350px;   
+
+  .cards-indicador {
+    width: 350px;
   }
 
-  .card{
+  .card {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -445,15 +452,132 @@
     width: 350px;
   }
 
-  .contenedor-fechas{
+  .contenedor-fechas {
     display: flex;
     flex-direction: column;
   }
 
-  .card-texts{
+  .card-texts {
     font-size: 15px;
     width: 290px;
-    color:#464646
+    color: #464646
   }
 }
 
+
+
+/*---------project-status----------*/
+.project-status {
+  display: flex;
+  background: #1F2A40;
+  color: white;
+  padding: 20px 10%;
+  border-radius: 10px;
+  width: 75%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.project-status_cont{
+  display: flex;
+}
+
+.project-status p{
+  padding: 0;
+  margin: 0;
+}
+
+.check-status{
+  margin-left: 15px;
+}
+
+.check-status input{
+  margin-right: 10px;
+}
+
+/* -----------loader ---------------*/
+
+#container-loader {
+  width: 400px;
+  height: 125px;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.loading-title {
+  display: block;
+  text-align: center;
+  font-size: 20;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  padding-bottom: 15px;
+  color: #888;
+  text-align: center;
+}
+
+.loading-circle {
+  display: block;
+  border-left: 5px solid;
+  border-top-left-radius: 100%;
+  border-top: 5px solid;
+  margin: 5px;
+  animation-name: Loader_611;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.sp1 {
+  border-left-color: #F44336;
+  border-top-color: #F44336;
+  width: 40px;
+  height: 40px;
+}
+
+.sp2 {
+  border-left-color: #FFC107;
+  border-top-color: #FFC107;
+  width: 30px;
+  height: 30px;
+}
+
+.sp3 {
+  width: 20px;
+  height: 20px;
+  border-left-color: #8bc34a;
+  border-top-color: #8bc34a;
+}
+
+@keyframes Loader_611 {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: right bottom;
+  }
+
+  25% {
+    transform: rotate(90deg);
+    transform-origin: right bottom;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    transform-origin: right bottom;
+  }
+
+  75% {
+    transform: rotate(270deg);
+    transform-origin: right bottom;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    transform-origin: right bottom;
+  }
+}
