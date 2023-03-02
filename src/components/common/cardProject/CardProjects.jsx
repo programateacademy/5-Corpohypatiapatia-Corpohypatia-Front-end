@@ -1,33 +1,38 @@
 import CircularGraphic from '../graphic/CircularGraphic';
 import './cardProjects.css'
 
-function CardProjects (props){
+function CardProjects(props) {
+
+    const { project_title, project_duration, project_budget, imagePath, project_percentage } = props.item;
+
+    const value = project_percentage
 
     const data = {
         labels: ['Valor', 'Resto'],
         datasets: [
             {
-                data: [15, 100 - 15],
-                backgroundColor: ['#36A2EB', '#FFCE56'],
-                hoverBackgroundColor: ['#36A2EB', '#FFCE56'],
+                data: [value, 100 - value],
+                backgroundColor: ['#36A2EB', '#B8DAF1'],
             },
         ],
     };
-    
+
+
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        borderColor: 'transparent',
     };
 
-    const { project_title, project_duration, project_budget, imagePath } = props.item;
 
-    return(
+    return (
         <article className='card-projects'>
             <div className='container-image'>
-                <img src={imagePath} alt="Imagen de proyecto"/>
-            </div> 
+                <img src={imagePath} alt="Imagen de proyecto" />
+            </div>
             <div className="circular-graphic">
-                <CircularGraphic data={data} options={options}/>
+                <CircularGraphic data={data} options={options} />
+                <h3>{value}%</h3>
             </div>
             <h2 className='title'>{project_title}</h2>
             <div className='specifications'>
