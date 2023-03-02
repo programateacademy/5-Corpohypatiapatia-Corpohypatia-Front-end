@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addProject } from "../../service/api"
 import { BsFolderX, BsFolderPlus, BsTrashFill } from 'react-icons/bs'
 import Swal from 'sweetalert2'
-import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled } from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Typography, Box, FormControl as Group, TextField, styled} from '@mui/material';
 
 
 const FormControl = styled(Group)`
@@ -222,7 +222,7 @@ function StepperComponent() {
                                         rows={2}
                                         className="textField-result"
                                         label={`Descripción Resultado ${resultIndex + 1}`}
-                                        name="exit_strategy"
+                                        name="result"
                                         value={result.result}
                                         onChange={(e) => handleResultChange(resultIndex, e)}
                                     />
@@ -373,9 +373,11 @@ function StepperComponent() {
         general_objetive: "",
         specific_objectives: [],
         results: [],
+        project_percentage:0,
         experience: "",
         sustainability: "",
-        exit_strategy: ""
+        exit_strategy: "",
+        enabled:false,
     };
 
     // const local = (field, value) => {
@@ -461,34 +463,10 @@ function StepperComponent() {
 
     }
 
-    // const [activitiess, setActivities] = useState([{ description: '', completed: false }]);
-    // const handleActivityChange = (event, index) => {
-    //     const newActivities = [...activitiess];
-    //     newActivities[index][event.target.name] = event.target.value;
-    //     setActivities(newActivities);
-    // };
-
-    // const handleAddActivity = () => {
-    //     setActivities([...activitiess, { description: '', completed: false }]);
-    // };
-
-
-    // const handleRemoveActivity = (index) => {
-    //     const newActivities = [...activitiess];
-    //     newActivities.splice(index, 1);
-    //     setActivities(newActivities);
-    // };
-
-
-
-
-
-    //--------prueba con nuevo esquema
-
-    const [results, setResults] = useState([{ activities: [], indicators: [] }]);
+    const [results, setResults] = useState([{ percentage:0, activities: [], indicators: [] }]);
 
     const handleAddResult = () => {
-        setResults([...results, { activities: [], indicators: [] }]);
+        setResults([...results, { percentage:0, activities: [], indicators: [] }]);
 
     };
 
@@ -571,56 +549,6 @@ function StepperComponent() {
         newResults[resultIndex].indicators = newIndicators;
         setResults(newResults);
     };
-
-
-
-
-    //-----------------Prueba 3 con nuevo esquema
-
-
-
-    // const handleActivityChange = (event, resultIndex, activityIndex) => {
-    //     const newResults = [...results];
-    //     newResults[resultIndex].activities[activityIndex][event.target.name] = event.target.value;
-    //     setResults(newResults);
-    // };
-
-    // const handleAddActivity = (resultIndex) => {
-    //     const newResults = [...results];
-    //     newResults[resultIndex].activities.push({ description: '', completed: false });
-    //     setResults(newResults);
-    // };
-
-
-    //------------------------Prueba 2 con nuevo esquema
-
-    // const [activities, setActivities] = useState([]);
-
-    // const agregarActividad = () => {
-    //     setActivities([...activities, { description: '', completed: false }]);
-    // };
-
-    // const handleChangeActividad = (index, e) => {
-    //     const nuevasActividades = [...activities];
-    //     nuevasActividades[index].description = e.target.value;
-    //     setActivities(nuevasActividades);
-    // };
-
-    //--------funcional primero
-
-    // const handleAddActivity = (index) => {
-    //     const newResults = [...results];
-    //     newResults[index].activities.push('');
-    //     setResults(newResults);
-    // };
-
-    // const handleActivityChange = (resultIndex, activityIndex, e) => {
-    //     const newResults = [...results];
-    //     newResults[resultIndex].activities[activityIndex] = e.target.value;
-    //     // console.log(`resultados ${newResults}`)
-    //     setResults(newResults);
-    // };
-
 
     return (
         <div className='step'>

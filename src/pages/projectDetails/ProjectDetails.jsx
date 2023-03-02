@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProject } from "../../service/api";
+import { getProject, editProject } from "../../service/api";
 import { Link } from "react-router-dom";
 
 // import ReadMore from "./ReadMore";
@@ -10,31 +10,83 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
+import { Switch, FormControlLabel } from '@mui/material';
+
 
 function ProjectDetails() {
 
-  const [project, setProject] = useState([]);
+  // const [project, setProject] = useState(null);
 
+  // const { id } = useParams();
+
+  // const loadProjectsDetails = async () => {
+  //   const response = await getProject(id);
+  //   setProject(response.data);
+  // };
+
+  // console.log(project)
+
+  // useEffect(() => {
+  //   loadProjectsDetails();
+  // }, [project]);
+
+  const [project, setProject] = useState(null);
+  const [isEnabled, setIsEnabled] = useState(project?.enabled);
   const { id } = useParams();
 
-  const loadProjectsDetails = async () => {
+  const loadProjectDetails = async () => {
     const response = await getProject(id);
     setProject(response.data);
   };
 
   useEffect(() => {
-    loadProjectsDetails();
-  }, []);
+    loadProjectDetails();
+  }, [id, project]);
 
-  // console.log(project.problematic_summary)
+  useEffect(() => {
+    const updateProject = async () => {
+      try {
+        await editProject({ enabled: isEnabled }, id);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  // const text = project.problematic_summary
-  // console.log(`texto ${text}`)
+    updateProject();
+  }, [isEnabled, id]);
+
+
+  if (!project) {
+    return (
+      <>
+        <div id="container-loader">
+          <label class="loading-title">Cargando información de proyecto ...</label>
+          <span class="loading-circle sp1">
+            <span class="loading-circle sp2">
+              <span class="loading-circle sp3"></span>
+            </span>
+          </span>
+        </div>
+      </>
+    );
+  }
 
   return (
+
+
     <div className="contenedor-Detalle">
 
-      <div className="card-foto">
+      <FormControlLabel
+        control={
+          <Switch
+            checked={isEnabled}
+            onChange={(event) => setIsEnabled(event.target.checked)}
+          />
+        }
+        label="Habilitado"
+      />
+
+      <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
         <div className="reverse">
           <div className="cards">
@@ -66,35 +118,20 @@ function ProjectDetails() {
             <div className="avance">
               <p>Avance</p>
               <div className="porcentaje-avance">
-                <p>15%</p>
+                <p>{project.project_percentage}%</p>
               </div>
             </div>
           </div>
         </div>
       </div >
 
-      <div class="margen">
+      <div class="margen w-75 mx-auto">
         <div class="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <div class="card">
-            <div className="forma">
-              <div class="cards-indicador">
-                <div className="rectangulo">
-                  <p>Indicador</p>
-                </div>
-                {/* <p class="card-text">Lorem Ipsum is simply dummy text</p> */}
-              </div>
-              {/* <div className="indicador">
-                <p className="porcetanje-indi">76.52% </p>
-                <p className="texto-avance">Avance</p>
-              </div> */}
-              <Checklist />
-            </div>
-          </div>
-          {/* card sencilla fechas*/}
+          <Checklist results={project.results} />
 
-          <div class="card">
+          <div class="card ">
             <div class="card-body">
               <div className="contenedor-fechas">
                 <div className="fechas">
@@ -185,7 +222,6 @@ function ProjectDetails() {
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
                     <p className="card-text">
-                      {/* <ReadMore text={project.problematic_summary}/> */}
                       {project.problematic_summary}
                     </p><br />
                     <h5 className="card-title">Beneficiarios / población diana</h5>
@@ -199,19 +235,7 @@ function ProjectDetails() {
                     <h5 className="card-title">Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales</h5>
                     <hr />
                     {project.alignment}
-
-                    {/* <div className="texto-fecha">
-                      <p>Fecha de corte:</p>
-                      <p>Fecha de actualizacion:</p>
-                    </div> */}
                   </div>
-
-                  {/* <div className="card-body">
-                    <h5 className="card-title">
-                      Comportamiento anual del indicador
-                    </h5>
-                    <hr />
-                  </div> */}
                 </div>
                 <div
                   class="tab-pane fade"
@@ -227,12 +251,13 @@ function ProjectDetails() {
 
                     <h5 className="card-title">Objetivos específicos</h5>
                     <hr />
-                    {/* <ul>
-                      {project.specific_objectives.map((elemento) => (
-                        <li key={elemento}>{elemento}</li>
+                    <ul>
+                      {project.specific_objectives.map((objective, index) => (
+                        <li key={index}>{objective}</li>
                       ))}
-                    </ul> */}
-                  </div></div>
+                    </ul>
+                  </div>
+                </div>
                 <div
                   class="tab-pane fade"
                   id="ficha"
@@ -265,8 +290,7 @@ function ProjectDetails() {
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
       </div>
-    </div >
-  );
+    </div >)
 }
 
 export default ProjectDetails;

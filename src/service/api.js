@@ -26,9 +26,9 @@ export const getProject = async (id) => {
     }
 };
 
-export const editProject = async (movie, id) => {
+export const editProject = async (project, id) => {
     try {
-        return await axios.put(`${URL}/${id}`, movie);
+        return await axios.put(`${URL}/${id}`, project);
     } catch (e) {
         console.log("Error while calling editUser api", e);
     }
