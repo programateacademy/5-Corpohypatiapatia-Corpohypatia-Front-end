@@ -49,7 +49,7 @@ function ProjectDetails() {
       cancelButtonText: 'Cancelar',
     });
     if (result.isConfirmed) {
-      await editProject(updatedProject, id);
+      await editProject(updatedProject, id, token);
       await loadProjectsDetails();
       await Swal.fire({
         title: '¡Hecho!',

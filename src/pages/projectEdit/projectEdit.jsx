@@ -84,7 +84,7 @@ const ProjectEdit = () => {
             if (result.isConfirmed) {
                 Swal.fire('Los cambios han sido guardados', '', 'success')
                 window.history.back();
-                editProject(project, id);
+                editProject(project, id, token);
             }
             else if (result.isDenied) {
                 Swal.fire('Los cambios no han sido guardados', '', 'info')

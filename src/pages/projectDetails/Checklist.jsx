@@ -45,7 +45,7 @@ function Checklist() {
         calculateProjectPercentage(newProject);
 
         setProject(newProject);
-        editProject(newProject, id);
+        editProject(newProject, id, token);
     };
 
     const calculateProjectPercentage = (newProject) => {
