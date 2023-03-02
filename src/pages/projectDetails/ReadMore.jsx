@@ -18,28 +18,3 @@ const ExpandableText = ({ text }) => {
 };
 
 export default ExpandableText;
-
-// import React, { useState } from "react";
-
-// const ReadMore = ({ text }) => {
-//     const [isCollapsed, setCollapse] = useState(true);
-//     const [buttonText, setButtonText] = useState("Ver más");
-
-//     const handleClick = () => {
-//         setCollapse(!isCollapsed);
-//         setButtonText(isCollapsed ? "Ver menos" : "Ver más");
-//     };
-
-//     return (
-//         <>
-//             <p>
-//                 {isCollapsed
-//                     ? text.slice(0, 200) + "..."
-//                     : text.slice(0, text.length)}
-//             </p>
-//             <button onClick={handleClick}>{buttonText}</button>
-//         </>
-//     );
-// };
-
-// export default ReadMore;

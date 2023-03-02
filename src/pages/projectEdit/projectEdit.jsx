@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../projectCreate/projectCreate.css'
-import { RiFileEditLine } from "react-icons/ri";
 import Swal from 'sweetalert2';
+import { BsTrashFill } from 'react-icons/bs'
 
 //import components from material library
 import {
-    Button, Typography, Box, FormControl as Group, TextField, styled, Input,
-    InputLabel,
+    Button, FormControl as Group, TextField, styled,
 } from "@mui/material";
 
 //import functions from services api
 import { editProject, getProject } from "../../service/api";
+
+import "./projectEdit.css"
 
 //styled components - emotion library
 const FormControl = styled(Group)`
@@ -43,7 +44,7 @@ const ProjectEdit = () => {
     const [project, setProject] = useState(defaultValue);
 
     //variable that stores the navigation function provided by the hook
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     //hook that accesses the parameters of the current route in the application (in this case, id)
     const { id } = useParams();
@@ -86,8 +87,6 @@ const ProjectEdit = () => {
                 window.history.back();
             }
         })
-        // navigate("/admin-projects");
-        // await editProject(project, id);
     };
 
     const cancelEdit = () => {
@@ -104,6 +103,40 @@ const ProjectEdit = () => {
         })
     }
 
+    //edit specific objectives 
+    const handleInputChange = (index, value) => {
+        const newObjectives = [...project.specific_objectives];
+        newObjectives[index] = value;
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    const handleAddObjective = () => {
+        const newObjectives = [...project.specific_objectives, ""];
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    const handleDeleteObjective = (index) => {
+        const newObjectives = [...project.specific_objectives];
+        newObjectives.splice(index, 1);
+
+        setProject({
+            ...project,
+            specific_objectives: newObjectives,
+        });
+    };
+
+    if (!project) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
             <div className="card-foto card-edit h-25 w-75 mx-auto">
@@ -118,22 +151,6 @@ const ProjectEdit = () => {
                     </div>
                 </div>
             </div >
-
-            {/* <div class="card w-75 mx-auto">
-                <div class="card-body">
-                    <div className="contenedor-fechas">
-                        Editar projecto | {project.project_title}
-                        <div className="fechas">
-                            <p className="bold">Duración:</p>
-                            <p>{project.project_duration}</p>
-                        </div>
-                        <div className="fechas">
-                            <p className="bold">Presupuesto:</p>
-                            <p>{project.project_budget}</p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
             <div className="card w-75 mx-auto">
                 <div className="card-header">
@@ -261,17 +278,17 @@ const ProjectEdit = () => {
                                         />
                                     </FormControl>
 
-                                    {/* <FormControl>
+                                    <FormControl>
                                         <TextField
                                             id="outlined-basic"
                                             label="Dirección de imagen"
                                             variant="outlined"
                                             name="imagePath"
-                                            type="file"
-                                            // value={project.imagePath}
+                                            type="text"
+                                            value={project.imagePath}
                                             onChange={(e) => onValueChange(e)}
                                         />
-                                    </FormControl> */}
+                                    </FormControl>
                                 </form>
                             </div>
 
@@ -365,6 +382,25 @@ const ProjectEdit = () => {
 
                                     <h3>Objetivos específicos</h3>
 
+                                    <div className="specificObjective">
+                                        {project.specific_objectives.map((objective, index) => (
+                                            <div key={index} className="field" >
+                                                <TextField
+                                                    id="outlined-multiline-static"
+                                                    multiline
+                                                    rows={1}
+                                                    label={`Objetivo específico ${index + 1}`}
+                                                    name="general_objetive"
+                                                    value={objective}
+                                                    className="textField"
+                                                    onChange={(e) => handleInputChange(index, e.target.value)}
+                                                />
+                                                <Button variant="contained" color="error" onClick={() => handleDeleteObjective(index)}><BsTrashFill className='icon-trash' /></Button>
+                                            </div>
+                                        ))}
+                                        <Button onClick={handleAddObjective} type="button" color="secondary" variant="contained">Agregar objetivo</Button>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -416,65 +452,6 @@ const ProjectEdit = () => {
                     </div>
                 </div>
             </div>
-
-
-            {/* <section className="container_all">
-                <section className="container_form">
-                    <div className="title">
-                        <div className="triangle"></div>
-                        <h1>EDITAR PROYECTO - {project.project_title}</h1>
-                    </div> */}
-
-            {/* <form className="add-form">
-                        <FormControl>
-                            <InputLabel>Titulo</InputLabel>
-                            {/* executes event handling function whenever the value of the input field changes 
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_title"
-                                value={project.project_title}
-                            />
-                        </FormControl>
-
-                        <FormControl>
-                            <InputLabel>Ubicación</InputLabel>
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_location"
-                                value={project.project_location}
-                            />
-                        </FormControl>
-
-
-                        <InputLabel>Duración</InputLabel>
-                        <Input onChange={(e) => onValueChange(e)}
-                            name="project_duration"
-                            value={project.project_duration}
-                        />
-
-
-                        <FormControl>
-                            <InputLabel>Presupuesto</InputLabel>
-                            <Input onChange={(e) => onValueChange(e)}
-                                name="project_budget"
-                                value={project.project_budget}
-                            />
-                        </FormControl>
-
-                        <div className="btns-actions">
-                            <Link to='/all'><button className="btn btn-edit"> CANCELAR </button></Link>
-                            <button className="btn" onClick={() => editProjectDetails()}>
-                                GUARDAR CAMBIOS
-                            </button>
-                        </div>
-
-                    </form> */}
-            {/* </section>  </section> */}
-
-            {/* <div className="btns-actions">
-                <Link to='/admin-projects'><Button variant="outlined" color="error"> CANCELAR </Button></Link>
-                <Button variant="contained" color="primary" onClick={() => editProjectDetails()}>
-                    GUARDAR CAMBIOS
-                </Button>
-            </div> */}
         </>
     );
 };

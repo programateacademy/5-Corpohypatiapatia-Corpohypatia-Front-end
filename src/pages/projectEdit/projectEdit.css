@@ -1,0 +1,9 @@
+.specificObjective{
+    display: flex;
+    flex-direction: column;
+}
+
+.specificObjective .textField{
+    width: 90%;
+    margin: 8px 0;
+}

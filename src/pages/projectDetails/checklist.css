@@ -132,6 +132,68 @@
     transition-delay: 0.15s;
 }
 
-input[type=checkbox] {
-    opacity: 0;
+.result-container{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: center;
 }
+
+.result-percentage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-percentage p, h2{
+    margin: 0;
+    padding: 0;
+}
+
+.card-indicator{
+    /* display: flex; */
+    width: 100%;
+    /* justify-content: space-between;
+    align-items: center; */
+    margin: 10px 0;
+}
+
+.card-indicator .rectangulo{
+    margin: 0 0 10px 0;
+}
+
+.tasks{
+    text-align: start;
+    padding: 10px 30px;
+}
+
+.tasks ul{
+    list-style: none;
+    text-align: start;
+    padding: 0;
+}
+
+.activity{
+    display: flex;
+    background: rgba(208, 249, 255, 0.479);
+    margin: 6px 0;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.activity input{
+    margin-right: 15px;
+    height: 20px;
+}
+
+.activity input[type=checkbox]{
+    transform: scale(2);
+}
+
+.indicator .icon-ind{
+    margin-right: 8px;
+}
+
+/* input[type=checkbox] {
+    opacity: 0;
+} */

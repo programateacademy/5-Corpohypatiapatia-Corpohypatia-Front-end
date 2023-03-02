@@ -1,18 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getProject } from "../../service/api";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProject, editProject, deleteProject } from "../../service/api";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+
 
 // import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
-// import { RiArrowGoBackFill } from "react-icons/ri";
+import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
+import Swal from 'sweetalert2';
+
 
 function ProjectDetails() {
-  const [project, setProject] = useState([]);
+
+  const [project, setProject] = useState(null);
+
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const token = localStorage.getItem("token");
@@ -26,16 +33,80 @@ function ProjectDetails() {
 
   useEffect(() => {
     loadProjectsDetails();
-  }, []);
+  }, [project]);
 
-  // console.log(project.problematic_summary)
+  const handleCheckboxChange = async (e) => {
+    const updatedProject = { ...project };
+    updatedProject.enabled = e.target.checked;
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: `¿Estás seguro de querer ${project.enabled === !true ? "habilitar" : "deshabilitar"} este proyecto?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'Cancelar',
+    });
+    if (result.isConfirmed) {
+      await editProject(updatedProject, id);
+      await loadProjectsDetails();
+      await Swal.fire({
+        title: '¡Hecho!',
+        text: 'Cambios guardados con éxito',
+        icon: 'success',
+        timer: 1500,
+      });
+    } else {
+      e.target.checked = !e.target.checked;
+    }
+  };
 
-  // const text = project.problematic_summary
-  // console.log(`texto ${text}`)
+  const deleteProjectDetails = async (id) => {
+    Swal.fire({
+      title: "¿Estás seguro de querer eliminar este proyecto?",
+      text: "¡No podrás revertir esta acción!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Si, ¡bórralo!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProject(id);
+        navigate('/projects');
+        Swal.fire(
+          "¡Proyecto eliminado!",
+          `El registro de este proyecto ha sido borrado con éxito`,
+          "success"
+        );
+      }
+    });
+  };
+
+
+  if (!project) {
+    return (
+      <>
+        <div id="container-loader">
+          <label class="loading-title">Cargando información de proyecto...</label>
+          <span class="loading-circle sp1">
+            <span class="loading-circle sp2">
+              <span class="loading-circle sp3"></span>
+            </span>
+          </span>
+        </div>
+      </>
+    );
+  }
 
   return (
+
+
     <div className="contenedor-Detalle">
-      <div className="card-foto">
+
+      <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
         <div className="reverse">
           <div className="cards">
@@ -59,59 +130,40 @@ function ProjectDetails() {
           </div>
 
           <div className="elemento-avance">
-            {/* <button className="Boton-regresar">
+            <button className="Boton-regresar" onClick={() => window.history.back()}>
               Regresar <RiArrowGoBackFill className="icon-regreso" />
-            </button> */}
+            </button>
 
             <div className="avance">
               <p>Avance</p>
               <div className="porcentaje-avance">
-                <p>15%</p>
+                <p>{project.project_percentage}%</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="margen">
-        <div className="segun-margen">
+      <div class="margen w-75 mx-auto">
+        <div class="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <div className="card">
-            <div className="forma">
-              <div className="cards-indicador">
-                <div className="rectangulo">
-                  <p>Indicador</p>
-                </div>
-                {/* <p className="card-text">Lorem Ipsum is simply dummy text</p> */}
-              </div>
-              {/* <div className="indicador">
-                <p className="porcetanje-indi">76.52% </p>
-                <p className="texto-avance">Avance</p>
-              </div> */}
-              <Checklist />
-            </div>
-          </div>
-          {/* card sencilla fechas*/}
+          <Checklist results={project.results} />
 
           <div className="card">
             <div className="card-body">
               <div className="contenedor-fechas">
                 <div className="fechas">
-                  <p className="bold">Fecha de corte:</p>
-                  <p>30/03/3030</p>
+                  <div className="result-percentage">
+                    <h2>{project.project_duration}</h2>
+                    <p>Duración</p>
+                  </div>
                 </div>
                 <div className="fechas">
-                  <p className="bold">Fecha de actualizacion:</p>
-                  <p>30/03/3030</p>
-                </div>
-                <div className="fechas">
-                  <p className="bold">Duración:</p>
-                  <p>{project.project_duration}</p>
-                </div>
-                <div className="fechas">
-                  <p className="bold">Presupuesto:</p>
-                  <p>{project.project_budget}</p>
+                  <div className="result-percentage">
+                    <h2>{project.project_budget}</h2>
+                    <p>Presupuesto</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -189,7 +241,6 @@ function ProjectDetails() {
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
                     <p className="card-text">
-                      {/* <ReadMore text={project.problematic_summary}/> */}
                       {project.problematic_summary}
                     </p>
                     <br />
@@ -212,19 +263,7 @@ function ProjectDetails() {
                     </h5>
                     <hr />
                     {project.alignment}
-
-                    {/* <div className="texto-fecha">
-                      <p>Fecha de corte:</p>
-                      <p>Fecha de actualizacion:</p>
-                    </div> */}
                   </div>
-
-                  {/* <div className="card-body">
-                    <h5 className="card-title">
-                      Comportamiento anual del indicador
-                    </h5>
-                    <hr />
-                  </div> */}
                 </div>
                 <div
                   className="tab-pane fade"
@@ -240,9 +279,9 @@ function ProjectDetails() {
                     <h5 className="card-title">Objetivos específicos</h5>
                     <hr />
                     <ul>
-                      {/* {project.specific_objectives.map((elemento) => (
-                        <li key={elemento}>{elemento}</li>
-                      ))} */}
+                      {project.specific_objectives.map((objective, index) => (
+                        <li key={index}>{objective}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -289,8 +328,25 @@ function ProjectDetails() {
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
       </div>
-    </div>
-  );
+
+      <div className="project-status">
+        <Button className="button delete" variant="contained" color="error"
+          onClick={() => deleteProjectDetails(project._id)}> Eliminar proyecto
+        </Button>
+        <div className="project-status_cont">
+          <p>Estado del proyecto:</p>
+          <div className="check-status">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="habilitado"
+              checked={project?.enabled || false}
+              onChange={handleCheckboxChange}
+            />
+            <label className="form-check-label" htmlFor="habilitado">Habilitado</label></div>
+        </div>
+      </div>
+    </div >)
 }
 
 export default ProjectDetails;
