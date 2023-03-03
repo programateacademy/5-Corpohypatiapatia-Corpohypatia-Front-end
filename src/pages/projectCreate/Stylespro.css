@@ -179,3 +179,6 @@ button{
   }
 }  */
 
+.image-fake{
+  display: none;
+}

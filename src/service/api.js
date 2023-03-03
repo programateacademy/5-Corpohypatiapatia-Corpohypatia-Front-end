@@ -104,59 +104,5 @@ export const changePassword = async (password, token) => {
 };
 
 
-//entity
-export const addEntity = async (info) => {
-  try {
-    return await axios.post(`${URL}/entity/add`, info);
-  } catch (e) {
-    console.log("Error while calling Entity Api", e);
-  }
-};
 
-export const getEntities = async (token) => {
-  try {
-    return await axios.get(`${URL}/entity`, {
-      headers: {
-        "x-access-token": token,
-      },
-    });
-  } catch (e) {
-    console.log("Error while calling getEntity API", e);
-  }
-};
 
-export const getEntity = async (id, token) => {
-  try {
-    return await axios.get(`${URL}/entity/${id}`, {
-      headers: {
-        "x-access-token": token,
-      },
-    });
-  } catch (e) {
-    console.log("Error while calling getEntity api", e);
-  }
-};
-
-export const editEntity = async (entity, id, token) => {
-  try {
-    return await axios.put(`${URL}/entity/${id}`, entity, {
-      headers: {
-        "x-access-token": token,
-      },
-    });
-  } catch (e) {
-    console.log("Error while calling editEntity api", e);
-  }
-};
-
-export const deleteEntity = async (id, token) => {
-  try {
-    return await axios.delete(`${URL}/entity/${id}`, {
-      headers: {
-        "x-access-token": token,
-      },
-    });
-  } catch (e) {
-    console.log("Error while callign deleteEntity api", e);
-  }
-};

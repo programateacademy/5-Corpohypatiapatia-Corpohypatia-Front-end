@@ -80,7 +80,7 @@ function ProjectDetails() {
       confirmButtonText: "Si, ¡bórralo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProject(id);
+        deleteProject(id, token);
         navigate('/projects');
         Swal.fire(
           "¡Proyecto eliminado!",

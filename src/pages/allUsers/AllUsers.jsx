@@ -29,7 +29,8 @@ const AllUsers = () => {
                         <thead className='tableTheadBg'>
                             <tr>
                                 <th>N°</th>
-                                <th>Nombre</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
                                 <th>Email</th>
                                 <th>Acciones</th>
                             </tr>
@@ -38,7 +39,8 @@ const AllUsers = () => {
                             {users.map ( (user, index) => (
                                 <tr key={index}>
                                     <td>{index+1}</td>
-                                    <td>{user.name}</td>
+                                    <td>{user.firstNames}</td>
+                                    <td>{user.lastNames}</td>
                                     <td>{user.email}</td>
                                     <td>
                                         <Link to={`/edit-user/${user._id}`} className='btn btn-info mx-2'><i className="fa-solid fa-pen-to-square"></i></Link>

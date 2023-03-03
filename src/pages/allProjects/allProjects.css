@@ -40,7 +40,7 @@
     background-color: aqua;
 } */
 
-.container_paginate{
+.container_paginate{ 
     height: 40px;
     margin: 40px auto;
     padding: 0;
@@ -88,6 +88,11 @@
 
 .link-card{
     text-decoration: none;
+}
+
+.cards-container{
+    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 /* .circular-graphic{
