@@ -86,6 +86,9 @@
     border-radius: 2px;
 }
 
+.link-card{
+    text-decoration: none;
+}
 
 /* .circular-graphic{
     width: 200px;

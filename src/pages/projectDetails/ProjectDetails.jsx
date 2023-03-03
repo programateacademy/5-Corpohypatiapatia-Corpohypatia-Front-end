@@ -15,7 +15,13 @@ import Checklist from "./Checklist";
 import Swal from 'sweetalert2';
 
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+
 function ProjectDetails() {
+
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const [project, setProject] = useState(null);
 
@@ -83,6 +89,44 @@ function ProjectDetails() {
         );
       }
     });
+  };
+
+  const exportToPDF = () => {
+    if (!project) {
+      return;
+    }
+
+    const docDefinition = {
+      content: [
+        { text: "Project Details", style: "header" },
+        { text: "Title:", style: "label" },
+        { text: project.project_title, style: "value" },
+        { text: "Location:", style: "label" },
+        { text: project.project_location, style: "value" },
+        { text: "Duration:", style: "label" },
+        { text: project.project_duration, style: "value" },
+        { text: "Budget:", style: "label" },
+        { text: project.project_budget, style: "value" },
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          margin: [0, 0, 0, 10],
+        },
+        label: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 10, 0, 5],
+        },
+        value: {
+          fontSize: 14,
+          margin: [0, 0, 0, 10],
+        },
+      },
+    };
+
+    pdfMake.createPdf(docDefinition).open();
   };
 
 
@@ -324,7 +368,7 @@ function ProjectDetails() {
             </div>
           </div>
         </div>
-        <button className="boton-export">
+        <button className="boton-export" onClick={exportToPDF}>
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
       </div>

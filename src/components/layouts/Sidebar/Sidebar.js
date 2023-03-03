@@ -104,11 +104,11 @@ const Sidebar = () => {
 };
 
 const linksArray = [
-    {
-        label: "Home",
-        icon: <AiOutlineHome />,
-        to: "/",
-    },
+    // {
+    //     label: "Home",
+    //     icon: <AiOutlineHome />,
+    //     to: "/",
+    // },
     {
         label: "Lista de proyectos",
         icon: <VscFolderOpened />,
