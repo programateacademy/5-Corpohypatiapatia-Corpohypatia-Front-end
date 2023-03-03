@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
 
-// import ReadMore from "./ReadMore";
+import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
@@ -240,8 +240,8 @@ function ProjectDetails() {
                   <div className="card-body">
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
-                    <p className="card-text">
-                      {project.problematic_summary}
+                    <p className="card-text text-summary">
+                      <ReadMore text={project.problematic_summary}/>
                     </p>
                     <br />
                     <h5 className="card-title">
