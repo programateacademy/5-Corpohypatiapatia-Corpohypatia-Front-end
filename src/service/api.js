@@ -102,3 +102,7 @@ export const changePassword = async (password, token) => {
     console.log("Error while calling getMovies API", e);
   }
 };
+
+
+
+

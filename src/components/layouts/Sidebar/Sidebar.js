@@ -30,8 +30,8 @@ import {
 import { MdLogout } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
+import { BsBuilding} from "react-icons/bs";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 
 const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -41,31 +41,16 @@ const Sidebar = () => {
         localStorage.removeItem('token');
     }
 
-    async function invalidateToken() {
-        const token = localStorage.getItem('token');
-
-        try {
-            const response = await axios.post('(aqui va la ruta del back)', {}, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            logout();
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
     return (
         <SSidebar isOpen={sidebarOpen}>
             <>
                 <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
-                    {!sidebarOpen ? <FaBars/> : <CgClose/>}
+                    {!sidebarOpen ? <FaBars /> : <CgClose />}
                 </SSidebarButton>
             </>
             <SLogo>
-                <img src={logoSVG} alt="logo" width={sidebarOpen ? 0 : 50}/>
-                {sidebarOpen && <img src={logo2SVG} alt="logo"/>}
+                <img src={logoSVG} alt="logo" width={sidebarOpen ? 0 : 50} />
+                {sidebarOpen && <img src={logo2SVG} alt="logo" />}
             </SLogo>
             {
                 sidebarOpen &&
@@ -92,12 +77,18 @@ const Sidebar = () => {
             <SDivider />
             {secondaryLinksArray.map(({ icon, label }) => (
                 <SLinkContainer key={label}>
-                    <SLink to="/" onClick={label === "Logout" && invalidateToken} style={!sidebarOpen ? { width: `fit-content` } : {}}>
+                    <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
                         <SLinkIcon>{icon}</SLinkIcon>
                         {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
                     </SLink>
                 </SLinkContainer>
             ))}
+            <SLinkContainer>
+                <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
+                    <SLinkIcon onClick={() => logout()}><MdLogout /></SLinkIcon>
+                    {sidebarOpen && <SLinkLabel>Logout</SLinkLabel>}
+                </SLink>
+            </SLinkContainer>
             <SDivider />
         </SSidebar>
     );
@@ -108,6 +99,11 @@ const linksArray = [
         label: "Home",
         icon: <AiOutlineHome />,
         to: "/",
+    },
+    {
+        label: "Entidad",
+        icon: <BsBuilding />,
+        to: "/entidad-solicitante",
     },
     {
         label: "Lista de proyectos",
@@ -127,7 +123,7 @@ const linksArray = [
     {
         label: "Agregar usuarios",
         icon: <HiOutlineUserAdd />,
-        to: "/user-register",
+        to: "/create-user",
     },
 ];
 
@@ -135,10 +131,6 @@ const secondaryLinksArray = [
     {
         label: "Settings",
         icon: <AiOutlineSetting />,
-    },
-    {
-        label: "Logout",
-        icon: <MdLogout />,
     },
 ];
 

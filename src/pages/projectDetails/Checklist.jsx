@@ -87,7 +87,7 @@ function Checklist() {
                                     {result.indicators.map((indicator) => (
                                         <li key={indicator} className="indicator"><FaRegHandPointRight className="icon-ind" />{indicator}</li>
                                     ))}
-                                </ul>
+                                </ul> 
                                 <h4>Actividades</h4>
                                 <ul>
                                     {result.activities.map((activity, activityIndex) => (

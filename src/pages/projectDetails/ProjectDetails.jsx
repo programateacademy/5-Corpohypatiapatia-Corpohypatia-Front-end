@@ -5,17 +5,22 @@ import { getProject, editProject, deleteProject } from "../../service/api";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
-
-// import ReadMore from "./ReadMore";
+import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 
 function ProjectDetails() {
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const [project, setProject] = useState(null);
 
@@ -39,22 +44,24 @@ function ProjectDetails() {
     const updatedProject = { ...project };
     updatedProject.enabled = e.target.checked;
     const result = await Swal.fire({
-      title: '¿Estás seguro?',
-      text: `¿Estás seguro de querer ${project.enabled === !true ? "habilitar" : "deshabilitar"} este proyecto?`,
-      icon: 'warning',
+      title: "¿Estás seguro?",
+      text: `¿Estás seguro de querer ${
+        project.enabled === !true ? "habilitar" : "deshabilitar"
+      } este proyecto?`,
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "Cancelar",
     });
     if (result.isConfirmed) {
       await editProject(updatedProject, id, token);
       await loadProjectsDetails();
       await Swal.fire({
-        title: '¡Hecho!',
-        text: 'Cambios guardados con éxito',
-        icon: 'success',
+        title: "¡Hecho!",
+        text: "Cambios guardados con éxito",
+        icon: "success",
         timer: 1500,
       });
     } else {
@@ -74,7 +81,7 @@ function ProjectDetails() {
       confirmButtonText: "Si, ¡bórralo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProject(id);
+        deleteProject(id, token);
         navigate('/projects');
         Swal.fire(
           "¡Proyecto eliminado!",
@@ -85,12 +92,130 @@ function ProjectDetails() {
     });
   };
 
+  const exportToPDF = () => {
+    if (!project) {
+      return;
+    }
+
+    const docDefinition = {
+      footer: function (currentPage, pageCount) {
+        return;
+      },
+      header: function (currentPage, pageCount, pageSize) {
+        return [
+          {
+            text: " Page " + currentPage + " / " + pageCount,
+            alignment: currentPage % 2 ? "left" : "right",
+            fontSize: 9,
+            bold: true,
+          },
+          {
+            canvas: [
+              {
+                type: "rect",
+                x: 170,
+                y: 32,
+                w: pageSize.width - 170,
+                h: 40,
+                width: 90,
+              },
+            ],
+          },
+        ];
+      },
+
+      content: [
+        
+
+        {
+          stack: [project.project_title],
+          style: "title",
+        },
+
+        { text: "Información de Proyecto", style: "header" },
+        { text: "Ubicación:", style: "label" },
+        { text: project.project_location, style: "value" },
+
+        { text: "Duración:", style: "label" },
+        { text: project.project_duration, style: "value" },
+        { text: "Presupuesto:", style: "label" },
+        { text: project.project_budget, style: "value" },
+        { text: "Avance del proyecto:", style: "label" },
+        { text: project.project_percentage + "%", style: "value"},
+
+        { text: "Beneficiarios / población diana", style: "label" },
+        { text: project.beneficiaries, style: "value" },
+        { text: "Resumen ejecutivo", style: "label" },
+        { text: project.executive_summary, style: "value" },
+        {
+          text: "Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales",
+          style: "label",
+        },
+        { text: project.alignment, style: "value" },
+
+        { text: "Objetivos", style: "label" },
+        { text: project.methodology_summary, style: "value" },
+        { text: "Objetivo General", style: "label" },
+        { text: project.general_objetive, style: "value" },
+        { text: "Objetivo Específicos", style: "label" },
+        { text: project.specific_objectives, stule: "value" },
+
+        { text: "Experiencia y capacidad", style: "label" },
+        { text: project.experience, style: "value" },
+
+        {
+          text: "Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto",
+          style: "label",
+        },
+        { text: project.sustainability, style: "value" },
+
+        {
+          text: "Estrategia de salida al finalizar el proyecto",
+          style: "label",
+        },
+        { text: project.exit_strategy, style: "value" },
+
+
+      ],
+      styles: {
+        header: {
+          fontSize: 15,
+          bold: true,
+          margin: [0, 0, 0, 10],
+        },
+
+        title: {
+          fontSize: 20,
+          bold: true,
+          alignment: "right",
+          margin: [0, 20, 0, 80],
+          color:"#760000",
+        },
+
+        label: {
+          fontSize: 12,
+          bold: true,
+          margin: [0, 10, 0, 10],
+        },
+
+        value: {
+          fontSize: 11,
+          margin: [0, 0, 0, 10],
+          alignment: "justify",
+        },
+      },
+    };
+
+    pdfMake.createPdf(docDefinition).open();
+  };
 
   if (!project) {
     return (
       <>
         <div id="container-loader">
-          <label className="loading-title">Cargando información de proyecto...</label>
+          <label className="loading-title">
+            Cargando información de proyecto...
+          </label>
           <span className="loading-circle sp1">
             <span className="loading-circle sp2">
               <span className="loading-circle sp3"></span>
@@ -102,10 +227,7 @@ function ProjectDetails() {
   }
 
   return (
-
-
     <div className="contenedor-Detalle">
-
       <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
         <div className="reverse">
@@ -130,7 +252,10 @@ function ProjectDetails() {
           </div>
 
           <div className="elemento-avance">
-            <button className="Boton-regresar" onClick={() => window.history.back()}>
+            <button
+              className="Boton-regresar"
+              onClick={() => window.history.back()}
+            >
               Regresar <RiArrowGoBackFill className="icon-regreso" />
             </button>
 
@@ -148,7 +273,7 @@ function ProjectDetails() {
         <div className="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <Checklist/>
+          <Checklist />
 
           <div className="card">
             <div className="card-body">
@@ -240,8 +365,8 @@ function ProjectDetails() {
                   <div className="card-body">
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
-                    <p className="card-text">
-                      {project.problematic_summary}
+                    <p className="card-text text-summary">
+                      <ReadMore text={project.problematic_summary}/>
                     </p>
                     <br />
                     <h5 className="card-title">
@@ -324,14 +449,20 @@ function ProjectDetails() {
             </div>
           </div>
         </div>
-        <button className="boton-export">
+        <button className="boton-export" onClick={exportToPDF}>
           Exportar <BsBoxArrowUp className="icon-Export" />{" "}
         </button>
       </div>
 
       <div className="project-status">
-        <Button className="button delete" variant="contained" color="error"
-          onClick={() => deleteProjectDetails(project._id)}> Eliminar proyecto
+        <Button
+          className="button delete"
+          variant="contained"
+          color="error"
+          onClick={() => deleteProjectDetails(project._id)}
+        >
+          {" "}
+          Eliminar proyecto
         </Button>
         <div className="project-status_cont">
           <p>Estado del proyecto:</p>
@@ -343,10 +474,14 @@ function ProjectDetails() {
               checked={project?.enabled || false}
               onChange={handleCheckboxChange}
             />
-            <label className="form-check-label" htmlFor="habilitado">Habilitado</label></div>
+            <label className="form-check-label" htmlFor="habilitado">
+              Habilitado
+            </label>
+          </div>
         </div>
       </div>
-    </div >)
+    </div>
+  );
 }
 
 export default ProjectDetails;

@@ -1,4 +1,4 @@
-.card-projects{
+.cards-projects{
     width: 340px;
     position: relative;
     border-radius: 5px;
@@ -11,7 +11,7 @@
     border: 2px solid rgba(0, 0, 0, 0.114);
 }
 
-.card-projects .title{
+.cards-projects .title{
     text-decoration: none;
     margin-top: 60px;
     font-size: 20px;
@@ -49,7 +49,7 @@
     width: 100%;
 }
 
-.card-projects .circular-graphic{
+.cards-projects .circular-graphic{
     position: absolute;
     width: 120px;
     height: 120px;
@@ -65,7 +65,7 @@
     /* display: none; */
 } 
 
-.card-projects .circular-graphic h3{
+.cards-projects .circular-graphic h3{
     position: absolute;
     background-color: white;
     border-radius: 50%;
@@ -76,5 +76,8 @@
     align-items: center;
     margin: 0;
     padding: 0;
-}
+} 
 
+.cards-projects .specifications p{
+    font-weight: bold;
+}

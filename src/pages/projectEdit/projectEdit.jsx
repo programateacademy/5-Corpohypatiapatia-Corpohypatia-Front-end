@@ -282,7 +282,7 @@ const ProjectEdit = () => {
                                         />
                                     </FormControl>
 
-                                    <FormControl>
+                                    {/* <FormControl>
                                         <TextField
                                             id="outlined-basic"
                                             label="Dirección de imagen"
@@ -292,7 +292,7 @@ const ProjectEdit = () => {
                                             value={project.imagePath}
                                             onChange={(e) => onValueChange(e)}
                                         />
-                                    </FormControl>
+                                    </FormControl> */}
                                 </form>
                             </div>
 
