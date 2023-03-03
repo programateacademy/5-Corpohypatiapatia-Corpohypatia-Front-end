@@ -133,16 +133,6 @@ function ProjectDetails() {
         { text: "Ubicación:", style: "label" },
         { text: project.project_location, style: "value" },
 
-        {
-          style: 'tableExample',
-          table: {
-            body: [
-              ['Duracion', 'Presupuesto', 'Avance del  proyecto'],
-              ['One value goes here', 'Another one here', 'OK?']
-            ]
-          }
-        },
-
         { text: "Duración:", style: "label" },
         { text: project.project_duration, style: "value" },
         { text: "Presupuesto:", style: "label" },

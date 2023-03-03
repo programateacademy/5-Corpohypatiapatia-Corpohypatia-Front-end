@@ -30,6 +30,7 @@ import {
 import { MdLogout } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
+import { BsBuilding} from "react-icons/bs";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -108,6 +109,11 @@ const linksArray = [
         label: "Home",
         icon: <AiOutlineHome />,
         to: "/",
+    },
+    {
+        label: "Entidad",
+        icon: <BsBuilding />,
+        to: "/entidad-solicitante",
     },
     {
         label: "Lista de proyectos",
