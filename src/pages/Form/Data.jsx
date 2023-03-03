@@ -78,14 +78,14 @@ function Data({ datos, activeEdit, confirm }) {
               <button
                 type="submit"
                 className="btn btn-outline-warning m-3"
-                onClick={() => activeEdit()}
+                onClick={() => activeEdit(item._id)}
               >
                 Editar
               </button>
               <button
                 type="submit"
                 className="btn btn-outline-danger m-3"
-                onClick={() => confirm()}
+                onClick={() => confirm(item._id)}
               >
                 Eliminar
               </button>

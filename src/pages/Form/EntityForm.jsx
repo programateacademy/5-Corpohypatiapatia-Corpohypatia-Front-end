@@ -107,7 +107,7 @@ function Form() {
     setRegistry_nit(respuesta.data.registry_nit);
     setId(_id);
     setValidation(true);
-   // console.log(id);
+    //console.log(id);
   };
 
   return (
