@@ -31,6 +31,7 @@ import { MdLogout } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
 import { useLocation } from "react-router-dom";
+import { BsBuilding} from "react-icons/bs";
 import axios from "axios";
 
 const Sidebar = () => {
@@ -110,6 +111,11 @@ const linksArray = [
         to: "/",
     },
     {
+        label: "Entidad",
+        icon: <BsBuilding />,
+        to: "/entidad-solicitante",
+    },
+    {
         label: "Lista de proyectos",
         icon: <VscFolderOpened />,
         to: "/admin-projects",
@@ -129,6 +135,7 @@ const linksArray = [
         icon: <HiOutlineUserAdd />,
         to: "/user-register",
     },
+
 ];
 
 const secondaryLinksArray = [

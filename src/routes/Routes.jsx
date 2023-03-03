@@ -13,6 +13,7 @@ import UserRegister from "../pages/userRegister/UserRegister"
 
 import { ScrollToTop } from "../components/common/ScrollToTop";
 import Steps from "../pages/projectCreate/Steps";
+import form from "../pages/allProjects/form";
 
 const AllRoutes = () => {
     return (
@@ -27,7 +28,7 @@ const AllRoutes = () => {
                 <Route path='/admin-create-project' element={<ProjectCreate/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/user-register' element={<UserRegister/>} />
-
+                <Route path='/entidad-solicitante' element={<form/>} />
                 <Route path='/checklist' element={<Checklist/>} />
                 <Route path='/step' element={<Steps/>} />
             </Routes>
