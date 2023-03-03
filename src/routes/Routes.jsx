@@ -15,8 +15,8 @@ import Steps from "../pages/projectCreate/Steps";
 import ResetPassword from "../pages/resetPassword/ResetPassword";
 import ChangePassword from "../pages/changePassword/ChangePassword";
 import AllUsers from "../pages/allUsers/AllUsers";
-// import CreateUser from "../pages/allUsers/CreateUser";
-// import EditUser from "../pages/allUsers/EditUser";
+import CreateUser from "../pages/allUsers/CreateUser";
+import EditUser from "../pages/allUsers/EditUser";
 
 const AllRoutes = () => {
   return (
@@ -34,6 +34,8 @@ const AllRoutes = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/all-users" element={<AllUsers />} />
+        <Route path='/create-user' element={<CreateUser/>}/>
+        <Route path='/edit-user/:id' element={<EditUser/>}/>
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/user-register" element={<UserRegister />} />
         <Route path="/change-password/:token" element={<ChangePassword />} />
