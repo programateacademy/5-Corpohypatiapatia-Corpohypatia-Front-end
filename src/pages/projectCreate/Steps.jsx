@@ -10,6 +10,10 @@ const FormControl = styled(Group)`
     margin: 10px 0;
 `;
 
+const FormControlHide = styled(Group)`
+    display:none;
+`;
+
 const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Resultados', 'Experiencia y sostenibilidad'];
 
 function StepperComponent() {
@@ -82,12 +86,24 @@ function StepperComponent() {
                                     id="outlined-basic"
                                     // label="Dirección de imagen"
                                     variant="outlined"
-                                    name="imagePath"
-                                    type="string"
-                                    value={project.imagePath}
-                                    onChange={(e) => onValueChange(e)}
+                                    name="image"
+                                    type="file"
+
+
                                 />
                             </FormControl>
+
+                            <FormControlHide>
+                                <TextField
+                                    id="outlined-basic"
+                                    // label="Dirección de imagen"
+                                    variant="outlined"
+                                    name="imagePath"
+                                    type="string"
+                                    value="https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg"
+                                    onChange={(e) => onValueChange(e)}
+                                />
+                            </FormControlHide>
                         </form>
                     </div>
                 );
@@ -353,7 +369,7 @@ function StepperComponent() {
         project_duration: "",
         project_budget: "",
         intervention_sector: "",
-        imagePath: "",
+        imagePath: "https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg",
         problematic_summary: "",
         beneficiaries: "",
         executive_summary: "",
@@ -379,14 +395,14 @@ function StepperComponent() {
     //variable that stores the navigation function provided by the hook
     const navigate = useNavigate();
 
-   
+    
 
     //function that updates the state of the form whenever a change occurs in a form element
     const onValueChange = (e) => {
         // local(e.target.name, e.target.value)
         setProject({ ...project, [e.target.name]: e.target.value });
-
         
+        ;
         // console.log(e.target.name, e.target.value)
 
     };
@@ -451,7 +467,7 @@ function StepperComponent() {
         }
         else {
             return (
-                <Button variant="contained" color="primary"  onClick={handleNext}>
+                <Button  variant="contained" color="primary" onClick={handleNext}>
                     Siguiente
                 </Button>
             );
@@ -545,6 +561,8 @@ function StepperComponent() {
         newResults[resultIndex].indicators = newIndicators;
         setResults(newResults);
     };
+
+
 
     return (
         <div className='step'>

@@ -97,31 +97,110 @@ function ProjectDetails() {
     }
 
     const docDefinition = {
+      footer: function (currentPage, pageCount) {
+        return;
+      },
+      header: function (currentPage, pageCount, pageSize) {
+        return [
+          {
+            text: " Page " + currentPage + " / " + pageCount,
+            alignment: currentPage % 2 ? "left" : "right",
+            fontSize: 9,
+            bold: true,
+          },
+          {
+            canvas: [
+              {
+                type: "rect",
+                x: 170,
+                y: 32,
+                w: pageSize.width - 170,
+                h: 40,
+                width: 90,
+              },
+            ],
+          },
+        ];
+      },
+
       content: [
-        { text: "Project Details", style: "header" },
-        { text: "Title:", style: "label" },
-        { text: project.project_title, style: "value" },
-        { text: "Location:", style: "label" },
+        
+
+        {
+          stack: [project.project_title],
+          style: "title",
+        },
+
+        { text: "Información de Proyecto", style: "header" },
+        { text: "Ubicación:", style: "label" },
         { text: project.project_location, style: "value" },
-        { text: "Duration:", style: "label" },
+
+        { text: "Duración:", style: "label" },
         { text: project.project_duration, style: "value" },
-        { text: "Budget:", style: "label" },
+        { text: "Presupuesto:", style: "label" },
         { text: project.project_budget, style: "value" },
+        { text: "Avance del proyecto:", style: "label" },
+        { text: project.project_percentage + "%", style: "value"},
+
+        { text: "Beneficiarios / población diana", style: "label" },
+        { text: project.beneficiaries, style: "value" },
+        { text: "Resumen ejecutivo", style: "label" },
+        { text: project.executive_summary, style: "value" },
+        {
+          text: "Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales",
+          style: "label",
+        },
+        { text: project.alignment, style: "value" },
+
+        { text: "Objetivos", style: "label" },
+        { text: project.methodology_summary, style: "value" },
+        { text: "Objetivo General", style: "label" },
+        { text: project.general_objetive, style: "value" },
+        { text: "Objetivo Específicos", style: "label" },
+        { text: project.specific_objectives, stule: "value" },
+
+        { text: "Experiencia y capacidad", style: "label" },
+        { text: project.experience, style: "value" },
+
+        {
+          text: "Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto",
+          style: "label",
+        },
+        { text: project.sustainability, style: "value" },
+
+        {
+          text: "Estrategia de salida al finalizar el proyecto",
+          style: "label",
+        },
+        { text: project.exit_strategy, style: "value" },
+
+
       ],
       styles: {
         header: {
-          fontSize: 18,
+          fontSize: 15,
           bold: true,
           margin: [0, 0, 0, 10],
         },
+
+        title: {
+          fontSize: 20,
+          bold: true,
+          alignment: "right",
+          margin: [0, 20, 0, 80],
+          color:"#760000",
+        },
+
         label: {
-          fontSize: 14,
+          fontSize: 12,
           bold: true,
-          margin: [0, 10, 0, 5],
+          margin: [0, 10, 0, 10],
         },
+
         value: {
-          fontSize: 14,
+          fontSize: 11,
           margin: [0, 0, 0, 10],
+          alignment: "justify",
         },
       },
     };
