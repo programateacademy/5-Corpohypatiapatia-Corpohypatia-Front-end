@@ -17,6 +17,7 @@ import ChangePassword from "../pages/changePassword/ChangePassword";
 import AllUsers from "../pages/allUsers/AllUsers";
 
 import Layout from "../components/layouts/Layout/Layout";
+import EntityForm from "../pages/Form/EntityForm";
 // import CreateUser from "../pages/allUsers/CreateUser";
 // import EditUser from "../pages/allUsers/EditUser";
 import CreateUser from "../pages/allUsers/CreateUser";
@@ -44,6 +45,7 @@ const AllRoutes = () => {
             <Route path="/create-project" element={<ProjectCreate />} />
             <Route path="/checklist" element={<Checklist />} />
             <Route path="/step" element={<Steps />} />
+            <Route path="/entidad-solicitante" element={<EntityForm/>}/>
             <Route path="/all-users" element={<AllUsers />} />
             <Route path='/create-user' element={<CreateUser />} />
             <Route path='/edit-user/:id' element={<EditUser />} />

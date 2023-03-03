@@ -5,21 +5,20 @@ import { getProject, editProject, deleteProject } from "../../service/api";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
-
 import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { RiFileEditLine } from "react-icons/ri";
 import Checklist from "./Checklist";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
-
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 
 function ProjectDetails() {
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -45,22 +44,24 @@ function ProjectDetails() {
     const updatedProject = { ...project };
     updatedProject.enabled = e.target.checked;
     const result = await Swal.fire({
-      title: '¿Estás seguro?',
-      text: `¿Estás seguro de querer ${project.enabled === !true ? "habilitar" : "deshabilitar"} este proyecto?`,
-      icon: 'warning',
+      title: "¿Estás seguro?",
+      text: `¿Estás seguro de querer ${
+        project.enabled === !true ? "habilitar" : "deshabilitar"
+      } este proyecto?`,
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'Cancelar',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "Cancelar",
     });
     if (result.isConfirmed) {
       await editProject(updatedProject, id, token);
       await loadProjectsDetails();
       await Swal.fire({
-        title: '¡Hecho!',
-        text: 'Cambios guardados con éxito',
-        icon: 'success',
+        title: "¡Hecho!",
+        text: "Cambios guardados con éxito",
+        icon: "success",
         timer: 1500,
       });
     } else {
@@ -208,12 +209,13 @@ function ProjectDetails() {
     pdfMake.createPdf(docDefinition).open();
   };
 
-
   if (!project) {
     return (
       <>
         <div id="container-loader">
-          <label className="loading-title">Cargando información de proyecto...</label>
+          <label className="loading-title">
+            Cargando información de proyecto...
+          </label>
           <span className="loading-circle sp1">
             <span className="loading-circle sp2">
               <span className="loading-circle sp3"></span>
@@ -225,10 +227,7 @@ function ProjectDetails() {
   }
 
   return (
-
-
     <div className="contenedor-Detalle">
-
       <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />
         <div className="reverse">
@@ -253,7 +252,10 @@ function ProjectDetails() {
           </div>
 
           <div className="elemento-avance">
-            <button className="Boton-regresar" onClick={() => window.history.back()}>
+            <button
+              className="Boton-regresar"
+              onClick={() => window.history.back()}
+            >
               Regresar <RiArrowGoBackFill className="icon-regreso" />
             </button>
 
@@ -271,7 +273,7 @@ function ProjectDetails() {
         <div className="segun-margen">
           {/* card sencilla indicador*/}
           <h2 className="title-margin">Indicadores:</h2>
-          <Checklist/>
+          <Checklist />
 
           <div className="card">
             <div className="card-body">
@@ -453,8 +455,14 @@ function ProjectDetails() {
       </div>
 
       <div className="project-status">
-        <Button className="button delete" variant="contained" color="error"
-          onClick={() => deleteProjectDetails(project._id)}> Eliminar proyecto
+        <Button
+          className="button delete"
+          variant="contained"
+          color="error"
+          onClick={() => deleteProjectDetails(project._id)}
+        >
+          {" "}
+          Eliminar proyecto
         </Button>
         <div className="project-status_cont">
           <p>Estado del proyecto:</p>
@@ -466,10 +474,14 @@ function ProjectDetails() {
               checked={project?.enabled || false}
               onChange={handleCheckboxChange}
             />
-            <label className="form-check-label" htmlFor="habilitado">Habilitado</label></div>
+            <label className="form-check-label" htmlFor="habilitado">
+              Habilitado
+            </label>
+          </div>
         </div>
       </div>
-    </div >)
+    </div>
+  );
 }
 
 export default ProjectDetails;
