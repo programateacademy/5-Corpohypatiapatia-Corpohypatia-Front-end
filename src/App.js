@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 // import Layout from "./components/layouts/Layout/Layout"
-import Routes from "./routes/Routes";
+import Routes from "./routes/Routes"
 import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./styles/theme";
 
