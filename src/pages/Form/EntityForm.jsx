@@ -30,13 +30,13 @@ function Form() {
   }, []);
 
   const datosBack = async () => {
-    const res = await axios.get("http://localhost:8000/form/data");
+    const res = await axios.get("https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/form/data");
     console.log(res.data);
     setDatos(res.data);
   };
   const handleAdd = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8000/form/data", {
+    await axios.post("https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/form/data", {
       entity_name,
       entity_adress,
       entity_webpage,
@@ -54,7 +54,7 @@ function Form() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:8000/form/data/${id}`, {
+    await axios.put(`https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/form/data/${id}`, {
       entity_name,
       entity_adress,
       entity_webpage,
@@ -72,7 +72,7 @@ function Form() {
   };
 
   const handleRemove = async (_id) => {
-    await axios.delete(`http://localhost:8000/form/data/${_id}`);
+    await axios.delete(`https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/form/data/${_id}`);
     datosBack();
   };
 
@@ -93,7 +93,7 @@ function Form() {
   };
 
   const activeEdit = async (_id) => {
-    const respuesta = await axios.get(`http://localhost:8000/form/data/${_id}`);
+    const respuesta = await axios.get(`https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/form/data/${_id}`);
     setEntity_name(respuesta.data.entity_name);
     setEntity_adress(respuesta.data.entity_adress);
     setEntity_webpage(respuesta.data.entity_webpage);
