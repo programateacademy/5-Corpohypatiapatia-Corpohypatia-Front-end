@@ -32,8 +32,6 @@ function AllProjects() {
       return item;
   });
 
-  // const [category, setCategory] = useState("All");
-
   // Pagination
   const [pageNumber, setPageNumber] = useState(0);
 

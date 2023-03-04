@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./changePassword.css";
 import logo from "../../assets/img/CorpoHypatia.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { changePassword } from "../../service/api";
 
@@ -19,8 +18,6 @@ export default function ChangePassword() {
   const [valid, setValid] = useState(true);
 
   const [mensaje, setMensaje] = useState();
-
-  const navigate = useNavigate();
 
   const handleClick = () => {
     setValid(validatePassword(data.password));
@@ -86,7 +83,7 @@ export default function ChangePassword() {
             </form>
           </div>
           <div className="right_password">
-            <img src={logo} width={250} />
+            <img src={logo} width={250} alt="logo"/>
           </div>
         </div>
       </div>

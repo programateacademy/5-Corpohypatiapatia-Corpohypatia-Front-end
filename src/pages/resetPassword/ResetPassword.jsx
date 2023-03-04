@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./resetPassword.css";
 import logo from "../../assets/img/CorpoHypatia.png";
-import { useNavigate } from "react-router-dom";
 
 import { resetPassword } from "../../service/api";
 
@@ -16,8 +15,6 @@ export default function ResetPassword() {
 
   const [valid, setValid] = useState(true);
   const [mensaje, setMensaje] = useState();
-
-  const navigate = useNavigate();
 
   const handleClick = () => {
     setValid(validateEmail(data.email));
@@ -81,7 +78,7 @@ export default function ResetPassword() {
             </form>
           </div>
           <div className="right_password">
-            <img src={logo} width={250} />
+            <img src={logo} width={250} alt="logo" />
           </div>
         </div>
       </div>

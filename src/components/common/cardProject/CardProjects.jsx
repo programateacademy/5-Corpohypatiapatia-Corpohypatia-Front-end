@@ -3,7 +3,7 @@ import './cardProjects.css'
 
 function CardProjects(props) {
 
-    const { project_title, project_duration, project_budget, imagePath, project_percentage, enabled } = props.item;
+    const { project_title, project_duration, imagePath, project_percentage, enabled } = props.item;
 
     const value = project_percentage
 

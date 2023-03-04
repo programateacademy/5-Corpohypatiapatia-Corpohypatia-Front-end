@@ -35,11 +35,6 @@
     color:rgb(156, 156, 156);
 }
 
-/* .paginationBttns{
-    display: flex;
-    background-color: aqua;
-} */
-
 .container_paginate{ 
     height: 40px;
     margin: 40px auto;
@@ -95,7 +90,3 @@
     padding-bottom: 40px;
 }
 
-/* .circular-graphic{
-    width: 200px;
-    height: 200px;
-} */

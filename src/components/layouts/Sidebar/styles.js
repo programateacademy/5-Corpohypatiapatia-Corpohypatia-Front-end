@@ -12,7 +12,7 @@ export const SSidebar = styled.div`
 
   @media (max-width: 350px){
     width: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};
-    transform: ${({isOpen}) => (!isOpen ? `translateX(-105px)` : `translateX(0)`)};
+    transform: ${({ isOpen }) => (!isOpen ? `translateX(-105px)` : `translateX(0)`)};
   }
 `;
 

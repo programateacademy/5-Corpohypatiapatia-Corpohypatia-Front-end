@@ -45,9 +45,8 @@ function ProjectDetails() {
     updatedProject.enabled = e.target.checked;
     const result = await Swal.fire({
       title: "¿Estás seguro?",
-      text: `¿Estás seguro de querer ${
-        project.enabled === !true ? "habilitar" : "deshabilitar"
-      } este proyecto?`,
+      text: `¿Estás seguro de querer ${project.enabled === !true ? "habilitar" : "deshabilitar"
+        } este proyecto?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -125,7 +124,7 @@ function ProjectDetails() {
       },
 
       content: [
-        
+
 
         {
           stack: [project.project_title],
@@ -141,7 +140,7 @@ function ProjectDetails() {
         { text: "Presupuesto:", style: "label" },
         { text: project.project_budget, style: "value" },
         { text: "Avance del proyecto:", style: "label" },
-        { text: project.project_percentage + "%", style: "value"},
+        { text: project.project_percentage + "%", style: "value" },
 
         { text: "Beneficiarios / población diana", style: "label" },
         { text: project.beneficiaries, style: "value" },
@@ -189,7 +188,7 @@ function ProjectDetails() {
           bold: true,
           alignment: "right",
           margin: [0, 20, 0, 80],
-          color:"#760000",
+          color: "#760000",
         },
 
         label: {
@@ -366,7 +365,7 @@ function ProjectDetails() {
                     <h5 className="card-title">Descripción del proyecto</h5>
                     <hr />
                     <p className="card-text text-summary">
-                      <ReadMore text={project.problematic_summary}/>
+                      <ReadMore text={project.problematic_summary} />
                     </p>
                     <br />
                     <h5 className="card-title">

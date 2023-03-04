@@ -31,8 +31,6 @@ function Header() {
         result = info.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
     }
 
-    console.log(result)
-
     useEffect(() =>{
         dataSheet();
     },[]);

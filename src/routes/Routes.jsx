@@ -7,7 +7,6 @@ import ProjectDetails from "../pages/projectDetails/ProjectDetails";
 import Checklist from "../pages/projectDetails/Checklist";
 import ProjectEdit from "../pages/projectEdit/projectEdit";
 import Login from "../pages/login/Login"
-import UserRegister from "../pages/userRegister/UserRegister"
 import { ScrollToTop } from "../components/common/ScrollToTop";
 import Steps from "../pages/projectCreate/Steps";
 import ResetPassword from "../pages/resetPassword/ResetPassword";
@@ -39,12 +38,11 @@ const AllRoutes = () => {
             <Route path="/projects/edit/:id" element={<ProjectEdit />} />
             <Route path="/checklist" element={<Checklist />} />
             <Route path="/step" element={<Steps />} />
-            <Route path="/entidad-solicitante" element={<EntityForm/>}/>
+            <Route path="/entidad-solicitante" element={<EntityForm />} />
             <Route path="/all-users" element={<AllUsers />} />
             <Route path='/create-user' element={<CreateUser />} />
             <Route path='/edit-user/:id' element={<EditUser />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/user-register" element={<UserRegister />} />
             <Route path="/change-password/:token" element={<ChangePassword />} />
           </Routes>
         </Layout>

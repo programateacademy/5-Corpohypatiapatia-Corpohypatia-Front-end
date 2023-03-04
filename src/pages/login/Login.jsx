@@ -74,7 +74,7 @@ const Login = () => {
                 className="inputLogin"
                 name="role"
                 onChange={handleChange}
-                /* required */
+              /* required */
               >
                 <option value="user" defaultValue>
                   Usuario
@@ -121,7 +121,7 @@ const Login = () => {
             </form>
           </div>
           <div className="rightLogin">
-            <img src={logo} width={250} />
+            <img src={logo} width={250} alt="logo"/>
           </div>
         </div>
       </div>

@@ -119,7 +119,7 @@
   text-align: left;
 }
 
-.card-text p{
+.card-text p {
   font-size: 16px;
 }
 
@@ -483,20 +483,20 @@
   margin-bottom: 20px;
 }
 
-.project-status_cont{
+.project-status_cont {
   display: flex;
 }
 
-.project-status p{
+.project-status p {
   padding: 0;
   margin: 0;
 }
 
-.check-status{
+.check-status {
   margin-left: 15px;
 }
 
-.check-status input{
+.check-status input {
   margin-right: 10px;
 }
 

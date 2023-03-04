@@ -1,38 +1,42 @@
 /*home*/
-.graphic-image img{
-    width: 300px;
+.graphic-image img {
+  width: 300px;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .graphic-image img {
+    width: 400px;
     height: auto;
   }
+}
 
-@media (min-width: 576px){
-    .graphic-image img{
-        width: 400px;
-        height: auto;
-    }
+@media (min-width: 768px) {
+  .graphic-image img {
+    width: 400px;
+    height: auto;
+  }
 }
-@media (min-width: 768px){
-    .graphic-image img{
-        width: 400px;
-        height: auto;
-    }
+
+@media (min-width: 992px) {
+  .graphic-image img {
+    width: 550px;
+    height: auto;
+  }
 }
-@media (min-width: 992px){
-    .graphic-image img{
-        width: 550px;
-        height: auto;
-    }
+
+@media (min-width: 1200px) {
+  .graphic-image img {
+    width: 600px;
+    height: auto;
+  }
 }
-@media (min-width: 1200px){
-    .graphic-image img{
-        width: 600px;
-        height: auto;
-    }
-}
-@media (min-width: 1400px){
-    .graphic-image img{
-        width: 700px;
-        height: auto;
-    }
+
+@media (min-width: 1400px) {
+  .graphic-image img {
+    width: 700px;
+    height: auto;
+  }
 }
 
 @media (min-width: 576px) {
@@ -41,24 +45,28 @@
     height: auto;
   }
 }
+
 @media (min-width: 768px) {
   .organi img {
     width: 150px;
     height: auto;
   }
 }
+
 @media (min-width: 992px) {
   .organi img {
     width: 200px;
     height: auto;
   }
 }
+
 @media (min-width: 1200px) {
   .organi img {
     width: 250px;
     height: auto;
   }
 }
+
 @media (min-width: 1400px) {
   .organi img {
     width: 400px;
@@ -71,27 +79,31 @@
   max-height: 400px;
   background-size: contain;
 }
-@media (min-width: 768px){
-    .organi img{
-        width: 150px;
-        height: auto;
-    }
+
+@media (min-width: 768px) {
+  .organi img {
+    width: 150px;
+    height: auto;
+  }
 }
-@media (min-width: 992px){
-    .organi img{
-        width: 200px;
-        height: auto;
-    }
+
+@media (min-width: 992px) {
+  .organi img {
+    width: 200px;
+    height: auto;
+  }
 }
-@media (min-width: 1200px){
-    .organi img{
-        width: 250px;
-        height: auto;
-    }
+
+@media (min-width: 1200px) {
+  .organi img {
+    width: 250px;
+    height: auto;
+  }
 }
-@media (min-width: 1400px){
-    .organi img{
-        width: 400px;
-        height: auto;
-    }
+
+@media (min-width: 1400px) {
+  .organi img {
+    width: 400px;
+    height: auto;
+  }
 }

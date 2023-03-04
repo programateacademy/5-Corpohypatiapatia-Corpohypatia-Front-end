@@ -1,9 +1,8 @@
-.accordion-header{
+.accordion-header {
     width: 100%;
 }
 
-.container-task{
-    /* background: yellow; */
+.container-task {
     padding: 0;
     height: auto;
     display: flex;
@@ -16,11 +15,6 @@
     width: 90%;
     margin: auto;
     margin: 10px auto;
-    /* display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
 }
 
 .task h2 {
@@ -36,7 +30,6 @@
 }
 
 .task label {
-    /* background: rgb(210, 216, 255); */
     width: 90%;
     height: auto;
     padding: 10px 20px;
@@ -55,11 +48,11 @@
     text-align: left;
 }
 
-.result{
+.result {
     text-align: left;
 }
 
-.icon{
+.icon {
     color: black;
     font-size: 24px;
 }
@@ -132,48 +125,46 @@
     transition-delay: 0.15s;
 }
 
-.result-container{
+.result-container {
     display: grid;
     grid-template-columns: 80% 20%;
     align-items: center;
 }
 
-.result-percentage{
+.result-percentage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.result-percentage p, h2{
+.result-percentage p,
+h2 {
     margin: 0;
     padding: 0;
 }
 
-.card-indicator{
-    /* display: flex; */
+.card-indicator {
     width: 100%;
-    /* justify-content: space-between;
-    align-items: center; */
     margin: 10px 0;
 }
 
-.card-indicator .rectangulo{
+.card-indicator .rectangulo {
     margin: 0 0 10px 0;
 }
 
-.tasks{
+.tasks {
     text-align: start;
     padding: 10px 30px;
 }
 
-.tasks ul{
+.tasks ul {
     list-style: none;
     text-align: start;
     padding: 0;
 }
 
-.activity{
+.activity {
     display: flex;
     background: rgba(208, 249, 255, 0.479);
     margin: 6px 0;
@@ -181,16 +172,16 @@
     align-items: center;
 }
 
-.activity input{
+.activity input {
     margin-right: 15px;
     height: 20px;
 }
 
-.activity input[type=checkbox]{
+.activity input[type=checkbox] {
     transform: scale(2);
 }
 
-.indicator .icon-ind{
+.indicator .icon-ind {
     margin-right: 8px;
 }
 

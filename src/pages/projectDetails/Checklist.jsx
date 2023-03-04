@@ -35,13 +35,6 @@ function Checklist() {
         const percentage = Math.round((completedActivities / totalActivities) * 100);
         newProject.results[resultIndex].percentage = percentage;
 
-        // // Calculate project percentage
-        // const totalResults = newProject.results.length;
-        // const resultPercentages = newProject.results.map(result => result.percentage);
-        // const projectPercentage = Math.round(resultPercentages.reduce((acc, curr) => acc + curr, 0) / totalResults);
-
-        // newProject.project_percentage = projectPercentage;
-
         calculateProjectPercentage(newProject);
 
         setProject(newProject);
@@ -65,7 +58,6 @@ function Checklist() {
         <>
 
             <div>
-                {/* <h2>Porcentaje general: {project.project_percentage}%</h2> */}
                 {project.results.map((result, resultIndex) => (
                     <div key={result._id}>
                         <div class="card tasks">

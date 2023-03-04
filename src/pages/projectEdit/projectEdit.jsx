@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import '../projectCreate/projectCreate.css'
 import Swal from 'sweetalert2';
 import { BsTrashFill } from 'react-icons/bs'
@@ -42,9 +42,6 @@ const defaultValue = {
 const ProjectEdit = () => {
     //destructuring of variable with an initial default value
     const [project, setProject] = useState(defaultValue);
-
-    //variable that stores the navigation function provided by the hook
-    // const navigate = useNavigate();
 
     //hook that accesses the parameters of the current route in the application (in this case, id)
     const { id } = useParams();

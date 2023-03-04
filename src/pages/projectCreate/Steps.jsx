@@ -16,6 +16,28 @@ const FormControlHide = styled(Group)`
 
 const steps = ['Datos del proyecto', 'Relevancia', 'Marco Lógico', 'Resultados', 'Experiencia y sostenibilidad'];
 
+const defaultValue = {
+    project_title: "",
+    project_location: "",
+    project_duration: "",
+    project_budget: "",
+    intervention_sector: "",
+    imagePath: "https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg",
+    problematic_summary: "",
+    beneficiaries: "",
+    executive_summary: "",
+    alignment: "",
+    methodology_summary: "",
+    general_objetive: "",
+    specific_objectives: [],
+    results: [],
+    project_percentage: 0,
+    experience: "",
+    sustainability: "",
+    exit_strategy: "",
+    enabled: true,
+};
+
 function StepperComponent() {
 
     const getStepContent = (step) => {
@@ -248,8 +270,6 @@ function StepperComponent() {
 
                                                 <Button variant="contained" color="error" onClick={() => handleRemoveActivity(resultIndex, activityIndex)} disabled={results[resultIndex].activities.length === 1}><BsTrashFill className='icon-trash' /></Button>
 
-                                                {/* <button onClick={() => handleRemove(resultIndex, activityIndex, 'activity')} disabled={results[resultIndex].activities.length === 1}>Eliminar Actividad</button> */}
-
                                             </div>
                                         ))}
 
@@ -273,7 +293,6 @@ function StepperComponent() {
                                                     onChange={(e) => handleIndicatorChange(resultIndex, indicatorIndex, e)}
                                                 />
                                                 <Button variant="contained" color="error" onClick={() => handleRemoveIndicator(resultIndex, indicatorIndex)} disabled={results[resultIndex].indicators.length === 1}><BsTrashFill className='icon-trash' /></Button>
-                                                {/* <button onClick={() => handleRemove(resultIndex, indicatorIndex, 'indicator')} disabled={results[resultIndex].indicators.length === 1}>Eliminar Indicador</button> */}
                                             </div>
                                         ))}
                                         <Button type="button" color="secondary" variant="contained" onClick={() => handleAddIndicator(resultIndex)}>
@@ -338,8 +357,32 @@ function StepperComponent() {
         }
     };
 
-    const [objectives, setObjectives] = useState([""]);
 
+    //Project add
+    const [project, setProject] = useState(defaultValue);
+    const [objectives, setObjectives] = useState([""]);
+    const [activeStep, setActiveStep] = useState(0);
+    const [results, setResults] = useState([{ percentage: 0, activities: [], indicators: [] }]);
+
+    //variable that stores the navigation function provided by the hook
+    const navigate = useNavigate();
+
+    //function that updates the state of the form whenever a change occurs in a form element
+    const onValueChange = (e) => {
+        setProject({ ...project, [e.target.name]: e.target.value });
+    };
+
+    //function that adds project details to a database
+    const addProjectDetails = async () => {
+        await addProject(project);
+        navigate('/projects');
+        setActiveStep(0);
+        setProject(defaultValue)
+        localStorage.removeItem('activeStep');
+    }
+
+    
+    //Functions to add and remove specific array specific objectives
     const handleObjectiveChange = (index, value) => {
         const newObjectives = [...objectives];
         newObjectives[index] = value;
@@ -362,63 +405,8 @@ function StepperComponent() {
         project.specific_objectives = objectives
     }, [objectives])
 
-    // -----------------------------------------------------------
-    const defaultValue = {
-        project_title: "",
-        project_location: "",
-        project_duration: "",
-        project_budget: "",
-        intervention_sector: "",
-        imagePath: "https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg",
-        problematic_summary: "",
-        beneficiaries: "",
-        executive_summary: "",
-        alignment: "",
-        methodology_summary: "",
-        general_objetive: "",
-        specific_objectives: [],
-        results: [],
-        project_percentage: 0,
-        experience: "",
-        sustainability: "",
-        exit_strategy: "",
-        enabled: true,
-    };
 
-    // const local = (field, value) => {
-    //     localStorage.setItem(field, value);
-    // };
-
-    //Project add
-    const [project, setProject] = useState(defaultValue);
-
-    //variable that stores the navigation function provided by the hook
-    const navigate = useNavigate();
-
-    
-
-    //function that updates the state of the form whenever a change occurs in a form element
-    const onValueChange = (e) => {
-        // local(e.target.name, e.target.value)
-        setProject({ ...project, [e.target.name]: e.target.value });
-        
-        ;
-        // console.log(e.target.name, e.target.value)
-
-    };
-
-    //function that adds project details to a database
-    const addProjectDetails = async () => {
-        await addProject(project);
-
-        navigate('/projects');
-        setActiveStep(0);
-        setProject(defaultValue)
-        localStorage.removeItem('activeStep');
-    }
-
-    const [activeStep, setActiveStep] = useState(0);
-
+    //Functions for steps buttons
     useEffect(() => {
         const storedStep = localStorage.getItem('activeStep');
         if (storedStep) {
@@ -436,6 +424,7 @@ function StepperComponent() {
         localStorage.setItem('activeStep', activeStep - 1);
     };
 
+    //Function to cancel project creation
     const handleReset = () => {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -453,10 +442,9 @@ function StepperComponent() {
                 localStorage.removeItem('activeStep');
             }
         })
-        // setActiveStep(0);
-        // localStorage.removeItem('activeStep');
     };
 
+    //Function to evaluate the button to return
     const buttonPage = () => {
         if (activeStep === steps.length - 1) {
             return (
@@ -467,7 +455,7 @@ function StepperComponent() {
         }
         else {
             return (
-                <Button  variant="contained" color="primary" onClick={handleNext}>
+                <Button variant="contained" color="primary" onClick={handleNext}>
                     Siguiente
                 </Button>
             );
@@ -475,8 +463,9 @@ function StepperComponent() {
 
     }
 
-    const [results, setResults] = useState([{ percentage: 0, activities: [], indicators: [] }]);
+    //Functions to add field data results
 
+    //Functions to add and remove description of results
     const handleAddResult = () => {
         setResults([...results, { percentage: 0, activities: [], indicators: [] }]);
 
@@ -497,6 +486,7 @@ function StepperComponent() {
         setResults(newResults);
     };
 
+    //Functions to add and remove activities
     const handleActivityChange = (event, index, resultIndex) => {
         const newResults = [...results];
         const newActivities = [...newResults[resultIndex].activities];
@@ -512,6 +502,18 @@ function StepperComponent() {
         setResults(newResults);
     };
 
+    const handleRemoveActivity = (resultIndex, index) => {
+        if (results[resultIndex].activities.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities];
+        newActivities.splice(index, 1);
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    //Functions to add and remove indicators
     const handleIndicatorChange = (resultIndex, indicatorIndex, e) => {
         const newResults = [...results];
         newResults[resultIndex].indicators[indicatorIndex] = e.target.value;
@@ -521,33 +523,6 @@ function StepperComponent() {
     const handleAddIndicator = (index) => {
         const newResults = [...results];
         newResults[index].indicators.push('');
-        setResults(newResults);
-    };
-
-    // const handleRemove = (resultIndex, index, property) => {
-    //     const resultProperty = `${property}`;
-    //     if (results[resultIndex][resultProperty].length === 1) {
-    //         return;
-    //     }
-    //     const newResults = [...results];
-    //     const newItems = [...newResults[resultIndex][resultProperty]];
-    //     newItems.splice(index, 1);
-    //     newResults[resultIndex][resultProperty] = newItems;
-    //     setResults(newResults);
-    // };
-
-    useEffect(() => {
-        project.results = results
-    }, [results])
-
-    const handleRemoveActivity = (resultIndex, index) => {
-        if (results[resultIndex].activities.length === 1) {
-            return;
-        }
-        const newResults = [...results];
-        const newActivities = [...newResults[resultIndex].activities];
-        newActivities.splice(index, 1);
-        newResults[resultIndex].activities = newActivities;
         setResults(newResults);
     };
 
@@ -562,6 +537,10 @@ function StepperComponent() {
         setResults(newResults);
     };
 
+
+    useEffect(() => {
+        project.results = results
+    }, [results])
 
 
     return (
