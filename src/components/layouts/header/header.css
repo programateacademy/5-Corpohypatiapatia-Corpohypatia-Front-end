@@ -1,1 +1,11 @@
 /* Header */
+.btn-purple {
+    background-color: purple;
+    color: white !important;
+    border-radius: 20px;
+  }
+  .navbar-nav li {
+    margin-right: 10px;
+  }
+  
+  

@@ -2,7 +2,7 @@ function Footer() {
   return (
     <>
       {/* framework bootstrap */}
-      <footer className="bg-light text-muted">
+      <footer className="bg-light text-muted purple-footer">
         <div className="row  m-0 p-5 ">
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5 ">
             <h4 className="text-dark">Quiénes somos</h4>
