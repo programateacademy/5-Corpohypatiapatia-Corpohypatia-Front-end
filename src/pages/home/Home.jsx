@@ -28,6 +28,9 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            {/* PROYECTS COMPONENT HERE */}
+
             {/* about company */}
             <div className="container-fluid">
                 {/* row 2 */}
