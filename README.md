@@ -8,7 +8,7 @@ Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales
 Nuestro objetivo es desarrollar una aplicacion web que permita realizar el seguimiento Gestión de  proyectos y divulgación de la información de los proyectos.
 
 <h3>Alcance</h3>
-
+En este desarrollo de Corpohypatia se pretende diseñar y desarrollar una aplicación orientada al desarrollo a la  web, la cual permita visualizar el diseño del desarrollo de Gestion de proyectos en  donde pueda manipular ciertos elementos del desarrollo productivo.
 
 <h3>Herramientas utilizadas</h3>
   Las herramientas utilizadas para la creación de esta propuesta son:
