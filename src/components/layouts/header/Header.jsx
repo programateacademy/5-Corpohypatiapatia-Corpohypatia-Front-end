@@ -5,6 +5,7 @@ import "./header.css";
 function Header() {
   // hooks
   const [info, setInfo] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   //api or db
   const URL = "https://jsonplaceholder.typicode.com/users";
@@ -21,6 +22,10 @@ function Header() {
     dataSheet();
   }, []);
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-md bg-body-tertiary bg-light justify-content-center text-center">
@@ -31,8 +36,7 @@ function Header() {
           <button
             className="navbar-toggler "
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
+            onClick={handleToggle}
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -40,7 +44,7 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse justify-content-end"
+            className={`collapse navbar-collapse justify-content-end${isOpen ? " show" : ""}`}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav mb-lg-0 p-3 flex-column flex-sm-row justify-content-center">
@@ -49,6 +53,7 @@ function Header() {
                   className="nav-link active fw-bold"
                   aria-current="page"
                   href="/nosotros-proyectos-colaboradores"
+                  onClick={handleToggle}
                 >
                   <b>Nosotros</b>
                 </a>
@@ -58,6 +63,7 @@ function Header() {
                   className="nav-link active fw-bold"
                   aria-current="page"
                   href="/proyectos-colaboradores"
+                  onClick={handleToggle}
                 >
                   <b>Proyectos</b>
                 </a>
@@ -67,6 +73,7 @@ function Header() {
                   className="nav-link active fw-bold"
                   aria-current="page"
                   href="/colaboradores"
+                  onClick={handleToggle}
                 >
                   <b>Colaboradores</b>
                 </a>
