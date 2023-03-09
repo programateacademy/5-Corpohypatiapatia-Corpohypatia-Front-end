@@ -100,8 +100,8 @@
 
 /* Arriba | Derecha | Abajo | Izquierda */
 .cards {
-  margin: 20px 0px 10px 15%;
-  padding-right: 10px;
+  /* margin: 20px 0px 10px 15%; */
+  padding: 20px;
   border-right: 3px solid var(--colorgrisclaro);
   width: auto;
   display: flex;
@@ -172,11 +172,17 @@
   font-size: 18px;
 }
 
+.container-img {
+  width: auto;
+}
+
 .imagen {
   background-color: #760000;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  /* width: 400px; */
+  height: 100%;
+  width: auto;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   text-align: center;
@@ -202,7 +208,8 @@
   align-items: center;
   text-align: center;
   padding: 5px;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   height: 30px;
   border-radius: 4px;
   background-color: var(--colorazul);
@@ -229,7 +236,7 @@
 }
 
 .cards-indicador {
-  width: 600px;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -264,7 +271,7 @@
 }
 
 
-@media (max-width: 730px) {
+@media (max-width: 1200px) {
   .card-foto {
     display: flex;
     flex-direction: column;
@@ -278,12 +285,12 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     background-color: #760000;
-    width: 600px;
+    width: 100%;
     height: 300px;
   }
 
   .cards {
-    margin: 20px 50px 10px 50px;
+    /* margin: 20px 50px 10px 50px; */
     width: 300px;
     border-right: 2px solid var(--colorgrisclaro);
     border-top: none;
@@ -334,7 +341,7 @@
   }
 
   .cards-indicador {
-    width: 350px;
+    width: auto;
   }
 
   .card {
@@ -342,7 +349,7 @@
     justify-content: center;
     text-align: center;
     margin: 30px;
-    width: 530px;
+    /* width: 530px; */
   }
 
   .contenedor-fechas {
@@ -372,7 +379,7 @@
 
 
 /* media queries */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 720px) {
   .card-foto {
     display: flex;
     flex-direction: column;
@@ -387,12 +394,12 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     background-color: #760000;
-    width: 400px;
+    width: 100%;
     height: 300px;
   }
 
   .cards {
-    margin: 20px 50px 10px 50px;
+    /* margin: 20px 50px 10px 50px; */
     width: 300px;
     border-top: 2px solid var(--colorgrisclaro);
     border-right: none;
@@ -404,9 +411,9 @@
   }
 
   .reverse {
-    margin-top: 290px;
+    /* margin-top: 290px; */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .indicador {
@@ -445,7 +452,7 @@
   }
 
   .cards-indicador {
-    width: 350px;
+    width: auto;
   }
 
   .card {
@@ -453,7 +460,7 @@
     justify-content: center;
     text-align: center;
     margin: 30px;
-    width: 350px;
+    width: auto;
   }
 
   .contenedor-fechas {
@@ -583,5 +590,525 @@
   100% {
     transform: rotate(360deg);
     transform-origin: right bottom;
+  }
+}
+
+@media screen and (min-width:1201px) {
+  /* Estilos de del componente detalle proyecto */
+
+  /* Contenedor principal */
+  .contenedor-Detalle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .card-foto {
+    display: flex;
+    margin: 30px;
+    width: 800px;
+    height: 100%;
+    background-color: var(--colorazul);
+    color: var(--colorwhite);
+    border-radius: 15px;
+  }
+
+  .margen {
+    margin: 30px;
+    width: 800px;
+    border: 2px solid #C7C5C5;
+    border-radius: 15px;
+  }
+
+  .elemento-avance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 200px; */
+    margin: 10px;
+    text-align: center;
+  }
+
+  .avance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .porcentaje-avance {
+    font-size: 40px;
+  }
+
+  /*Botones  */
+  .Boton-regresar {
+    width: 119px;
+    height: 50px;
+    color: var(--colorwhite);
+    border: 2px solid var(--colorwhite);
+    background-color: var(--colorazul);
+    border-radius: 5px;
+    font-size: 18px;
+  }
+
+  .Boton-regresar:hover {
+    color: #6693FD;
+    border-color: #6693FD;
+  }
+
+  .boton-editar {
+    width: 120px;
+    height: 50px;
+    color: var(--colorwhite);
+    background-color: var(--colorverde);
+    border: var(--colorverde);
+    margin-top: 40px;
+    font-size: 20px;
+  }
+
+  .card-text p {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* comoponente de descripcion */
+  .card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  /* Arriba | Derecha | Abajo | Izquierda */
+  .cards {
+    margin: 20px 0px 10px 15%;
+    padding-right: 10px;
+    border-right: 3px solid var(--colorgrisclaro);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .card-body {
+    text-align: left;
+  }
+
+  .card-text p {
+    font-size: 16px;
+  }
+
+  .texto-v {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .texto-bold {
+    margin-right: 5px;
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  .texto-parrafo {
+    justify-content: left;
+  }
+
+
+  .card-text {
+    width: 100%;
+    text-align: left;
+    margin: 10px;
+  }
+
+  .card-title {
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+
+  }
+
+  .texto-fecha p {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .boton-export {
+    width: 120px;
+    height: 50px;
+    color: var(--colorwhite);
+    background-color: #760000;
+    border-color: #760000;
+    margin: 20px;
+    font-size: 18px;
+  }
+
+  .imagen {
+    background-color: #760000;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    object-fit: cover;
+  }
+
+  .contenedor-fechas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .fechas {
+    text-align: left;
+    margin: 10px;
+  }
+
+  .rectangulo {
+    margin: 20px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    max-width: 250px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: var(--colorazul);
+    color: var(--colorwhite);
+  }
+
+  .rectangulo p {
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+  .forma {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .indicador {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    font-weight: 500;
+  }
+
+  .cards-indicador {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .texto-avance {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .card-texts {
+    display: flex;
+    text-align: left;
+    font-size: 15px;
+    width: 290px;
+    color: #464646
+  }
+
+  .porcetanje-indi {
+    font-size: 20px;
+  }
+
+  .reverse {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .title-margin {
+    width: 92%;
+    margin: 20px auto 0;
+  }
+
+
+  @media screen and (min-width: 721px) and (max-width: 1020px) {
+
+    /* Contenedor principal */
+    .contenedor-Detalle {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card-foto {
+      display: flex;
+      margin: 30px;
+      width: 800px;
+      height: 100%;
+      background-color: var(--colorazul);
+      color: var(--colorwhite);
+      border-radius: 15px;
+    }
+
+    .margen {
+      margin: 30px;
+      width: 800px;
+      border: 2px solid #C7C5C5;
+      border-radius: 15px;
+    }
+
+    .elemento-avance {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* width: 200px; */
+      margin: 10px;
+      text-align: center;
+    }
+
+    .avance {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 40px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .porcentaje-avance {
+      font-size: 40px;
+    }
+
+    /*Botones  */
+    .Boton-regresar {
+      width: 119px;
+      height: 50px;
+      color: var(--colorwhite);
+      border: 2px solid var(--colorwhite);
+      background-color: var(--colorazul);
+      border-radius: 5px;
+      font-size: 18px;
+    }
+
+    .Boton-regresar:hover {
+      color: #6693FD;
+      border-color: #6693FD;
+    }
+
+    .boton-editar {
+      width: 120px;
+      height: 50px;
+      color: var(--colorwhite);
+      background-color: var(--colorverde);
+      border: var(--colorverde);
+      margin-top: 40px;
+      font-size: 20px;
+    }
+
+    .card-text p {
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* comoponente de descripcion */
+    .card {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 30px;
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    /* Arriba | Derecha | Abajo | Izquierda */
+    .cards {
+      margin: 20px 0px 10px 15%;
+      padding-right: 10px;
+      border-right: 3px solid var(--colorgrisclaro);
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    .bold {
+      font-weight: 600;
+    }
+
+    .card-body {
+      text-align: left;
+    }
+
+    .card-text p {
+      font-size: 16px;
+    }
+
+    .texto-v {
+      display: flex;
+      flex-direction: column;
+      max-width: 250px;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .texto-bold {
+      margin-right: 5px;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    .texto-parrafo {
+      justify-content: left;
+    }
+
+
+    .card-text {
+      width: 100%;
+      text-align: left;
+      margin: 10px;
+    }
+
+    .card-title {
+      display: flex;
+      text-align: left;
+      font-weight: 500;
+
+    }
+
+    .texto-fecha p {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .boton-export {
+      width: 120px;
+      height: 50px;
+      color: var(--colorwhite);
+      background-color: #760000;
+      border-color: #760000;
+      margin: 20px;
+      font-size: 18px;
+    }
+
+    .imagen {
+      background-color: #760000;
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      text-align: center;
+      justify-content: center;
+      object-fit: cover;
+    }
+
+    .contenedor-fechas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .fechas {
+      text-align: left;
+      margin: 10px;
+    }
+
+    .rectangulo {
+      margin: 20px 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5px;
+      width: 100%;
+      max-width: 250px;
+      height: 30px;
+      border-radius: 4px;
+      background-color: var(--colorazul);
+      color: var(--colorwhite);
+    }
+
+    .rectangulo p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .forma {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .indicador {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+      font-weight: 500;
+    }
+
+    .cards-indicador {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .texto-avance {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .card-texts {
+      display: flex;
+      text-align: left;
+      font-size: 15px;
+      width: 290px;
+      color: #464646
+    }
+
+    .porcetanje-indi {
+      font-size: 20px;
+    }
+
+    .reverse {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% 40%;
+    }
+
+    .title-margin {
+      width: 92%;
+      margin: 20px auto 0;
+    }
   }
 }
