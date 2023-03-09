@@ -25,9 +25,7 @@ const AllRoutes = () => {
   const location = useLocation();
   
   const token = localStorage.getItem("token")
-
-  console.log(token)
-
+  
   return (
     <>
       <ScrollToTop />

@@ -23,7 +23,6 @@ function Home() {
     getAllProjects(setAllProyects)
     localStorage.clear()
   }, []);
-  console.log(allProyects)
 
   const testalert = () =>{
     alert("probando")

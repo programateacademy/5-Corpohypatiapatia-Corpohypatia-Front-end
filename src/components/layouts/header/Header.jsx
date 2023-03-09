@@ -17,7 +17,6 @@ function Header() {
     const res = await fetch(URL);
     const data = await res.json();
     setInfo(data);
-    console.log(data);
   };
 
   useEffect(() => {
