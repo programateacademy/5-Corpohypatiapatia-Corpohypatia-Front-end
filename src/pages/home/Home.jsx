@@ -21,6 +21,7 @@ function Home() {
 
   useEffect(() => {
     getAllProjects(setAllProyects)
+    localStorage.clear()
   }, []);
   console.log(allProyects)
 
@@ -71,7 +72,7 @@ function Home() {
       {/* Projects itle and search */}
       <div className="py-3 bg-purple text-purple align-items-center my-4">
         <div className="col-12 text-center">
-          <h1 className="text-center text-purple display-4 mb-4">PROYECTOS</h1>
+          <h1 className="text-center text-purple display-4 mb-4" id="projects">PROYECTOS</h1>
         </div>
       </div>
       <div className="search-bar">

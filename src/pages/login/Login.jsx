@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./login.css";
 import logo from "../../assets/img/CorpoHypatia.png";
 import { useNavigate } from "react-router-dom";
-
+import LoginContext from "../../routes/HOC";
 import { signIn } from "../../service/api";
 
 function validateEmail(email) {
@@ -34,6 +34,9 @@ const Login = () => {
     setData({ ...data, [input.name]: input.value });
   };
 
+
+  //login function
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,7 +53,8 @@ const Login = () => {
         setMensaje("Loading...");
         setTimeout(() => {
           setMensaje("");
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("token", res.data.token)
+          console.log(res.data.token)
           navigate(`/projects`);
         }, 5000);
       } else {
