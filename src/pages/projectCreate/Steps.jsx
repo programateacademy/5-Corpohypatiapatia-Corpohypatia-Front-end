@@ -40,8 +40,8 @@ const defaultValue = {
 
 function StepperComponent() {
 
+    //Constant containing forms for each step
     const getStepContent = (step) => {
-
         switch (step) {
             case 0:
                 return (
@@ -358,7 +358,7 @@ function StepperComponent() {
     };
 
 
-    //Project add
+    //states
     const [project, setProject] = useState(defaultValue);
     const [objectives, setObjectives] = useState([""]);
     const [activeStep, setActiveStep] = useState(0);
@@ -381,49 +381,6 @@ function StepperComponent() {
         localStorage.removeItem('activeStep');
     }
 
-    
-    //Functions to add and remove specific array specific objectives
-    const handleObjectiveChange = (index, value) => {
-        const newObjectives = [...objectives];
-        newObjectives[index] = value;
-
-        setObjectives(newObjectives);
-    };
-
-    const handleAddObjective = () => {
-        setObjectives([...objectives, ""]);
-    };
-
-    const handleDeleteObjective = (index) => {
-        const newObjectives = [...objectives];
-        newObjectives.splice(index, 1);
-
-        setObjectives(newObjectives);
-    };
-
-    useEffect(() => {
-        project.specific_objectives = objectives
-    }, [objectives])
-
-
-    //Functions for steps buttons
-    useEffect(() => {
-        const storedStep = localStorage.getItem('activeStep');
-        if (storedStep) {
-            setActiveStep(parseInt(storedStep));
-        }
-    }, []);
-
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        localStorage.setItem('activeStep', activeStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-        localStorage.setItem('activeStep', activeStep - 1);
-    };
-
     //Function to cancel project creation
     const handleReset = () => {
         Swal.fire({
@@ -444,6 +401,151 @@ function StepperComponent() {
         })
     };
 
+
+    /*================================================
+        Functions for array of specific objectives
+    ==================================================*/
+
+    //Function to change value in input field
+    const handleObjectiveChange = (index, value) => {
+        const newObjectives = [...objectives];
+        newObjectives[index] = value;
+
+        setObjectives(newObjectives);
+    };
+
+    //Function to add specific array specific objectives
+    const handleAddObjective = () => {
+        setObjectives([...objectives, ""]);
+    };
+
+    //Function to remove specific array specific objectives
+    const handleDeleteObjective = (index) => {
+        const newObjectives = [...objectives];
+        newObjectives.splice(index, 1);
+
+        setObjectives(newObjectives);
+    };
+
+    //Effect for value assignment
+    useEffect(() => {
+        project.specific_objectives = objectives
+    }, [objectives])
+
+
+    /*================================================
+            Functions to add field data results
+    ==================================================*/
+
+    //Function to add description of results
+    const handleAddResult = () => {
+        setResults([...results, { percentage: 0, activities: [], indicators: [] }]);
+    };
+
+    //Function to change description of results
+    const handleResultChange = (index, e) => {
+        const newResults = [...results];
+        newResults[index].result = e.target.value;
+        setResults(newResults);
+    };
+
+    //Function to remove description of results
+    const handleRemoveResult = (index) => {
+        if (results.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        newResults.splice(index, 1);
+        setResults(newResults);
+    };
+
+    //------------activities-----------------------
+
+    //Functions to change activities
+    const handleActivityChange = (event, index, resultIndex) => {
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities];
+        newActivities[index][event.target.name] = event.target.value;
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    //Functions to add activities
+    const handleAddActivity = (resultIndex) => {
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities, { description: '', completed: false }];
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    //Functions to remove activities
+    const handleRemoveActivity = (resultIndex, index) => {
+        if (results[resultIndex].activities.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        const newActivities = [...newResults[resultIndex].activities];
+        newActivities.splice(index, 1);
+        newResults[resultIndex].activities = newActivities;
+        setResults(newResults);
+    };
+
+    //------------indicators-----------------------
+
+    //Function to change indicators
+    const handleIndicatorChange = (resultIndex, indicatorIndex, e) => {
+        const newResults = [...results];
+        newResults[resultIndex].indicators[indicatorIndex] = e.target.value;
+        setResults(newResults);
+    };
+
+    //Function to add indicators
+    const handleAddIndicator = (index) => {
+        const newResults = [...results];
+        newResults[index].indicators.push('');
+        setResults(newResults);
+    };
+
+    //Function to remove indicators
+    const handleRemoveIndicator = (resultIndex, index) => {
+        if (results[resultIndex].indicators.length === 1) {
+            return;
+        }
+        const newResults = [...results];
+        const newIndicators = [...newResults[resultIndex].indicators];
+        newIndicators.splice(index, 1);
+        newResults[resultIndex].indicators = newIndicators;
+        setResults(newResults);
+    };
+
+
+    useEffect(() => {
+        project.results = results
+    }, [results])
+
+
+    /*================================================
+            Functions for steps buttons
+    ==================================================*/
+    useEffect(() => {
+        const storedStep = localStorage.getItem('activeStep');
+        if (storedStep) {
+            setActiveStep(parseInt(storedStep));
+        }
+    }, []);
+
+    //Function for the next step button
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        localStorage.setItem('activeStep', activeStep + 1);
+    };
+
+    //Function for the previous step button
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        localStorage.setItem('activeStep', activeStep - 1);
+    };
+
     //Function to evaluate the button to return
     const buttonPage = () => {
         if (activeStep === steps.length - 1) {
@@ -460,87 +562,7 @@ function StepperComponent() {
                 </Button>
             );
         }
-
     }
-
-    //Functions to add field data results
-
-    //Functions to add and remove description of results
-    const handleAddResult = () => {
-        setResults([...results, { percentage: 0, activities: [], indicators: [] }]);
-
-    };
-
-    const handleResultChange = (index, e) => {
-        const newResults = [...results];
-        newResults[index].result = e.target.value;
-        setResults(newResults);
-    };
-
-    const handleRemoveResult = (index) => {
-        if (results.length === 1) {
-            return;
-        }
-        const newResults = [...results];
-        newResults.splice(index, 1);
-        setResults(newResults);
-    };
-
-    //Functions to add and remove activities
-    const handleActivityChange = (event, index, resultIndex) => {
-        const newResults = [...results];
-        const newActivities = [...newResults[resultIndex].activities];
-        newActivities[index][event.target.name] = event.target.value;
-        newResults[resultIndex].activities = newActivities;
-        setResults(newResults);
-    };
-
-    const handleAddActivity = (resultIndex) => {
-        const newResults = [...results];
-        const newActivities = [...newResults[resultIndex].activities, { description: '', completed: false }];
-        newResults[resultIndex].activities = newActivities;
-        setResults(newResults);
-    };
-
-    const handleRemoveActivity = (resultIndex, index) => {
-        if (results[resultIndex].activities.length === 1) {
-            return;
-        }
-        const newResults = [...results];
-        const newActivities = [...newResults[resultIndex].activities];
-        newActivities.splice(index, 1);
-        newResults[resultIndex].activities = newActivities;
-        setResults(newResults);
-    };
-
-    //Functions to add and remove indicators
-    const handleIndicatorChange = (resultIndex, indicatorIndex, e) => {
-        const newResults = [...results];
-        newResults[resultIndex].indicators[indicatorIndex] = e.target.value;
-        setResults(newResults);
-    };
-
-    const handleAddIndicator = (index) => {
-        const newResults = [...results];
-        newResults[index].indicators.push('');
-        setResults(newResults);
-    };
-
-    const handleRemoveIndicator = (resultIndex, index) => {
-        if (results[resultIndex].indicators.length === 1) {
-            return;
-        }
-        const newResults = [...results];
-        const newIndicators = [...newResults[resultIndex].indicators];
-        newIndicators.splice(index, 1);
-        newResults[resultIndex].indicators = newIndicators;
-        setResults(newResults);
-    };
-
-
-    useEffect(() => {
-        project.results = results
-    }, [results])
 
 
     return (

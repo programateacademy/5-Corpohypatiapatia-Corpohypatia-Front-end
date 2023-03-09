@@ -1,26 +1,19 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getProject, editProject, deleteProject } from "../../service/api";
-import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom"
 
+import { getProject, editProject, deleteProject } from "../../service/api";
+import Checklist from "./Checklist";
 import ReadMore from "./ReadMore";
 import "./StylesDetails.css";
-import { RiArrowGoBackFill } from "react-icons/ri";
-import { BsBoxArrowUp } from "react-icons/bs";
-import { RiFileEditLine } from "react-icons/ri";
-import Checklist from "./Checklist";
-import Swal from "sweetalert2";
 
+import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-
+import { RiArrowGoBackFill, RiFileEditLine} from "react-icons/ri";
+import { BsBoxArrowUp } from "react-icons/bs";
 
 function ProjectDetails() {
-  pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
-  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const [project, setProject] = useState(null);
 
@@ -90,6 +83,8 @@ function ProjectDetails() {
       }
     });
   };
+  
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const exportToPDF = () => {
     if (!project) {
@@ -124,7 +119,6 @@ function ProjectDetails() {
       },
 
       content: [
-
 
         {
           stack: [project.project_title],
@@ -173,8 +167,6 @@ function ProjectDetails() {
           style: "label",
         },
         { text: project.exit_strategy, style: "value" },
-
-
       ],
       styles: {
         header: {
