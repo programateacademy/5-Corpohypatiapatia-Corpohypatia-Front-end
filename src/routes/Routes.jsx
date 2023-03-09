@@ -18,6 +18,7 @@ import CreateUser from "../pages/allUsers/CreateUser";
 import EditUser from "../pages/allUsers/EditUser";
 import Nosotros from "../pages/home/Nosotros";
 import Colaboradores from "../pages/home/Colaboradores";
+import HOC from "./HOC"
 
 const AllRoutes = () => {
 
@@ -32,24 +33,10 @@ const AllRoutes = () => {
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/nosotros" element={<Nosotros/>} />
-          <Route path="/calaboradores" element={<Colaboradores/>} />
+          <Route path="/colaboradores" element={<Colaboradores/>} />
         </Routes>
       ) : (
-        <Layout>
-          <Routes>
-            <Route path="/projects" element={<AllProjects />} />
-            <Route path="/projects/:id" element={<ProjectDetails />} />
-            <Route path="/projects/edit/:id" element={<ProjectEdit />} />
-            <Route path="/checklist" element={<Checklist />} />
-            <Route path="/step" element={<Steps />} />
-            <Route path="/entidad-solicitante" element={<EntityForm />} />
-            <Route path="/all-users" element={<AllUsers />} />
-            <Route path='/create-user' element={<CreateUser />} />
-            <Route path='/edit-user/:id' element={<EditUser />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/change-password/:token" element={<ChangePassword />} />
-          </Routes>
-        </Layout>
+        <HOC/>
       )}
     </>
   );
