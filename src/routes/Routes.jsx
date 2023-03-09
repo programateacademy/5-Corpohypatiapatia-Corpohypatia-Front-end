@@ -16,6 +16,8 @@ import Layout from "../components/layouts/Layout/Layout";
 import EntityForm from "../pages/Form/EntityForm";
 import CreateUser from "../pages/allUsers/CreateUser";
 import EditUser from "../pages/allUsers/EditUser";
+import Nosotros from "../pages/home/Nosotros";
+import Colaboradores from "../pages/home/Colaboradores";
 
 const AllRoutes = () => {
 
@@ -24,11 +26,13 @@ const AllRoutes = () => {
   return (
     <>
       <ScrollToTop />
-      {location.pathname === "/" || location.pathname === "/home" || location.pathname === "/login" ? (
+      {location.pathname === "/" || location.pathname === "/home" || location.pathname === "/login" || location.pathname === "/nosotros" || location.pathname === "/colaboradores"? (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/nosotros" element={<Nosotros/>} />
+          <Route path="/colaboradores" element={<Colaboradores/>} />
         </Routes>
       ) : (
         <Layout>

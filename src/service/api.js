@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const URL = "https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app";
-
+// const URL = "https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app";
+const URL = "http://localhost:8000"
 export const addProject = async (data) => {
   try {
     return await axios.post(`${URL}/project/add`, data);
@@ -103,6 +103,14 @@ export const changePassword = async (password, token) => {
   }
 };
 
+//Function req for no-register user
 
-
+export const getAllProjects = async (setAllProjects) => {
+  try {
+    const data = await axios.get(`${URL}/projects`);
+    setAllProjects(data.data)
+  } catch (e) {
+    console.log("Error while calling getAllProject API [no-register user view]", e);
+  }
+};
 
