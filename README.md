@@ -19,11 +19,13 @@ Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales
   
   <h3>FrontEnd<h3/>
  
-<p>Figma para realizar los diseños, tanto wireframes y mockups como prototipos</p><img width="40px"src="https://user-images.githubusercontent.com/86115727/199336813-72221f32-eb87-4cd9-b377-0f22e2b4d254.png" alt="Logo Figma">
+<p>Figma para realizar los diseños, tanto wireframes y mockups como prototipos</p>
+<img width="40px"src="https://user-images.githubusercontent.com/86115727/199336813-72221f32-eb87-4cd9-b377-0f22e2b4d254.png" alt="Logo Figma">
  
- <p>Visual Studio Code para codificación</p> <img width="40px"src="https://user-images.githubusercontent.com/86115727/199334189-d07ad5bf-3384-4dc6-82ba-0f39bf80ed82.png" alt="Logo Visual studio code">
+<p>Visual Studio Code para codificación</p> 
+<img width="40px"src="https://user-images.githubusercontent.com/86115727/199334189-d07ad5bf-3384-4dc6-82ba-0f39bf80ed82.png" alt="Logo Visual studio code">
 
- <p>Github como controlador de versiones</p><img width="40px" src="https://user-images.githubusercontent.com/86115727/199336699-67593444-6d17-4c33-b313-99b09181887b.png" alt="Logo Github">
+<p>Github como controlador de versiones</p><img width="40px" src="https://user-images.githubusercontent.com/86115727/199336699-67593444-6d17-4c33-b313-99b09181887b.png" alt="Logo Github">
  
 <p>CSS3 y semantic ui css para dar estilos y mejorar el aspecto visual de las páginas</p><img width="40px"src="https://user-images.githubusercontent.com/92338030/213824036-bf280c00-cdbd-40fb-9326-351c1910358c.png" alt="Logo Semantic ui">
   
@@ -40,10 +42,9 @@ Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales
    <p>Node. js es un entorno de ejecución JavaScript de código abierto y multiplataforma que se utiliza para desarrollar aplicaciones escalables del lado del servidor y de red.</p><img width="60px" src="https://user-images.githubusercontent.com/88007025/213834461-21a7be68-800a-4ec8-9895-3a05ff38ee7e.svg"/>
 
   <h3>Bases de datos NoSQL<h3/>
-   
+    
 <p>MongoDB es un modelo de datos para organizar y almacenar todo tipo de datos, incluyendo documentos, convirtiéndose así en una herramienta ideal para el desarrollo de aplicaciones modernas</p><img width="60px" src="https://user-images.githubusercontent.com/88007025/213835610-1f709a2f-e548-4224-b246-abca245613e8.png"/>
-   
-<!--   <p>Vercel para desplegar la aplicación </p><img width="40px"src="https://mms.businesswire.com/media/20211123005573/en/929867/23/vercel-logo-freelogovectors.net.jpg" alt="Logo Vercel"> -->
-
-
+    
+  <h3>Mongoose<h3/>
+<p>Mongoose es una libreria para Node.js que nos permite escribir consultas para una base de datos MongoDB</p>
 
