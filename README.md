@@ -5,7 +5,7 @@
 Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales, en la búsqueda de la igualdad social y de género, la construcción de una sociedad democrática, pacífica y respetuosa de las diferencias, que garantice el buen vivir de hombres y mujeres en su diversidad.
 
 <h3>Objetivo</h3>
-
+Nuestro objetivo es desarrollar una aplicacion web que permita realizar el seguimiento de  Gestión proyectos y divulgación de la información de los proyectos.
 
 <h3>Alcance</h3>
 
