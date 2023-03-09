@@ -5,7 +5,7 @@
 Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales, en la búsqueda de la igualdad social y de género, la construcción de una sociedad democrática, pacífica y respetuosa de las diferencias, que garantice el buen vivir de hombres y mujeres en su diversidad.
 
 <h3>Objetivo</h3>
-Nuestro objetivo es desarrollar una aplicacion web que permita realizar el seguimiento de  Gestión proyectos y divulgación de la información de los proyectos.
+Nuestro objetivo es desarrollar una aplicacion web que permita realizar el seguimiento Gestión de  proyectos y divulgación de la información de los proyectos.
 
 <h3>Alcance</h3>
 
@@ -17,7 +17,18 @@ Nuestro objetivo es desarrollar una aplicacion web que permita realizar el segui
 
  
   
-  <h3>FrontEnd<h3/>
+  <h3>Lineamientos Técnicos en FrontEnd<h3/>
+  
+   <h3>Framework<h3/>
+<p>React para la creación de la interface de usuario interactiva</p><img width="50px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/800px-React.svg.png" alt="Logo React">
+     
+<p>Bootstrap es un framework CSS de código abierto que favorece el desarrollo web de un modo más sencillo y rápido.</p><img width="80px" src="https://user-images.githubusercontent.com/88007025/224170213-b4a60a87-0db9-4fda-92d1-943286fad8fc.png"/>
+  
+ <p>La librería Axios de JavaScript es un paquete que encontraremos en npm y que nos permite hacer peticiones o llamadas al contenido de un enlace HTTP</p><img width="70px" src="https://user-images.githubusercontent.com/88007025/224168696-8474b8cd-575c-4531-8133-f142ddfe0548.png" alt="Axios"/>
+ 
+ 
+  
+  <h3>Herramientas en FrontEnd<h3/>
  
 <p>Figma para realizar los diseños, tanto wireframes y mockups como prototipos</p>
 <img width="40px"src="https://user-images.githubusercontent.com/86115727/199336813-72221f32-eb87-4cd9-b377-0f22e2b4d254.png" alt="Logo Figma">
@@ -27,11 +38,6 @@ Nuestro objetivo es desarrollar una aplicacion web que permita realizar el segui
 
 <p>Github como controlador de versiones</p><img width="40px" src="https://user-images.githubusercontent.com/86115727/199336699-67593444-6d17-4c33-b313-99b09181887b.png" alt="Logo Github">
  
-<p>CSS3 y semantic ui css para dar estilos y mejorar el aspecto visual de las páginas</p><img width="40px"src="https://user-images.githubusercontent.com/92338030/213824036-bf280c00-cdbd-40fb-9326-351c1910358c.png" alt="Logo Semantic ui">
-  
-  
- 
-  <h3>Framework<h3/>
-<p>React para la creación de la interface de usuario interactiva y el consumo de la falsa API</p><img width="50px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/800px-React.svg.png" alt="Logo React">
+
  
  
