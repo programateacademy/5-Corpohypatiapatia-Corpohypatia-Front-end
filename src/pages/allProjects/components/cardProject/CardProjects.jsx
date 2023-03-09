@@ -1,4 +1,4 @@
-import CircularGraphic from '../graphic/CircularGraphic';
+import CircularGraphic from '../../../../components/common/graphic/CircularGraphic';
 import './cardProjects.css'
 
 function CardProjects(props) {
