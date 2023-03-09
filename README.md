@@ -32,19 +32,6 @@ Corpohypatia promueve y defiende los derechos humanos con enfoques diferenciales
   
  
   <h3>Framework<h3/>
-   
 <p>React para la creación de la interface de usuario interactiva y el consumo de la falsa API</p><img width="50px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/800px-React.svg.png" alt="Logo React">
  
-  <h3>Backend<h3/>
-   
-   <p>JavaScript es un lenguaje de programación y de secuencias de comandos que te permite implementar funciones complejas en páginas web</p><img width="60px" src="https://user-images.githubusercontent.com/88007025/213832684-9e0a5e61-2809-4e44-8de0-99eedaa2546e.png"/>
-   
-   <p>Node. js es un entorno de ejecución JavaScript de código abierto y multiplataforma que se utiliza para desarrollar aplicaciones escalables del lado del servidor y de red.</p><img width="60px" src="https://user-images.githubusercontent.com/88007025/213834461-21a7be68-800a-4ec8-9895-3a05ff38ee7e.svg"/>
-
-  <h3>Bases de datos NoSQL<h3/>
-    
-<p>MongoDB es un modelo de datos para organizar y almacenar todo tipo de datos, incluyendo documentos, convirtiéndose así en una herramienta ideal para el desarrollo de aplicaciones modernas</p><img width="60px" src="https://user-images.githubusercontent.com/88007025/213835610-1f709a2f-e548-4224-b246-abca245613e8.png"/>
-    
-  <h3>Mongoose<h3/>
-<p>Mongoose es una libreria para Node.js que nos permite escribir consultas para una base de datos MongoDB</p>
-
+ 
