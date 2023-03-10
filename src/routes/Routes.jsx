@@ -18,11 +18,14 @@ import CreateUser from "../pages/allUsers/CreateUser";
 import EditUser from "../pages/allUsers/EditUser";
 import Nosotros from "../pages/home/Nosotros";
 import Colaboradores from "../pages/home/Colaboradores";
+import { useState } from "react";
+import NotFound from "../components/layouts/404/NotFound";
 
 const AllRoutes = () => {
-
   const location = useLocation();
-
+  
+  const token = localStorage.getItem("token")
+  
   return (
     <>
       <ScrollToTop />
@@ -35,25 +38,31 @@ const AllRoutes = () => {
           <Route path="/colaboradores" element={<Colaboradores/>} />
         </Routes>
       ) : (
-        <Layout>
+        token ? (
+          <Layout>
+           <Routes>
+              <Route path="/projects" element={<AllProjects />} />
+              <Route path="/projects/:id" element={<ProjectDetails />} />
+              <Route path="/projects/edit/:id" element={<ProjectEdit />} />
+              <Route path="/checklist" element={<Checklist />} />
+              <Route path="/step" element={<Steps />} />
+              <Route path="/entidad-solicitante" element={<EntityForm />} />
+              <Route path="/all-users" element={<AllUsers />} />
+              <Route path='/create-user' element={<CreateUser />} />
+              <Route path='/edit-user/:id' element={<EditUser />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/change-password/:token" element={<ChangePassword />} />
+              <Route path="*" element={<Navigate to="/projects" />} />
+           </Routes>
+          </Layout>
+        ) : (
           <Routes>
-            <Route path="/projects" element={<AllProjects />} />
-            <Route path="/projects/:id" element={<ProjectDetails />} />
-            <Route path="/projects/edit/:id" element={<ProjectEdit />} />
-            <Route path="/checklist" element={<Checklist />} />
-            <Route path="/step" element={<Steps />} />
-            <Route path="/entidad-solicitante" element={<EntityForm />} />
-            <Route path="/all-users" element={<AllUsers />} />
-            <Route path='/create-user' element={<CreateUser />} />
-            <Route path='/edit-user/:id' element={<EditUser />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/change-password/:token" element={<ChangePassword />} />
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
-        </Layout>
+        )
       )}
     </>
   );
-
 };
 
 export default AllRoutes;

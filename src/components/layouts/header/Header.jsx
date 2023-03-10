@@ -16,7 +16,6 @@ function Header() {
     const res = await fetch(URL);
     const data = await res.json();
     setInfo(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -51,39 +50,38 @@ function Header() {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav mb-lg-0 p-3 flex-column flex-sm-row justify-content-center">
-              <li className="nav-item">
-                <Link
-                  className="nav-link active fw-bold"
-                  to="/nosotros-proyectos-colaboradores"
-                  onClick={handleToggle}
-                >
-                  <b>Nosotros</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active fw-bold"
-                  to="/proyectos-colaboradores"
-                  onClick={handleToggle}
-                >
-                  <b>Proyectos</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active fw-bold"
-                  to="/colaboradores"
-                  onClick={handleToggle}
-                >
-                  <b>Colaboradores</b>
-                </Link>
-              </li>
-              <li className="nav-item ms-sm-3">
-                <Link className="nav-link active btn-purple" to="/login">
-                  Iniciar sesión
-                </Link>
-              </li>{" "}
-            </ul>
+<li className="nav-item">
+  <Link
+    className="nav-link active fw-bold"
+    to="/nosotros-proyectos-colaboradores"
+    onClick={handleToggle}
+  >
+    <b>Nosotros</b>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link
+    className="nav-link active fw-bold"
+    to="/proyectos-colaboradores"
+    onClick={handleToggle}
+  >
+    <b>Proyectos</b>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link
+    className="nav-link active fw-bold"
+    to="/colaboradores"
+    onClick={handleToggle}
+  >
+    <b>Colaboradores</b>
+  </Link>
+</li>
+<li className="nav-item ms-sm-3">
+  <Link className="nav-link active btn-purple" to="/login">
+    Iniciar sesión
+  </Link>
+</li>            </ul>
           </div>
         </div>
       </nav>
