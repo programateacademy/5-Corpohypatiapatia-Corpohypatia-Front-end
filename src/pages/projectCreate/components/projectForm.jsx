@@ -6,10 +6,6 @@ const FormControl = styled(Group)`
     margin: 10px 0;
 `;
 
-const FormControlHide = styled(Group)`
-    display:none;
-`;
-
 export function Step1({ project, onValueChange }) {
     return (
         <div>
@@ -70,27 +66,18 @@ export function Step1({ project, onValueChange }) {
                     />
                 </FormControl>
 
+
                 <FormControl>
                     <TextField
                         id="outlined-basic"
-                        // label="Dirección de imagen"
-                        variant="outlined"
-                        name="image"
-                        type="file"
-                    />
-                </FormControl>
-
-                <FormControlHide>
-                    <TextField
-                        id="outlined-basic"
-                        // label="Dirección de imagen"
+                        label="Dirección de imagen"
                         variant="outlined"
                         name="imagePath"
                         type="string"
-                        value="https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg"
+                        value={project.imagePath}
                         onChange={(e) => onValueChange(e)}
                     />
-                </FormControlHide>
+                </FormControl>
             </form>
         </div>
     );

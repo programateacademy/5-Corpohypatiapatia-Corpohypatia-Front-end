@@ -15,7 +15,7 @@ const defaultValue = {
     project_duration: "",
     project_budget: "",
     intervention_sector: "",
-    imagePath: "https://i.postimg.cc/vZrwtYdf/20151128-152805-EMPRENDE-NI-OS-NI-AS.jpg",
+    imagePath: "",
     problematic_summary: "",
     beneficiaries: "",
     executive_summary: "",
