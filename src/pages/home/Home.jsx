@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { getAllProjects } from "../../service/api"
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -50,9 +51,11 @@ function Home() {
             </p>
             {/* buttons */}
             <div className="mt-5">
-              <button type="button" className="btn btn-lg btn-continuar">
-                Continuar
-              </button>
+            <Link to="/nosotros">
+  <button type="button" className="btn btn-lg btn-continuar">
+    Continuar
+  </button>
+</Link>
             </div>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
