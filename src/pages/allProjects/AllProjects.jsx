@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import CardProjects from "../../components/common/cardProject/CardProjects";
+import CardProjects from "./components/cardProject/CardProjects";
 import { Link } from "react-router-dom";
 
 import "./allProjects.css";

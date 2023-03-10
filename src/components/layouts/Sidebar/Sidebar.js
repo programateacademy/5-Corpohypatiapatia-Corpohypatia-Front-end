@@ -75,14 +75,7 @@ const Sidebar = () => {
                 </SLinkContainer>
             ))}
             <SDivider />
-            {secondaryLinksArray.map(({ icon, label }) => (
-                <SLinkContainer key={label}>
-                    <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
-                        <SLinkIcon>{icon}</SLinkIcon>
-                        {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
-                    </SLink>
-                </SLinkContainer>
-            ))}
+            
             <SLinkContainer>
                 <SLink to="/" style={!sidebarOpen ? { width: `fit-content` } : {}}>
                     <SLinkIcon onClick={() => logout()}><MdLogout /></SLinkIcon>
@@ -96,16 +89,6 @@ const Sidebar = () => {
 
 const linksArray = [
     {
-        label: "Home",
-        icon: <AiOutlineHome />,
-        to: "/",
-    },
-    {
-        label: "Entidad",
-        icon: <BsBuilding />,
-        to: "/entidad-solicitante",
-    },
-    {
         label: "Lista de proyectos",
         icon: <VscFolderOpened />,
         to: "/projects",
@@ -114,6 +97,11 @@ const linksArray = [
         label: "Crear proyectos",
         icon: <VscNewFolder />,
         to: "/step",
+    },
+    {
+        label: "Entidad",
+        icon: <BsBuilding />,
+        to: "/entidad-solicitante",
     },
     {
         label: "Lista de usuarios",
@@ -127,11 +115,5 @@ const linksArray = [
     },
 ];
 
-const secondaryLinksArray = [
-    {
-        label: "Settings",
-        icon: <AiOutlineSetting />,
-    },
-];
 
 export default Sidebar;

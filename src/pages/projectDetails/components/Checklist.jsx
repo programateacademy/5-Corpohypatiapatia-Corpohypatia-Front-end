@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProject, editProject } from "../../service/api";
+import { getProject, editProject } from "../../../service/api";
 import { FaRegHandPointRight } from "react-icons/fa"
 
 import './checklist.css'
+import Loader from "./Loader";
 
 function Checklist() {
 
@@ -50,7 +51,7 @@ function Checklist() {
 
     if (!project) {
         return (
-            <p>carganding</p>
+            <Loader/>
         );
     }
 
