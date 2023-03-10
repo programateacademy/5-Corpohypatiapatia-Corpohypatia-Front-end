@@ -112,6 +112,6 @@ Para la estructura de carpetas se utilizo el patron de diseño MVC lo que signif
 
 * Styles
 
-  Utilizamos la carpeta Styles para gestionar los estilos de la aplicación. Para esta carpeta no utilizamos hojas de estilo cumun y corrientes, utilizamos una libreria que nos ayuda a generar componentes de estilos. Los style-components se organizan en diferentes archivos para diferentes partes de la aplicación y utilizamos variables para definir valores comunes que se pueden reutilizar.
+  Utilizamos la carpeta Styles para gestionar los estilos de la aplicación. Para esta carpeta no utilizamos hojas de estilo comun y corrientes, utilizamos una libreria que nos ayuda a generar componentes de estilos. Los style-components se organizan en diferentes archivos para diferentes partes de la aplicación y utilizamos variables para definir valores comunes que se pueden reutilizar.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
