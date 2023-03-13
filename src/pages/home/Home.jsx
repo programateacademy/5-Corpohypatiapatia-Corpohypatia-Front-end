@@ -18,6 +18,7 @@ import logo from "../../assets/img/logo.jpg"
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ReactPaginate from "react-paginate";
+import { Link } from "react-router-dom";
 
 const style = {
   position: 'absolute',
@@ -61,6 +62,8 @@ function Home() {
 
   //projects lenghts / 6 [ math ceil calculate how many pages ]
   const pageCount = Math.ceil(allProyects.length / projectPerPage);
+
+  console.log(allProyects)
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -142,7 +145,7 @@ function Home() {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                      <Button variant="contained" className="viewmore-butt">Leer más</Button>
+                      <Link to={`/homeProjectDetails/${card._id}`}><Button variant="contained" className="viewmore-butt">Leer más</Button></Link>
                       <img src={logo} id="card-logo"/>
                 </CardActions>
               </Card>
