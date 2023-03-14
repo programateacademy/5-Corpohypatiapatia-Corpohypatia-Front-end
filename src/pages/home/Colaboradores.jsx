@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Colaboradores.css"
 
 const Colaboradores = () => {
   return (
