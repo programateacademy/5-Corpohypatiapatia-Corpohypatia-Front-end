@@ -1,11 +1,12 @@
+import "./footer.css"
 function Footer() {
   return (
     <>
       {/* framework bootstrap */}
-      <footer className="bg-light text-muted">
+      <footer className="text-muted footer">
         <div className="row  m-0 p-5 ">
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-5 ">
-            <h4 className="text-dark">Quiénes somos</h4>
+            <h4>Quiénes somos</h4>
             <p className="text-justify">
               La Corporación para la Equidad, la Democracia y el Buen Vivir -
               CORPORACIÓN HYPATIA, es una organización no gubernamental, sin
@@ -21,7 +22,7 @@ function Footer() {
             </p>
           </div>
           <div className="col-sm-8 col-md-3 col-lg-3 col-xl-3 px-5">
-            <h4 className="text-dark">SERVICE</h4>
+            <h4>SERVICE</h4>
             <div className="row">
               <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
                 <svg
@@ -83,7 +84,7 @@ function Footer() {
             </div>
           </div>
           <div className="col-sm-4  col-md-3 col-lg-3 col-xl-3 px-5">
-            <h4 className="text-dark">SOCIAL</h4>
+            <h4>SOCIAL</h4>
             <p>
               Facebook <br />
               Twitter <br />

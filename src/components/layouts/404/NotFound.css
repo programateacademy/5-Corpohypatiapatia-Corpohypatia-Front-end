@@ -1,0 +1,35 @@
+.Not-Found-title{
+    display: grid;
+    gap: 3rem;
+    text-align: center;
+    place-content: center;
+    place-items: center;
+    margin-top: 5rem;
+}
+.Not-Found-title img{
+    width: 400px;
+    margin-top: -4rem;
+}
+.Not-Found-title h1{
+    font-size: 22px;
+    width: 15em;
+}
+#message{
+    margin-top: -2rem;
+}
+#error{
+    font-size: 37px;
+    font-weight: 900;
+    width: auto;
+}
+.Not-Found-title button{
+    padding: 0.7rem 4rem;
+    color: #fff;
+    background-color: purple;
+    border-radius: 30px;
+    border: none;
+    margin-top: -2rem;
+}
+#link{
+    margin-top: -2rem;
+}
