@@ -115,3 +115,12 @@ export const getAllProjects = async (setAllProjects) => {
   }
 };
 
+export const getAllProjectById = async (id, setProject) => {
+  try {
+    const data = await axios.get(`${URL}/projects/${id}`)
+    setProject(data.data)
+  } catch (e) {
+    console.log("Error while calling userNotRegister getProject api", e);
+  }
+};
+
