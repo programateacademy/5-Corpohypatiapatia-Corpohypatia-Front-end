@@ -1,128 +1,128 @@
 import React from 'react'
+import { useState } from "react";
+import { Container, Row, Col, Button, Collapse } from "react-bootstrap";
+import { FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
+import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter } from 'react-icons/ai';
+import logo from '../../../assets/img/CorpoHypatia-side.png'
 import "./footer.css"
-import {GoLocation} from 'react-icons/go'
-import {AiFillInstagram} from "react-icons/ai"
-import {BsTwitter} from "react-icons/bs"
-import {FaFacebookF} from "react-icons/fa"
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { Link} from 'react-router-dom'
 
 const Footer = () => {
+  const [showAbout, setShowAbout] = useState(false);
+  const [showLocations, setShowLocations] = useState(false);
+  const [showSocial, setShowSocial] = useState(false);
+
+  const toggleAbout = () => setShowAbout(!showAbout);
+  const toggleLocations = () => setShowLocations(!showLocations);
+  const toggleSocial = () => setShowSocial(!showSocial);
+
   return (
-    <footer>
-      <div className="Footer-Display">
-        <div className='Footer-main'>
-          <div id="Footer-s1">
-           
-            <h4>Hypatia</h4>
-          </div>
-          
-        </div>
+    <footer className="bg ">
 
-        {/* Footer for movil version and tablet version */}
-        <div className="Footer__links">
-          <Dropdown as={ButtonGroup} className="Dropdown-menu">
-            <Button id="drop1">Quienes somos</Button>
-            <Dropdown.Toggle id="dropdown-split-basic" className='dropdown-toggle'/>
-            <Dropdown.Menu className="Dropdown__Menu">
-              <Dropdown.Item href="#/action-1">La Corporación para la Equidad, la Democracia y el Buen Vivir -
-              CORPORACIÓN HYPATIA, es una organización no gubernamental, sin
-              ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia. Su
-              objeto social es la promoción y defensa integral de los derechos
-              humanos, especialmente los derechos de las mujeres, la búsqueda de
-              la equidad social y de género, el fortalecimiento de la
-              gobernabilidad y de una sociedad democrática, contribuyendo a la
-              construcción de una Cultura de paz y a la prevención y
-              erradicación de toda forma de discriminación y vulneración de
-              derechos por razones de sexo, etnia, orientación sexual, edad y
-              condición socioeconómica.</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+      <Container className='mobile'>
+        <Row>
+          <Col md={4}>
+            <img className='logo' src={logo} alt="logo" />
+          </Col>
+          <Col md={4}>
+            <h5>
+              <Button className='dropdown-toggle' variant="link" onClick={toggleAbout}>
+                Quiénes somos
+              </Button>
+            </h5>
+            <Collapse in={showAbout}>
+              <p>
+              La CORPORACIÓN HYPATIA es una organización sin fines de lucro con sede en Colombia que se dedica a la promoción y defensa de los derechos humanos, especialmente los derechos de las mujeres, la equidad social y de género, la gobernabilidad y una sociedad democrática. También busca construir una cultura de paz y prevenir y erradicar la discriminación y la vulneración de los derechos debido a la edad, la orientación sexual, la etnia y la condición socioeconómica.
+              </p>
+            </Collapse>
+          </Col>
+          <Col md={4} >
+            <h5>
+              <Button className='dropdown-toggle' variant="link" onClick={toggleLocations}>
+                Ubicaciones
+              </Button>
+            </h5>
+            <Collapse in={showLocations}>
+              <ul>
+                <li>
+                  <FaMapMarkerAlt /> Bucaramanga
+                </li>
+                <li>
+                  <FaMapMarkerAlt /> Florida Blanca
+                </li>
+                <li>
+                  <FaMapMarkerAlt /> Girón
+                </li>
+                <li>
+                  <FaMapMarkerAlt /> Piedecuesta
+                </li>
 
-          
+              </ul>
+            </Collapse>
+          </Col>
+          <Col md={4}>
+            <h5 className='btn'>
+                Redes sociales              
+            </h5>
+              <ul className="socials">
+                <li>
+                  <a href="https://www.facebook.com">
+                    <FaFacebook /> 
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitter.com">
+                    <FaTwitter /> 
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com">
+                    <FaInstagram /> 
+                  </a>
+                </li>
+              </ul>
+          </Col>
+        </Row>
+      </Container>
 
-          <Dropdown as={ButtonGroup} className="Dropdown-menu" >
-            <Button id="drop4">Contáctanos</Button>
-            <Dropdown.Toggle id="dropdown-split-basic" className='dropdown-toggle4'/>
-            <Dropdown.Menu className="Dropdown__Menu">
-              <Dropdown.Item href="#/action-1">320-4516192 / 301-3681863</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
-          <Dropdown as={ButtonGroup} className="Dropdown-menu" >
-            <Button id="drop4">Ubicacion</Button>
-            <Dropdown.Toggle id="dropdown-split-basic" className='dropdown-toggle4'/>
-            <Dropdown.Menu className="Dropdown__Menu">
-              <Dropdown.Item href="#/action-1">  Bucaramanga <br />
-                  Floridablanca <br />
-                  Girón <br />
-                  Piedecuesta</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-
-        <div className="Social">
-          <h3>Síguenos</h3>
-          <div className="Social__links">
-            <div className="social-icon__figure"><AiFillInstagram className='social-icon'/></div>
-            <div className="social-icon__figure"><BsTwitter className='social-icon'/></div>
-            <div className="social-icon__figure"><FaFacebookF className='social-icon'/></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer for desktop version */}
-      <div className='Footer-main1'>
-        <div className="Fot-desc">
-          
-          <h4>Quienes somos </h4>
-          <div className='footicon'><GoLocation id="icon-fott1-d"/> <p>La Corporación para la Equidad, la Democracia y el Buen Vivir -
-              CORPORACIÓN HYPATIA, es una organización no gubernamental, sin
-              ánimo de lucro, con sede en Bucaramanga (Santander) - Colombia. Su
-              objeto social es la promoción y defensa integral de los derechos
-              humanos, especialmente los derechos de las mujeres, la búsqueda de
-              la equidad social y de género, el fortalecimiento de la
-              gobernabilidad y de una sociedad democrática, contribuyendo a la
-              construcción de una Cultura de paz y a la prevención y
-              erradicación de toda forma de discriminación y vulneración de
-              derechos por razones de sexo, etnia, orientación sexual, edad y
-              condición socioeconómica.</p></div>
-          
-        </div>
-
-        <div className="Foot__info">
-          <h5>Ubicacion</h5>
-          <Link to="" className='link'>Bucaramanga <br />
-                  Floridablanca <br />
-                  Girón <br />
-                  Piedecuesta</Link>
-        </div>
-
-        
-
-        <div className="Foot__Contact">
-        <h5>Contáctanos</h5>
-          <Link to="" className='link'>320-4516192 / 301-3681863</Link>
-        </div>
-
-        <div className="Foot__Social">
-        <h4>Síguenos</h4>
-          <div className="Social__links">
-            <div className="social-icon__figure"><AiFillInstagram className='social-icon'/></div>
-            <div className="social-icon__figure"><BsTwitter className='social-icon'/></div>
-            <div className="social-icon__figure"><FaFacebookF className='social-icon'/></div>
+    {/*computadores*/}
+      <section className="desktop bg">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <h3>Quiénes somos</h3>
+              <p>
+              La CORPORACIÓN HYPATIA es una organización sin fines de lucro con sede en Colombia que se dedica a la promoción y defensa de los derechos humanos, especialmente los derechos de las mujeres, la equidad social y de género, la gobernabilidad y una sociedad democrática. También busca construir una cultura de paz y prevenir y erradicar la discriminación y la vulneración de los derechos debido a la edad, la orientación sexual, la etnia y la condición socioeconómica.
+              </p>
+            </div>
+            <div className="col-md-3">
+              <h3>Contactanos</h3>
+              <ul className="list-unstyled">
+                <li><FaPhone /> +1 555 1234</li>
+                <li><FaEnvelope /> info@ejemplo.com</li>
+                <li><FaMapMarkerAlt /> Dirección de ejemplo 1234, Ciudad, País</li>
+              </ul>
+            </div>
+            <div className="col-md-3">
+              <h3>Redes sociales</h3>
+              <ul className="list-unstyled">
+                <li><a href="#"><AiOutlineFacebook /> Facebook</a></li>
+                <li><a href="#"><AiOutlineInstagram /> Instagram</a></li>
+                <li><a href="#"><AiOutlineTwitter /> Twitter</a></li>
+              </ul>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="Footer-email">
-         
-       
-        </div>
-      </div>
     </footer>
+
+
+
+
+
   )
 }
 
 export default Footer
+
