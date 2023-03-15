@@ -25,8 +25,8 @@ const Footer = () => {
             <img className='logo' src={logo} alt="logo" />
           </Col>
           <Col md={4}>
-            <h5 className='btn footh5'>
-              <Button className='dropdown-toggle' variant="link" onClick={toggleAbout}>
+            <h5>
+              <Button className='footh5 dropdown-toggle' variant="link" onClick={toggleAbout}>
                 Quiénes somos
               </Button>
             </h5>
@@ -37,13 +37,14 @@ const Footer = () => {
             </Collapse>
           </Col>
           <Col md={4} >
-            <h5 className='btn footh5'>
-              <Button className='dropdown-toggle' variant="link" onClick={toggleLocations}>
+            <h5>
+              <Button className='footh5
+              dropdown-toggle' variant="link" onClick={toggleLocations}>
                 Ubicaciones
               </Button>
             </h5>
             <Collapse in={showLocations}>
-              <ul>
+              <ul className='location'>
                 <li>
                   <FaMapMarkerAlt /> Bucaramanga
                 </li>
