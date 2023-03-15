@@ -9,6 +9,7 @@ export const SSidebar = styled.div`
     height: 100vh;
     padding: ${v.lgSpacing};
     position: fixed;
+    z-index:100;
 
   @media (max-width: 350px){
     width: ${({ isOpen }) => (!isOpen ? `100px` : v.sidebarWidth)};

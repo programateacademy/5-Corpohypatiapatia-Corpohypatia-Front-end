@@ -1,26 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { getProject, editProject, deleteProject } from "../../service/api";
-import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
-
-import ReadMore from "./ReadMore";
+import Checklist from "./components/Checklist";
+import ReadMore from "./components/ReadMore";
 import "./StylesDetails.css";
-import { RiArrowGoBackFill } from "react-icons/ri";
-import { BsBoxArrowUp } from "react-icons/bs";
-import { RiFileEditLine } from "react-icons/ri";
-import Checklist from "./Checklist";
+import { Button } from "@mui/material";
 import Swal from "sweetalert2";
-
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-
+import ExportPDFButton from "./components/ExportPdfButton";
+import Loader from "./components/Loader";
+import { RiArrowGoBackFill, RiFileEditLine} from "react-icons/ri";
 
 function ProjectDetails() {
-  pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
-  pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
   const [project, setProject] = useState(null);
 
@@ -91,144 +81,15 @@ function ProjectDetails() {
     });
   };
 
-  const exportToPDF = () => {
-    if (!project) {
-      return;
-    }
-
-    const docDefinition = {
-      footer: function (currentPage, pageCount) {
-        return;
-      },
-      header: function (currentPage, pageCount, pageSize) {
-        return [
-          {
-            text: " Page " + currentPage + " / " + pageCount,
-            alignment: currentPage % 2 ? "left" : "right",
-            fontSize: 9,
-            bold: true,
-          },
-          {
-            canvas: [
-              {
-                type: "rect",
-                x: 170,
-                y: 32,
-                w: pageSize.width - 170,
-                h: 40,
-                width: 90,
-              },
-            ],
-          },
-        ];
-      },
-
-      content: [
-
-
-        {
-          stack: [project.project_title],
-          style: "title",
-        },
-
-        { text: "Información de Proyecto", style: "header" },
-        { text: "Ubicación:", style: "label" },
-        { text: project.project_location, style: "value" },
-
-        { text: "Duración:", style: "label" },
-        { text: project.project_duration, style: "value" },
-        { text: "Presupuesto:", style: "label" },
-        { text: project.project_budget, style: "value" },
-        { text: "Avance del proyecto:", style: "label" },
-        { text: project.project_percentage + "%", style: "value" },
-
-        { text: "Beneficiarios / población diana", style: "label" },
-        { text: project.beneficiaries, style: "value" },
-        { text: "Resumen ejecutivo", style: "label" },
-        { text: project.executive_summary, style: "value" },
-        {
-          text: "Alineación del proyecto con políticas públicas y prioridades locales, regionales, estatales y/o Internacionales",
-          style: "label",
-        },
-        { text: project.alignment, style: "value" },
-
-        { text: "Objetivos", style: "label" },
-        { text: project.methodology_summary, style: "value" },
-        { text: "Objetivo General", style: "label" },
-        { text: project.general_objetive, style: "value" },
-        { text: "Objetivo Específicos", style: "label" },
-        { text: project.specific_objectives, stule: "value" },
-
-        { text: "Experiencia y capacidad", style: "label" },
-        { text: project.experience, style: "value" },
-
-        {
-          text: "Identificación de elementos que aseguren la sostenibilidad económica, social y ambiental del Proyecto",
-          style: "label",
-        },
-        { text: project.sustainability, style: "value" },
-
-        {
-          text: "Estrategia de salida al finalizar el proyecto",
-          style: "label",
-        },
-        { text: project.exit_strategy, style: "value" },
-
-
-      ],
-      styles: {
-        header: {
-          fontSize: 15,
-          bold: true,
-          margin: [0, 0, 0, 10],
-        },
-
-        title: {
-          fontSize: 20,
-          bold: true,
-          alignment: "right",
-          margin: [0, 20, 0, 80],
-          color: "#760000",
-        },
-
-        label: {
-          fontSize: 12,
-          bold: true,
-          margin: [0, 10, 0, 10],
-        },
-
-        value: {
-          fontSize: 11,
-          margin: [0, 0, 0, 10],
-          alignment: "justify",
-        },
-      },
-    };
-
-    pdfMake.createPdf(docDefinition).open();
-  };
-
   if (!project) {
-    return (
-      <>
-        <div id="container-loader">
-          <label className="loading-title">
-            Cargando información de proyecto...
-          </label>
-          <span className="loading-circle sp1">
-            <span className="loading-circle sp2">
-              <span className="loading-circle sp3"></span>
-            </span>
-          </span>
-        </div>
-      </>
-    );
+    return <Loader/>
   }
 
   return (
     <div className="contenedor-Detalle">
       <div className="card-foto w-75 mx-auto">
-        <img className="imagen" src={project.imagePath} alt="Card cap" />
+        <div className="container-img">
+        <img className="imagen" src={project.imagePath} alt="Card cap" /></div>
         <div className="reverse">
           <div className="cards">
             <div className="texto-v">
@@ -448,9 +309,7 @@ function ProjectDetails() {
             </div>
           </div>
         </div>
-        <button className="boton-export" onClick={exportToPDF}>
-          Exportar <BsBoxArrowUp className="icon-Export" />{" "}
-        </button>
+        <ExportPDFButton project={project}/>
       </div>
 
       <div className="project-status">
@@ -460,7 +319,6 @@ function ProjectDetails() {
           color="error"
           onClick={() => deleteProjectDetails(project._id)}
         >
-          {" "}
           Eliminar proyecto
         </Button>
         <div className="project-status_cont">

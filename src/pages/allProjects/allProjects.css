@@ -1,15 +1,15 @@
 .filters{
     width: 90%;
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     margin: 20px auto;
 }
 
 .projects-cards{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px 40px;
-    width: 90%;
+    grid-template-columns:1fr;
+    gap: 30px;
+    width: 100%;
     max-width: 1200px;
     margin: auto;
 }
@@ -17,10 +17,11 @@
 .all-project .search{
     width: min-content;
     position: relative;
-}
+} 
 
 .all-project .search input{
-    width: 400px;
+    min-width: 250px;
+    max-width: 400px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid rgb(120, 119, 119);
@@ -90,3 +91,32 @@
     padding-bottom: 40px;
 }
 
+@media screen and (min-width:768px) {
+    .projects-cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 40px;
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .filters{
+        width: 90%;
+        display: flex;
+        justify-content:flex-end;
+        margin: 20px auto;
+    }
+    
+    .projects-cards{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px 40px;
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+}

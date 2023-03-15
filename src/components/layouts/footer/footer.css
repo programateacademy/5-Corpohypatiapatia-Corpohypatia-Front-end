@@ -1,11 +1,66 @@
-/*footer*/
-footer{
-    background-color: #8A238C;
+.mobile{
+    padding-top: 2rem;
 }
-footer p{
-    color: #fff !important;
+
+@media (min-width: 300px) {
+    .desktop{
+        display: none;
+    }
+    .bg{
+        background-color: #8A238C;
+    }
+    .footh5{
+        color: #FFB200;
+        text-decoration: none;
+    }
+    .footh5:hover{
+        color: #fff;
+    }
+
+    .logo{
+        height: 70px;
+        background-color: #fff;
+        border-radius: 10%;
+        padding: 5px;
+    }
+    .mobile  p,
+    .desktop li{
+        color: #fff;
+        text-decoration: none;
+        list-style: none;
+    }
+    .mobile a{        
+    color: #FFB200;
+    }
+      
+.socials{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-left: 0.5rem;
+}      
 }
-footer h4{
-    color: #fff !important;
-    font-weight: 900;
+
+@media (min-width: 768px) {
+    .mobile{
+        display: none;
+    }
+
+    .desktop{
+        display: block;
+        padding-top: 2rem;
+    }
+
+    .desktop h3{
+        color: #FFB200;
+    }
+    .desktop p,
+    .desktop a{        
+        color: #fff;
+        padding: 1rem;
+        }
+    .desktop li svg,
+    .desktop a svg {
+        color: #FFB200;
+    }
 }

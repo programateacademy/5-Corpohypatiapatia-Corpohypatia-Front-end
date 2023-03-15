@@ -4,7 +4,7 @@ import { Routes, Route, Navigate, useLocation} from "react-router-dom";
 import Home from "../pages/home/Home";
 import AllProjects from "../pages/allProjects/AllProjects";
 import ProjectDetails from "../pages/projectDetails/ProjectDetails";
-import Checklist from "../pages/projectDetails/Checklist";
+import Checklist from "../pages/projectDetails/components/Checklist";
 import ProjectEdit from "../pages/projectEdit/projectEdit";
 import Login from "../pages/login/Login"
 import { ScrollToTop } from "../components/common/ScrollToTop";

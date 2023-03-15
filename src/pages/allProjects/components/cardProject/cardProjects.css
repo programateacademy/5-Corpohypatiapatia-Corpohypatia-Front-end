@@ -1,5 +1,7 @@
 .cards-projects{
-    width: 340px;
+    min-width: 250px;
+    max-width: 320px;
+    margin: auto;
     position: relative;
     border-radius: 5px;
     overflow: hidden;

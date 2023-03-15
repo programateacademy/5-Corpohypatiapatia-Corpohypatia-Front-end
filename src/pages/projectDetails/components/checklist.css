@@ -1,0 +1,386 @@
+.accordion-header {
+    width: 100%;
+}
+
+.container-task {
+    padding: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: #bbf6eb6d;
+    color: black;
+}
+
+.task {
+    width: 90%;
+    margin: auto;
+    margin: 10px auto;
+}
+
+.task h2 {
+    padding: 10px 40px;
+    border-bottom: 1px solid rgb(173, 173, 173);
+    border-top: 1px solid rgb(173, 173, 173);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 680px;
+    margin: auto;
+    font-size: 20px;
+}
+
+.task label {
+    width: 90%;
+    height: auto;
+    padding: 10px 20px;
+    margin: 4px auto;
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+}
+
+.task label p {
+    margin-left: 5px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.result {
+    text-align: left;
+}
+
+.icon {
+    color: black;
+    font-size: 24px;
+}
+
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+
+/* .check:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(84, 34, 34, 0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+} */
+
+.check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #000000;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+}
+
+.check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+    opacity: 1;
+}
+
+.check:hover svg {
+    stroke: #00aa4a;
+}
+
+.cbx:checked+.check svg {
+    stroke: #00aa4a;
+}
+
+.cbx:checked+.check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+.cbx:checked+.check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: start;
+}
+
+.result-percentage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-percentage p,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.card-indicator {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.card-indicator .rectangulo {
+    margin: 0 0 10px 0;
+}
+
+.tasks {
+    text-align: start;
+    padding: 10px 30px;
+}
+
+.tasks ul {
+    list-style: none;
+    text-align: start;
+    padding: 0;
+}
+
+.activity {
+    display: flex;
+    background: rgba(208, 249, 255, 0.479);
+    margin: 6px 0;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.activity input {
+    margin-right: 15px;
+    height: 20px;
+}
+
+.activity input[type=checkbox] {
+    transform: scale(2);
+}
+
+.indicator .icon-ind {
+    margin-right: 8px;
+}
+
+/* input[type=checkbox] {
+    opacity: 0;
+} */
+
+@media screen and (min-width:768px) {
+    .accordion-header {
+        width: 100%;
+    }
+    
+    .container-task {
+        padding: 0;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        background: #bbf6eb6d;
+        color: black;
+    }
+    
+    .task {
+        width: 90%;
+        margin: auto;
+        margin: 10px auto;
+    }
+    
+    .task h2 {
+        padding: 10px 40px;
+        border-bottom: 1px solid rgb(173, 173, 173);
+        border-top: 1px solid rgb(173, 173, 173);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 680px;
+        margin: auto;
+        font-size: 20px;
+    }
+    
+    .task label {
+        width: 90%;
+        height: auto;
+        padding: 10px 20px;
+        margin: 4px auto;
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+    }
+    
+    .task label p {
+        margin-left: 5px;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+    
+    .result {
+        text-align: left;
+    }
+    
+    .icon {
+        color: black;
+        font-size: 24px;
+    }
+    
+    .check {
+        cursor: pointer;
+        position: relative;
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        -webkit-tap-highlight-color: transparent;
+        transform: translate3d(0, 0, 0);
+    }
+    
+    /* .check:before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 0px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(84, 34, 34, 0.03);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    } */
+    
+    .check svg {
+        position: relative;
+        z-index: 1;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #000000;
+        stroke-width: 1.5;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.2s ease;
+    }
+    
+    .check svg path {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 0;
+    }
+    
+    .check svg polyline {
+        stroke-dasharray: 22;
+        stroke-dashoffset: 66;
+    }
+    
+    .check:hover:before {
+        opacity: 1;
+    }
+    
+    .check:hover svg {
+        stroke: #00aa4a;
+    }
+    
+    .cbx:checked+.check svg {
+        stroke: #00aa4a;
+    }
+    
+    .cbx:checked+.check svg path {
+        stroke-dashoffset: 60;
+        transition: all 0.3s linear;
+    }
+    
+    .cbx:checked+.check svg polyline {
+        stroke-dashoffset: 42;
+        transition: all 0.2s linear;
+        transition-delay: 0.15s;
+    }
+    
+    .result-container {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        align-items: center;
+        padding: 0;
+        border-bottom: 1px solid black;
+    }
+    
+    .result-percentage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .result-percentage p,
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .card-indicator {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .card-indicator .rectangulo {
+        margin: 0 0 10px 0;
+    }
+    
+    .tasks {
+        text-align: start;
+        padding: 10px 30px;
+    }
+    
+    .tasks ul {
+        list-style: none;
+        text-align: start;
+        padding: 0;
+    }
+    
+    .activity {
+        display: flex;
+        background: rgba(208, 249, 255, 0.479);
+        margin: 6px 0;
+        padding: 5px 20px;
+        align-items: center;
+    }
+    
+    .activity input {
+        margin-right: 15px;
+        height: 20px;
+    }
+    
+    .activity input[type=checkbox] {
+        transform: scale(2);
+    }
+    
+    .indicator .icon-ind {
+        margin-right: 8px;
+    }
+    
+}
