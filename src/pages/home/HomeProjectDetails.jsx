@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllProjectById } from '../../service/api';
 import "./HomeProjectDatails.css"
+import { RiArrowGoBackFill } from "react-icons/ri";
+import HomeReadMore from "./HomeReadMore"
 
 const HomeProjectDetails = () => {
   
@@ -39,8 +41,36 @@ const HomeProjectDetails = () => {
   return (
     <>
       <div>
-        
+      <div className="card-foto w-75 mx-auto">
+        <img className="imagen" src={project.imagePath} alt="Card cap" />
+        <div className="reverse">
+          <div className="cards">
+            <div className="texto-v">
+              <p className="texto-bold">Proyecto: {project.project_title}</p>
+              <p className="texto-bold">
+                Entidad: Corporación para la Equidad, la Democracia y el Buen
+                Vivir – Corpohypatia.
+              </p>
+              <p className="texto-bold">
+                Estrategia de bienestar emocional de niños y niñas de 5 a 12
+                años en el municipio de Bucaramanga, Santander.
+              </p>
+            </div>
+          </div>
+
+          <div className="elemento-avance">
+            <button
+              className="Boton-regresar"
+              onClick={() => window.history.back()}
+            >
+              Regresar <RiArrowGoBackFill className="icon-regreso" />
+            </button>
+          </div>
+        </div>
       </div>
+      </div>
+
+      <HomeReadMore text={project.problematic_summary}/>
     </>
   );
 };
