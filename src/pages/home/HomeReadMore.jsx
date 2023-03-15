@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@mui/material";
+import "./styles/HomeReadMore.css"
 
 const HomeReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);

@@ -1,6 +1,5 @@
 // import image for carousel
-import Graphic from "../../assets/img/grafico.png";
-import "./home.css";
+import "./styles/home.css";
 import Header from "../../components/layouts/header/Header";
 import Footer from "../../components/layouts/footer/Footer";
 import { AiOutlineSearch } from "react-icons/ai"
@@ -19,6 +18,12 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import Carousel from 'react-bootstrap/Carousel';
+import slide1 from "../../assets/img/homesrc/slider1.jpg"
+import slide2 from "../../assets/img/homesrc/slider2.jpg"
+import slide3 from "../../assets/img/homesrc/slider3.jpg"
+import slide4 from "../../assets/img/homesrc/slider4.jpg"
+import slide5 from "../../assets/img/homesrc/slider5.jpg"
 
 const style = {
   position: 'absolute',
@@ -31,6 +36,7 @@ const style = {
 function Home() {
 
   const [allProyects, setAllProyects] = useState([])
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getAllProjects(setAllProyects)
@@ -48,6 +54,15 @@ function Home() {
 
   const [selectedCard, setSelectedCard] = useState(null);
 
+  //search
+  const searchedProject = allProyects.filter((item) => {
+    if (search.value === "") return item;
+
+    //use tolowercase to ignore mayuscule and minuscule and include search input value to filter.
+    if (item.project_title.toLowerCase().includes(search.toLowerCase()))
+      return item;
+  });
+
   // Pagination
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -55,13 +70,13 @@ function Home() {
 
   const visitedPage = pageNumber * projectPerPage;
 
-  const displayPage = allProyects.slice(
+  const displayPage = searchedProject.slice(
     visitedPage,
     visitedPage + projectPerPage
   );
 
   //projects lenghts / 6 [ math ceil calculate how many pages ]
-  const pageCount = Math.ceil(allProyects.length / projectPerPage);
+  const pageCount = Math.ceil(searchedProject.length / projectPerPage);
 
   console.log(allProyects)
 
@@ -72,42 +87,52 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="container-fluid">
-        <div className="row p-5">
-          <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-2">
-            <p className="fs-1 mt-5 welcome-title">BIENVENID@S</p>
-            <p className=" mt-5">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Doloremque earum repudiandae velit ipsa molestiae perferendis quae
-              voluptate, adipisci et porro qui unde ad? Asperiores, accusamus
-              tenetur obcaecati eos velit delectus? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Possimus maxime totam a? Laborum
-              quasi nulla corporis alias ducimus. Ad obcaecati cupiditate ab
-              enim molestiae unde quibusdam eligendi dignissimos tenetur.
-              Incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Soluta vel aut consequatur beatae officia vitae veniam, eos
-              recusandae sequi autem quibusdam dolore asperiores? Sequi,
-              aspernatur odit? Dolorem laboriosam cupiditate ad?
-            </p>
-            {/* buttons */}
-            <div className="mt-5">
-              <button type="button" className="btn btn-lg btn-continuar">
-                Continuar
-              </button>
-            </div>
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-            <div className="graphic-image">
-              <img
-                src={Graphic}
-                alt="graphic piece"
-                width="700"
-                className="rounded mx-auto d-block"
-              />
-            </div>
-          </div>
-        </div>
+      
+      <div className="Slider">
+        <Carousel>
+          <Carousel.Item interval={4000}>
+            <img
+              className="d-block w-100"
+              src={slide1}
+              alt="First slide"
+            />
+          </Carousel.Item>
+
+          <Carousel.Item interval={4000}>
+            <img
+              className="d-block w-100"
+              src={slide2}
+              alt="Second slide"
+            />
+          </Carousel.Item>
+
+          <Carousel.Item interval={4000}>
+            <img
+              className="d-block w-100"
+              src={slide3}
+              alt="Third slide"
+            />
+          </Carousel.Item>
+
+          <Carousel.Item interval={4000}>
+            <img
+              className="d-block w-100"
+              src={slide4}
+              alt="Third slide"
+            />
+          </Carousel.Item>
+
+          <Carousel.Item interval={4000}>
+            <img
+              className="d-block w-100"
+              src={slide5}
+              alt="Third slide"
+            />
+          </Carousel.Item>
+        </Carousel>
       </div>
+
+
 
       {/* Projects itle and search */}
       <div className="py-3 bg-purple text-purple align-items-center my-4">
@@ -116,7 +141,13 @@ function Home() {
         </div>
       </div>
       <div className="search-bar">
-        <span><AiOutlineSearch /></span><input type={'search'} placeholder="Buscar un proyecto..."></input>
+        <span><AiOutlineSearch /></span>
+        <input type={'search'} 
+        placeholder="Buscar un proyecto..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        >
+        </input>
       </div>
 
       <h3 id="proyect-count">Cantidad de proyectos: {allProyects.length}</h3>
@@ -166,7 +197,7 @@ function Home() {
         }
       </div>
 
-      <div className="container_paginate">
+      <div className="container_paginate" id="Paginate">
           <ReactPaginate
             pageCount={pageCount}
             onPageChange={changePage}

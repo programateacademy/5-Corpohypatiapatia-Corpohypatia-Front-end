@@ -23,9 +23,8 @@ import HomeProjectDetails from "../pages/home/HomeProjectDetails";
 import NotFoundAdmin from "../components/layouts/404/NotFoundAdmin";
 
 const AllRoutes = () => {
-  const location = useLocation();
   
-  const token = localStorage.getItem("token")
+  useLocation();
   
   return (
     <>

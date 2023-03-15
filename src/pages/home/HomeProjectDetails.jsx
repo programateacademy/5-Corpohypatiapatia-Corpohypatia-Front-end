@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllProjectById } from '../../service/api';
-import "./HomeProjectDatails.css"
+import "./styles/HomeProjectDatails.css"
 import { RiArrowGoBackFill } from "react-icons/ri";
 import HomeReadMore from "./HomeReadMore"
+import Header from "../../components/layouts/header/Header"
 
 const HomeProjectDetails = () => {
   
@@ -40,6 +41,7 @@ const HomeProjectDetails = () => {
   console.log(project)
   return (
     <>
+    <Header/>
       <div>
       <div className="card-foto w-75 mx-auto">
         <img className="imagen" src={project.imagePath} alt="Card cap" />

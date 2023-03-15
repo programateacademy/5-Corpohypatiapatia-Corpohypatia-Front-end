@@ -19,7 +19,7 @@ a{
     flex-direction: column!important;
   }
 }
-@media (min-width: 768px){
+@media (min-width: 770px){
   .nav-items{
     flex-direction: row!important;
   }

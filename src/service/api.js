@@ -61,7 +61,7 @@ export const deleteProject = async (id, token) => {
 
 export const signIn = async (user, token) => {
   try {
-    console.log(user);
+    // console.log(user)
     return await axios.post(URL + "/signin", user, {
       headers: {
         "x-access-token": token,

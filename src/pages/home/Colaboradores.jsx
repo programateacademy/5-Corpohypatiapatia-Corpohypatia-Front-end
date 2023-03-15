@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Colaboradores.css"
+import "./styles/Colaboradores.css"
 
 const Colaboradores = () => {
   return (
