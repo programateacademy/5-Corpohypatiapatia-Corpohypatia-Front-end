@@ -78,8 +78,6 @@ function Home() {
   //projects lenghts / 6 [ math ceil calculate how many pages ]
   const pageCount = Math.ceil(searchedProject.length / projectPerPage);
 
-  console.log(allProyects)
-
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
@@ -99,11 +97,18 @@ function Home() {
           </Carousel.Item>
 
           <Carousel.Item interval={4000}>
+            <div className="d-flex">
             <img
-              className="d-block w-100"
+              className="d-block w-50"
               src={slide2}
               alt="Second slide"
             />
+            <img
+              className="d-block w-50"
+              src={slide2}
+              alt="Second slide"
+            />
+            </div>
           </Carousel.Item>
 
           <Carousel.Item interval={4000}>

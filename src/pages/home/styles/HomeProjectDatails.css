@@ -1,0 +1,60 @@
+.project-detail-body hr{
+    width: 70%;
+}
+.imagenn {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    justify-content: center;
+    object-fit: cover;
+}
+
+/*Botones  */
+.return__btn {
+    width: 119px;
+    height: 50px;
+    color: var(--colorwhite);
+    border: 2px solid var(--colorwhite);
+    background-color: var(--colorazul);
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+.return__btnr:hover {
+    color: #6693FD;
+    border-color: #6693FD;  
+}
+.project-info, .Objetive__info{
+    border-radius: 15px;
+    border: 2px solid #C7C5C5;
+}
+.project-detail__title{
+    color: #0F265C;
+}
+.text__colors{
+    color: #797474!important;
+}
+.Objetive__info{
+    padding: 0rem 1rem;
+}
+.project-enabled{
+    color: rgba(3, 151, 3, 0.637)!important;
+}
+.project-disabled{
+    color: rgba(201, 9, 9, 0.719)!important;
+}
+
+@media (min-width: 800px){
+    .imagenn{
+        height: 400px;
+    }
+    .Objetive__info{
+        padding: 0rem 2rem;
+    }
+    .return__btn{
+        display: none;
+    }
+}
