@@ -57,7 +57,7 @@ const Nosotros = () => {
             <img src={imagen2} alt="Imagen 2" />
             <p className="text2">
               Somos una organización que promueve y <br />defiende los derechos
-              humanos con enfoques diferenciales,   en la <br />búsqueda de la igualdad
+              humanos con enfoques diferenciales,  <br /> en la búsqueda de la igualdad
               social y de género, la construcción  de una sociedad <br />democrática,
               pacífica y respetuosa de las diferencias, <br /> que garantice el buen
               vivir de hombres y mujeres en su diversidad. 
