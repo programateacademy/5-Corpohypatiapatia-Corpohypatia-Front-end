@@ -1,0 +1,95 @@
+.portada {
+    height: 50vh;
+    display: flex;
+    justify-content: center; /* para centrar horizontalmente */
+    align-items: center; /* para centrar verticalmente */
+    margin-bottom: 20px;
+  }
+  
+  .portada img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+.quienes-somos h1 {
+    font-size: 3rem;
+    color: purple;
+  }
+  
+  
+  
+  .text3 {
+    font-size: 25px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  
+  .video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+   
+    
+  }
+ 
+  .imagen-circular img {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-image: cover;
+  }
+  .imagen1 {
+    position: relative;
+    display: inline-block;
+    max-width: 50%;
+    height: auto;
+    margin-left: 200px;
+    box-shadow: -20px 20px 0px 0px #48C4A5; /* añadir sombra de caja para crear el fondo verde y el efecto de imagen apilada */
+  }
+  
+  .text2 {
+    font-size: 18px;
+    
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 10px;
+    text-align: center; /* centrar el texto horizontalmente */
+   text-indent: 0; /* quitar la sangría */
+  
+  }
+  
+  .fondo {
+    background-color: #D3D3D3;
+    padding: 20px;
+  }
+  
+  
+  @media (max-width: 767px) {
+    .portada h1 {
+      font-size: 2.5rem;
+    }
+  
+    .text3 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  
+    .imagen1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .video {
+      flex-direction: column;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .video iframe {
+      width: 100%;
+    }
+  }
+  
