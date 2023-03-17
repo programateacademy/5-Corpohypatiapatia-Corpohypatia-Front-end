@@ -33,7 +33,6 @@ const Login = () => {
     setData({ ...data, [input.name]: input.value });
   };
 
-
   //login function
 
   const handleSubmit = async (e) => {

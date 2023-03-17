@@ -1,4 +1,31 @@
 /*home*/
+.Welcome-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.397), rgba(0, 0, 0, 0.5)), url("../../../assets//img/homesrc/slider5.jpg");
+  display: grid;
+  place-content: center;
+  justify-content: flex-start;
+  height: 40vh;
+  padding-left: 2rem;
+}
+.Welcome-image h1{
+  width: 10em;
+  font-size: 33px;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.Welcome-image > div > h1 span{
+  color: rgb(252, 195, 11);
+}
+.Welcome-image > div p{
+  width: 18em;
+  color: #ffffffb7;
+  font-weight: bold;
+  font-size: 16px;
+}
 .graphic-image img {
   width: 300px;
   height: auto;
@@ -103,6 +130,19 @@ h1{
     margin-left: 1rem;
     font-size: 25px;
   }
+
+  .Welcome-image{
+    height: 60vh;
+    padding-left: 4rem;
+  }
+  .Welcome-image h1{
+    width: 13em;
+    font-size: 40px;
+  }
+  .Welcome-image > div p{
+    width: 22em;
+    font-size: 22px;
+  }
 }
 /* paginate */
 .paginate-butts a{
@@ -169,6 +209,18 @@ h1{
   .Slider{
     padding: 0rem 10rem;
   }
+  .Welcome-image{
+    height: 60vh;
+    padding-left: 6rem;
+  }
+  .Welcome-image h1{
+    width: 13em;
+    font-size: 47px;
+  }
+  .Welcome-image > div p{
+    width: 23em;
+    font-size: 21px;
+  }
 }
 @media (min-width: 1200px) {
   .graphic-image img {
@@ -222,6 +274,13 @@ h1{
   .organi img {
     width: 400px;
     height: auto;
+  }
+  .Welcome-image{
+    height: 80vh;
+    padding-left: 6rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 1.7rem;
   }
 }
 

@@ -18,12 +18,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import Carousel from 'react-bootstrap/Carousel';
-import slide1 from "../../assets/img/homesrc/slider1.jpg"
-import slide2 from "../../assets/img/homesrc/slider2.jpg"
-import slide3 from "../../assets/img/homesrc/slider3.jpg"
-import slide4 from "../../assets/img/homesrc/slider4.jpg"
-import slide5 from "../../assets/img/homesrc/slider5.jpg"
 
 const style = {
   position: 'absolute',
@@ -86,58 +80,13 @@ function Home() {
     <>
       <Header />
       
-      <div className="Slider">
-        <Carousel>
-          <Carousel.Item interval={4000}>
-            <img
-              className="d-block w-100"
-              src={slide1}
-              alt="First slide"
-            />
-          </Carousel.Item>
-
-          <Carousel.Item interval={4000}>
-            <div className="d-flex">
-            <img
-              className="d-block w-50"
-              src={slide2}
-              alt="Second slide"
-            />
-            <img
-              className="d-block w-50"
-              src={slide2}
-              alt="Second slide"
-            />
-            </div>
-          </Carousel.Item>
-
-          <Carousel.Item interval={4000}>
-            <img
-              className="d-block w-100"
-              src={slide3}
-              alt="Third slide"
-            />
-          </Carousel.Item>
-
-          <Carousel.Item interval={4000}>
-            <img
-              className="d-block w-100"
-              src={slide4}
-              alt="Third slide"
-            />
-          </Carousel.Item>
-
-          <Carousel.Item interval={4000}>
-            <img
-              className="d-block w-100"
-              src={slide5}
-              alt="Third slide"
-            />
-          </Carousel.Item>
-        </Carousel>
+      <div className="Welcome-image">
+        <div className="welcome__title">
+          <h1>Defensora mundial de los <span>derechos humanos.</span></h1>
+          <p>CORPORACIÓN HYPATIA es una entidad que trabaja por el respeto y el reconocimiento de los derechos humanos en Colombia.</p>
+          <Link to="/nosotros"><Button variant="contained">Sobre nosotros</Button></Link>
+        </div>
       </div>
-
-
 
       {/* Projects itle and search */}
       <div className="py-3 bg-purple text-purple align-items-center my-4">
