@@ -1,73 +1,68 @@
 .portada {
-    height: 50vh;
-    display: flex;
-    justify-content: center; /* para centrar horizontalmente */
-    align-items: center; /* para centrar verticalmente */
-    margin-bottom: 20px;
-  }
-  
-  .portada img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
+  height: 50vh;
+  display: flex;
+  justify-content: center; /* para centrar horizontalmente */
+  align-items: center; /* para centrar verticalmente */
+  margin-bottom: 20px;
+}
+
+.portada img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .quienes-somos h1 {
-    font-size: 1rem;
-    color: purple;
-    margin-top: 10px;
-  }
-  
-  
-  
-  .text3 {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 10px;
-    display: flex;
-  }
-  
-  .video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-   
-    
-  }
- 
-  .imagen-circular img {
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    background-image: cover;
-  }
-  .imagen1 {
-    position: relative;
-    display: inline-block;
-    
-    height: auto;
-    margin-left: 100px; /* margen de 20 píxeles en el lado izquierdo */
-    box-shadow: -20px 20px 0px 0px #48C4A5;
-    display: flex;
-  }
-  
-  .text2 {
-    font-size: 18px;
-    
-    text-align: center;
-    line-height: 1.5;
-    margin-top: 10px;
-    text-align: center; /* centrar el texto horizontalmente */
-   text-indent: 0; /* quitar la sangría */
-  
-  }
-  
-  .fondo {
-    background-color: #D3D3D3;
-    padding: 20px;
-  }
-  
+  font-size: 1rem;
+  color: purple;
+  margin-top: 10px;
+}
+
+.text3 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.imagen-circular img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-image: cover;
+}
+
+.imagen1 {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  margin-left: 100px; /* margen de 20 píxeles en el lado izquierdo */
+  box-shadow: -20px 20px 0px 0px #48C4A5;
+  display: flex;
+}
+
+.text2 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.fondo {
+  background-color: #D3D3D3;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
   
   /* Estilos para pantallas grandes (mayores a 1200px de ancho) */
 @media (min-width: 1200px) {
@@ -87,19 +82,27 @@
   
     /* Ajustar tamaño de texto */
     .text3 {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.8;
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
     }
   
     /* Ajustar tamaño de imagen circular y texto */
     .imagen-circular img {
-      width: 400px;
-      height: 400px;
+      width: 300px;
+      height: 300px;
     }
     .text2 {
-      font-size: 20px;
-      line-height: 1.8;
-      margin-top: 20px;
+      display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+      
     }
   }
   
@@ -131,7 +134,7 @@
     }
     .text2 {
       font-size: 18px;
-      line-height: 1.5;
+      line-height: 1.2;
       margin-top: 10px;
     }
   }
