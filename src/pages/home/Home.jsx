@@ -1,4 +1,3 @@
-// import image for carousel
 import "./styles/home.css";
 import Header from "../../components/layouts/header/Header";
 import Footer from "../../components/layouts/footer/Footer";

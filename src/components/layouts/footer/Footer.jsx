@@ -6,6 +6,8 @@ import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter } from 'react-icons/ai';
 import logo from '../../../assets/img/CorpoHypatia-side.png'
 import "./footer.css"
+import {MdWeb} from "react-icons/md"
+import {AiOutlineMail} from "react-icons/ai"
 
 const Footer = () => {
   const [showAbout, setShowAbout] = useState(false);
@@ -46,18 +48,8 @@ const Footer = () => {
             <Collapse in={showLocations}>
               <ul className='location'>
                 <li>
-                  <FaMapMarkerAlt /> Bucaramanga
+                  <FaMapMarkerAlt /> Bogotá Calle #28-44 B. Universidad 
                 </li>
-                <li>
-                  <FaMapMarkerAlt /> Florida Blanca
-                </li>
-                <li>
-                  <FaMapMarkerAlt /> Girón
-                </li>
-                <li>
-                  <FaMapMarkerAlt /> Piedecuesta
-                </li>
-
               </ul>
             </Collapse>
           </Col>
@@ -67,18 +59,18 @@ const Footer = () => {
             </h5>
               <ul className="socials">
                 <li>
-                  <a href="https://www.facebook.com">
-                    <FaFacebook /> 
+                  <a href="https://corporacionhypatia.blogspot.com/">
+                    <MdWeb/> 
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.twitter.com">
-                    <FaTwitter /> 
+                  <a href="https://twitter.com/Corpo_Hypatia">
+                    <FaTwitter/> 
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com">
-                    <FaInstagram /> 
+                  <a href="mailto:hypatiacorporacion@gmail.com">
+                    <AiOutlineMail/>
                   </a>
                 </li>
               </ul>
@@ -99,17 +91,27 @@ const Footer = () => {
             <div className="col-md-3">
               <h3>Contactanos</h3>
               <ul className="list-unstyled">
-                <li><FaPhone /> +1 555 1234</li>
-                <li><FaEnvelope /> info@ejemplo.com</li>
-                <li><FaMapMarkerAlt /> Dirección de ejemplo 1234, Ciudad, País</li>
+                <li><FaMapMarkerAlt /> Bogotá Calle #28-44 B. Universidad </li>
               </ul>
             </div>
             <div className="col-md-3">
               <h3>Redes sociales</h3>
               <ul className="list-unstyled">
-                <li><a href="#"><AiOutlineFacebook /> Facebook</a></li>
-                <li><a href="#"><AiOutlineInstagram /> Instagram</a></li>
-                <li><a href="#"><AiOutlineTwitter /> Twitter</a></li>
+              <li>
+                  <a href="https://corporacionhypatia.blogspot.com/">
+                    <MdWeb/> Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/Corpo_Hypatia">
+                    <FaTwitter/> Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hypatiacorporacion@gmail.com">
+                    <AiOutlineMail/> Emai
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

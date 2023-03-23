@@ -49,7 +49,6 @@ const AllRoutes = () => {
                 <Route path="/projects/edit/:id" element={<ProjectEdit />} />
                 <Route path="/checklist" element={<Checklist />} />
                 <Route path="/step" element={<Steps />} />
-                <Route path="/entidad-solicitante" element={<EntityForm />} />
                 <Route path="/all-users" element={<AllUsers />} />
                 <Route path="/create-user" element={<CreateUser />} />
                 <Route path="/edit-user/:id" element={<EditUser />} />

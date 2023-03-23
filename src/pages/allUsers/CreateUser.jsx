@@ -23,7 +23,8 @@ const CreateUser = () => {
             email:email,
             position: position,
             phone: phone,
-            password: password
+            password: password,
+            role: "63e1b26e90beec64ebc7db09"
         });
         navigate('/all-users');        
     }

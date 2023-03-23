@@ -99,11 +99,6 @@ const linksArray = [
         to: "/step",
     },
     {
-        label: "Entidad",
-        icon: <BsBuilding />,
-        to: "/entidad-solicitante",
-    },
-    {
         label: "Lista de usuarios",
         icon: <HiOutlineUserGroup />,
         to: "/all-users",
