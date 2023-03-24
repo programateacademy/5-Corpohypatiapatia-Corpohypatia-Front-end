@@ -17,6 +17,10 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import Carousel from 'react-bootstrap/Carousel';
+import slider11 from '../../assets/img/homesrc/slider11.png';
+import slider12 from '../../assets/img/homesrc/slider12.png';
+import slider13 from '../../assets/img/homesrc/slider13.png';
 
 const style = {
   position: 'absolute',
@@ -79,13 +83,46 @@ function Home() {
     <>
       <Header />
       
-      <div className="Welcome-image">
-        <div className="welcome__title">
-          <h1>Defensora mundial de los <span>derechos humanos.</span></h1>
-          <p>CORPORACIÓN HYPATIA es una entidad que trabaja por el respeto y el reconocimiento de los derechos humanos en Colombia.</p>
-          <Link to="/nosotros"><Button variant="contained">Sobre nosotros</Button></Link>
-        </div>
-      </div>
+      <div className="img-cover">
+      <Carousel>
+      <Carousel.Item interval={1000}>
+        <img
+          className="d-block w-100" 
+          src={slider11}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3 className="tittle-carrousel">Apostamos</h3>
+          <p className="text-carrousel">a la consolidacion de proyectos productivos sostenibles</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={1000}>
+        <img
+          className="d-block w-100"
+          src={slider12}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h3 className="tittle-carrousel">Aportamos</h3>
+          <p className="text-carrousel">A la construccion de una sociedad desde una perspectiva de género</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={1000}>
+        <img
+          className="d-block w-100"
+          src={slider13}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3 className="tittle-carrousel">Lideramos</h3>
+          <p className="text-carrousel">
+            Procesos de participación política de las mujeres
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+    </div>
+
 
       {/* Projects itle and search */}
       <div className="py-3 bg-purple text-purple align-items-center my-4">

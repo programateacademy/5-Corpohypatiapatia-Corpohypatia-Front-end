@@ -77,6 +77,19 @@ h1{
   text-align: center;
 }
 
+/*carrousel*/
+.tittle-carrousel{
+  color: #FFB200;
+}
+@media (min-width: 768px) {
+.tittle-carrousel{
+  font-size: 50px;
+}
+
+.text-carrousel{
+  font-size: 25px;
+}}
+
 /* Proyect list */
 #projects{
   font-weight: 900!important;
