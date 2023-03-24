@@ -1,0 +1,179 @@
+.portada {
+  height: 50vh;
+  display: flex;
+  justify-content: center; /* para centrar horizontalmente */
+  align-items: center; /* para centrar verticalmente */
+  margin-bottom: 20px;
+}
+
+.portada img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.quienes-somos h1 {
+  font-size: 1rem;
+  color: purple;
+  margin-top: 10px;
+}
+
+.text3 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.imagen-circular img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-image: cover;
+}
+
+.imagen1 {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  margin-left: 100px; /* margen de 20 píxeles en el lado izquierdo */
+  box-shadow: -20px 20px 0px 0px #48C4A5;
+  display: flex;
+}
+
+.text2 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.fondo {
+  background-color: #D3D3D3;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+  
+  /* Estilos para pantallas grandes (mayores a 1200px de ancho) */
+@media (min-width: 1200px) {
+    /* Ajustar tamaño de fuente y padding para encabezados */
+    .quienes-somos h1 {
+      font-size: 4rem;
+      padding: 20px;
+      margin-top: 10px;
+    }
+  
+    /* Ajustar tamaño de imagen */
+    .imagen1 {
+      max-width: 40%;
+      height: auto;
+      margin-left: 60px;
+    }
+  
+    /* Ajustar tamaño de texto */
+    .text3 {
+      font-size: 18px;
+      line-height: 1.8;
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+  
+    /* Ajustar tamaño de imagen circular y texto */
+    .imagen-circular img {
+      width: 300px;
+      height: 300px;
+    }
+    .text2 {
+      display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+      
+    }
+  }
+  
+  /* Estilos para pantallas medianas (entre 992px y 1199px de ancho) */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    /* Ajustar tamaño de fuente y padding para encabezados */
+    .quienes-somos h1 {
+      font-size: 3rem;
+      padding: 10px;
+    }
+  
+    /* Ajustar tamaño de imagen */
+    .imagen1 {
+      max-width: 100%;
+      height: auto;
+      margin-left: 0;
+    }
+  
+    /* Ajustar tamaño de texto */
+    .text3 {
+      font-size: 25px;
+      line-height: 1.5;
+    }
+  
+    /* Ajustar tamaño de imagen circular y texto */
+    .imagen-circular img {
+      width: 300px;
+      height: 300px;
+    }
+    .text2 {
+      font-size: 18px;
+      line-height: 1.2;
+      margin-top: 10px;
+    }
+  }
+  
+ 
+  /* Estilos para pantallas pequeñas (menores a 576px de ancho) */
+@media (max-width: 576px) {
+    /* Ajustar tamaño de fuente y padding para encabezados */
+    .quienes-somos h1 {
+      font-size: 1.5rem;
+      padding: 0;
+    }
+  
+    /* Ajustar tamaño de imagen */
+    .imagen1 {
+      max-width: 100%;
+      height: auto;
+      margin-left: 0;
+      margin-top: 20px; 
+    }
+  
+    /* Ajustar tamaño de texto */
+    .text3 {
+      font-size: 16px;
+      line-height: 1.2;
+      margin-top: 20px; 
+    }
+  
+    /* Ajustar tamaño de imagen circular y texto */
+    .imagen-circular img {
+      width: 200px;
+      height: 200px;
+    }
+  
+    .text2 {
+      font-size: 14px;
+      line-height: 1.2;
+      margin-top: 10px;
+      text-align: center; /* centrar el texto horizontalmente */
+      text-indent: 0; /* quitar la sangría */
+    }
+  }

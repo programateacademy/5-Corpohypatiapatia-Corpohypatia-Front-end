@@ -42,13 +42,23 @@ function Checklist() {
         editProject(newProject, id, token);
     };
 
-    const calculateProjectPercentage = (newProject) => {
-        const resultPercentages = newProject.results.map((result) => result.percentage);
-        const totalPercentage = resultPercentages.reduce((total, percentage) => total + percentage, 0);
-        const projectPercentage = Math.round(totalPercentage / newProject.results.length);
-        newProject.project_percentage = projectPercentage;
-    };
+    //const calculateProjectPercentage = (newProject) => {
+       // const resultPercentages = newProject.results.map((result) => result.percentage);
+       // const totalPercentage = resultPercentages.reduce((total, percentage) => total + percentage, 0);
+       // const projectPercentage = Math.round(totalPercentage / newProject.results.length);
+       // newProject.project_percentage = projectPercentage;
 
+    const calculateProjectPercentage = (newProject) => {
+        const totalActivities = newProject.results.reduce((total, result) => {
+          return total + result.activities.length;
+        }, 0);
+        const completedActivities = newProject.results.reduce((total, result) => {
+          return total + result.activities.filter(a => a.completed).length;
+        }, 0);
+        const projectPercentage = Math.round((completedActivities / totalActivities) * 100);
+        newProject.project_percentage = projectPercentage;
+      };
+      
     if (!project) {
         return (
             <Loader/>

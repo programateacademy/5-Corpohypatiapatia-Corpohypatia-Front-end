@@ -1,1 +1,75 @@
-/*footer*/
+.mobile{
+    padding-top: 2rem;
+    padding-left: 2rem;
+}
+
+@media (min-width: 300px) {
+    .desktop{
+        display: none;
+    }
+    .bg{
+        background-color: #55238c;
+    }
+    .footh5{
+        color: #FFB200;
+        text-decoration: none;
+    }
+    .footh5:hover{
+        color: #fff;
+    }
+
+    .logo{
+        height: 70px;
+        border-radius: 10%;
+        padding: 5px;
+    }
+    .mobile  p,
+    .desktop li{
+        color: #fff;
+        text-decoration: none;
+        list-style: none;
+    }
+    .mobile a{        
+    color: #FFB200;
+    }
+
+    .location{
+        text-decoration: none;
+        list-style: none;
+        color:#fff;
+    }
+      
+.socials{
+    
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-left: 0.5rem;
+}      
+}
+
+@media (min-width: 768px) {
+    .mobile{
+        display: none;
+    }
+
+    .desktop{
+        display: block;
+        padding-top: 2rem;
+    }
+
+    .desktop h3{
+        color: #FFB200;
+    }
+    .desktop p,
+    .desktop a{        
+        color: #fff;
+        padding: 1rem;
+        }
+    .desktop li svg,
+    .desktop a svg {
+        color: #FFB200;
+    }
+}

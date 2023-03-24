@@ -1,1 +1,26 @@
 /* Header */
+.btn-purple {
+    background-color: purple;
+    color: white !important;
+    border-radius: 20px;
+    padding: 0.6rem 2rem!important;
+    font-weight: bold;
+  }
+  .navbar-nav li {
+    margin-right: 10px;
+  }
+a{
+  text-decoration: none;
+  color: #0F265C;
+}
+  
+@media (min-width: 374px){
+  .nav-items{
+    flex-direction: column!important;
+  }
+}
+@media (min-width: 770px){
+  .nav-items{
+    flex-direction: row!important;
+  }
+}

@@ -68,7 +68,7 @@ function AllProjects() {
         <div className="projects-cards">
           {displayPage.map((item) => (
             <Link to={`/projects/${item._id}`} className="link-card">
-              <CardProjects key={item.id} item={item} />
+              <CardProjects key={item._id} item={item} />
             </Link>
           ))}
         </div>

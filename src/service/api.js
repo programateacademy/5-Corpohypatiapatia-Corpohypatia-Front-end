@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const URL = "https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app"
-// const URL = "http://localhost:8000";
+// const URL = "https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app";
+const URL = "http://localhost:8000"
 
 export const addProject = async (data) => {
   try {
     return await axios.post(`${URL}/project/add`, data);
   } catch (e) {
-    console.log("Error while calling project Api", e);
+    console.log("Error while calling addProject Api", e);
   }
 };
 
@@ -19,7 +19,7 @@ export const getProjects = async (token) => {
       },
     });
   } catch (e) {
-    console.log("Error while calling getProject API", e);
+    console.log("Error while calling getProjects API", e);
   }
 };
 
@@ -61,7 +61,7 @@ export const deleteProject = async (id, token) => {
 
 export const signIn = async (user, token) => {
   try {
-    console.log(user);
+    // console.log(user)
     return await axios.post(URL + "/signin", user, {
       headers: {
         "x-access-token": token,
@@ -80,7 +80,7 @@ export const getHome = async (token) => {
       },
     });
   } catch (e) {
-    console.log("Error while calling getMovies API", e);
+    console.log("Error while calling getHome API", e);
   }
 };
 
@@ -88,7 +88,7 @@ export const resetPassword = async (email) => {
   try {
     return await axios.post(URL + "/send-password-link", email);
   } catch (e) {
-    console.log("Error while calling getMovies API", e);
+    console.log("Error while calling resetPassword API", e);
   }
 };
 
@@ -100,10 +100,27 @@ export const changePassword = async (password, token) => {
       },
     });
   } catch (e) {
-    console.log("Error while calling getMovies API", e);
+    console.log("Error while calling changePassword API", e);
   }
 };
 
+//Function req for no-register user
 
+export const getAllProjects = async (setAllProjects) => {
+  try {
+    const data = await axios.get(`${URL}/projects`);
+    setAllProjects(data.data)
+  } catch (e) {
+    console.log("Error while calling getAllProject API [no-register user view]", e);
+  }
+};
 
+export const getAllProjectById = async (id, setProject) => {
+  try {
+    const data = await axios.get(`${URL}/projects/${id}`)
+    setProject(data.data)
+  } catch (e) {
+    console.log("Error while calling userNotRegister getProject api", e);
+  }
+};
 

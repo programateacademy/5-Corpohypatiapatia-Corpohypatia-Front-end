@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const URI = 'https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/users/';
+// const URI = 'https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/users/';
+const URI = "http://localhost:8000/users/"
 
 const CreateUser = () => {
     const [firstNames,setFirstNames] = useState('');
@@ -22,7 +23,8 @@ const CreateUser = () => {
             email:email,
             position: position,
             phone: phone,
-            password: password
+            password: password,
+            role: "63e1b26e90beec64ebc7db09"
         });
         navigate('/all-users');        
     }
