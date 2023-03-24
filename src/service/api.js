@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://5-corpohypatiapatia-corpohypatia-back-end-ruddy.vercel.app/";
+const URL = "https://5-corpohypatiapatia-corpohypatia-back-end-ruddy.vercel.app";
 // const URL = "http://localhost:8000"
 
 export const addProject = async (data) => {
