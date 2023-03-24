@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 
-const URI = 'https://5-corpohypatiapatia-corpohypatia-back-end.vercel.app/users/';
+const URI = 'https://5-corpohypatiapatia-corpohypatia-back-end-ruddy.vercel.app/';
 // const URI = "http://localhost:8000/users/"
 
 const EditUser = () => {
