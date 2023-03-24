@@ -6,7 +6,7 @@ import imagen1 from "../../assets/img/imagen1.jpg";
 import imagen2 from "../../assets/img/imagen2.jpg";
 import imagen3 from "../../assets/img/imagen3.jpg";
 import YouTube from "react-youtube";
-import "./styles/Nosotros.css"
+import "./styles/Nosotros.css";
 
 const videoId = "a4yhwmRq1hg";
 
@@ -26,7 +26,7 @@ const Nosotros = () => {
         <img src={portada} alt="Portada" />
       </div>
       <div className="quienes-somos">
-        <h1 className="text-center">Quiénes somos</h1>
+        <h1 className="text-center">¿Quiénes somos?</h1>
       </div>
       <div className="row">
         <div className="col-md-6">
@@ -51,32 +51,32 @@ const Nosotros = () => {
         <YouTube videoId={videoId} opts={videoOpts} />
       </div>
       <div className="fondo">
-      <div className="row">
-        <div className="col-md-6">
-          <div className="imagen-circular text-center">
-            <img src={imagen2} alt="Imagen 2" />
-            <p className="text2">
-              Somos una organización que promueve y <br />defiende los derechos
-              humanos con enfoques diferenciales,   en la <br />búsqueda de la igualdad
-              social y de género, la construcción  de una sociedad <br />democrática,
-              pacífica y respetuosa de las diferencias, <br /> que garantice el buen
-              vivir de hombres y mujeres en su diversidad. 
-              
-            </p>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="imagen-circular text-center">
+              <img src={imagen2} alt="Imagen 2" />
+              <h2 className="text-center">Misión </h2>
+              <p className="text2">
+                Somos una organización que promueve y defiende los derechos
+                humanos con enfoques diferenciales, en la búsqueda de la
+                igualdad social y de género, la construcción de una sociedad
+                democrática, pacífica y respetuosa de las diferencias, que
+                garantice el buen vivir de hombres y mujeres en su diversidad.
+              </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="imagen-circular text-center">
+              <img src={imagen3} alt="Imagen 2" />
+              <h2 className="text-center">Vision </h2>
+              <p className="text2">
+                La Corporación Hypatia es reconocida por su capacidad de influir
+                en los derechos humanos, la democracia, la equidad y el buen
+                vivir de hombres y mujeres en su diversidad.
+              </p>
+            </div>
           </div>
         </div>
-        <div className="col-md-6">
-        
-          <div className="imagen-circular text-center">
-            <img src={imagen3} alt="Imagen 2" />
-            <p  className="text2">
-              La Corporación Hypatia es reconocida por su capacidad de influir
-              en los derechos humanos, <br />la democracia, la equidad y el buen vivir
-              de hombres y mujeres en su diversidad.
-            </p>
-          </div>
-        </div>
-      </div>
       </div>
       <Footer />
     </>
