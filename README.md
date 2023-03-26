@@ -8,11 +8,22 @@
   <h1 align="center">CORPOHYPATIA</h1>
 
   <p align="center">
-    Documentación FRONTEND
+    <a href="https://www.notion.so/Corpohypatia-56b36c79a711415bab85088f3aa2ac50">Documentación FRONTEND</a>
     <br />
     <br />
-    <a href="https://5-corpohypatiapatia-corpohypatia-front-end.vercel.app/">Despligue de la aplicación</a>
+    <a href="https://corpohypatia.vercel.app/">Despligue de la aplicación</a>
     <br />
+    <a href="https://github.com/Crooks2k">Daniel Veloza</a>
+    ·
+    <a href="https://github.com/karen1278">Karen Cisneros</a>
+    ·
+    <a href="https://github.com/Andreinavlqz">Andreina Velazquez</a>
+    ·
+    <a href="https://github.com/Rabm1504">Renny Belandria</a>
+    ·
+    <a href="https://github.com/XiomaraSM">Xiomara</a>
+    <br>
+    ·
     <a href="https://brayanduarte.vercel.app/">Brayan Duarte</a>
     ·
     <a href="https://github.com/AngelaDiaz20">Angela Diaz</a>
