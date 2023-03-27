@@ -67,7 +67,7 @@ function Header() {
                   <b>Proyectos</b>
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link active fw-bold"
                   to="/colaboradores"
@@ -75,7 +75,7 @@ function Header() {
                 >
                   <b>Colaboradores</b>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item ms-sm-3">
                 <Link className="nav-link active btn-purple" to="/login">
                   Iniciar sesión
